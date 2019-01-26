@@ -22,9 +22,7 @@ public class Rectangle1 {
 	public static void main(String[] args) throws FileNotFoundException {
 		// TODO Auto-generated method stub
 		System.out.println("Hello World");
-<<<<<<< HEAD
 		System.out.println("Abby!!");
-=======
 		System.out.println("Julia");
 		
 		Scanner scan = new Scanner(new File(args[0]));
@@ -36,9 +34,7 @@ public class Rectangle1 {
 				
 			}
 		}
-		scan.close();
->>>>>>> 7361c27173e739eff7b414eaccaccc08cbeaa6f7
-		
+		scan.close();		
 
 	}
 
