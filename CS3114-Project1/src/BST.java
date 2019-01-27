@@ -7,23 +7,29 @@
  *
  */
 public class BST<T extends Comparable<T>> {
+	//constructor
+	BST(){ root = null; count = 0; }
 	
-	BST(){
-		root = null;
-	}
+	//clear, apparently
+	public void clear() { root = null; count = 0; }
 	
-	BST(BST_node<T> n){
-		root = n;
-	}
-	
-	void insert(BST_node<T> t) {
-		if(root == null) {
-			//root = new BST_node<T>(t);
-		}
-		else
-			//root.insert(t);
+	//insert a node into the BST
+	//input must be a comparable data type
+	public void insert(T t) {
+		root = insert_helper(root, t);
 		count++;
 	}
+	
+	public BST_node<T> insert_helper(BST_node<T> rt, T n){
+		if(rt == null) return new BST_node<T>(n);
+		if(rt.key().compareTo(n) >= 0)
+			rt.set_l(insert_helper(rt.left(), n));
+		else
+			rt.set_r(insert_helper(rt.right(), n));
+		return rt;	
+	}
+	
+
 	
 	public void dump() {
 		if (root != null) {
