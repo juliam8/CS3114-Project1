@@ -29,12 +29,10 @@ public class Rectangle1 {
 
 		
 		Scanner scan = new Scanner(new File(args[0]));
-		//String command = scan.next();
 		
 		Parser myparse = new Parser();
-		BST<BST_node<T>> my_bst= new BST<BST_node<Rectangle>>();
 
-		System.out.println("Lets make a conflict");
+		BST<BST_node<Rectangle>> my_bst= new BST<BST_node<Rectangle>>();
 		
 		while (scan.hasNext()) {
 			String command = scan.next();
@@ -42,8 +40,9 @@ public class Rectangle1 {
 			if (command.equals("insert")) {
 				String name = scan.next();
 				String[] nums = scan.nextLine().split(" ");
-				BST_node mynode = new BST_node(scan.next(), nums);
-				my_bst.insert(mynode, name);
+				Rectangle my_rect = new Rectangle(name, nums);
+				BST_node<Rectangle> mynode = new BST_node<Rectangle>(my_rect);
+				my_bst.insert(mynode);
 			}
 			else if (command.equals("remove")) {
 				if (scan.hasNextInt()) {

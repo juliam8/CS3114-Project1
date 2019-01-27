@@ -34,7 +34,7 @@ public class BST<T extends Comparable<T>> {
 		}
 	}
 	
-	void remove(T node_name) {
+	void remove(String node_name) {
 		
 	}
 	
