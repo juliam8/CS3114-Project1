@@ -33,7 +33,7 @@ public class Rectangle1 {
 		//String command = scan.next();
 		
 		Parser myparse = new Parser();
-		
+				
 		System.out.println("Lets make a conflict");
 		
 		while (scan.hasNext()) {

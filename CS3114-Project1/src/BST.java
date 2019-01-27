@@ -6,6 +6,6 @@
  * @author juliam8
  *
  */
-public class BST {
+public class BST<T> {
 
 }
