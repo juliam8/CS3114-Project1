@@ -8,11 +8,15 @@
  */
 public class BST<T> {
 	
-	BST(){}
+	BST(){
+		root = null;
+	}
+	
+	T root;
 	
 	void insert(T node, String name) {
 		
-	}
+}
 	
 	void remove(String name) {
 		
@@ -33,3 +37,5 @@ public class BST<T> {
 	void intersection() {}
 	void dump() {}
 }
+
+
