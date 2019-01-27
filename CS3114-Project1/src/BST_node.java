@@ -24,6 +24,7 @@ public class BST_node<T extends Comparable<T>> {
 	}*/
 
 	public T get_key() {
+
 		return key;
 	}
 	

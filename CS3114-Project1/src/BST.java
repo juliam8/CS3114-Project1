@@ -14,8 +14,9 @@ public class BST<T extends Comparable<T>> {
 	
 	 BST_node<T> root;
 	
-	void insert(T node) {
-	}
+	void insert(T node, String name) {
+		
+}
 	
 	void remove(T node_name) {
 		
@@ -25,9 +26,16 @@ public class BST<T extends Comparable<T>> {
 		
 	}
 	
-	void search(T node) {
+	void regionsearch(String[] coordinates) {
 		
 	}
+	
+	void search(String node_name) {
+		
+	}
+	
+	void intersection() {}
+	void dump() {}
 }
 
 

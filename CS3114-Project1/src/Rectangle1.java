@@ -27,7 +27,6 @@ public class Rectangle1 {
 	 */
 	public static void main(String[] args) throws FileNotFoundException {
 
-		System.out.println("Julia");
 		
 		Scanner scan = new Scanner(new File(args[0]));
 		//String command = scan.next();
@@ -39,28 +38,32 @@ public class Rectangle1 {
 		
 		while (scan.hasNext()) {
 			String command = scan.next();
-			//myparse.parse_string(temp);
+
 			if (command.equals("insert")) {
-				String rest = scan.nextLine();
-				String[] split_num = rest.split(" ", 4);
-				//BST_node mynode = new BST_node(scan.next(), split_num);
-						///my_bst.insert(my_bst);
-			}
-			
-			else if (command.equals("regionsearch")) {
-				
-			}
-			else if (command.equals("search")) {
-				
+				String name = scan.next();
+				String[] nums = scan.nextLine().split(" ");
+				BST_node mynode = new BST_node(scan.next(), nums);
+				my_bst.insert(mynode, name);
 			}
 			else if (command.equals("remove")) {
-				
+				if (scan.hasNextInt()) {
+					my_bst.remove(scan.nextLine().split(" ")); //send in array of strings
+				}
+				else {
+					my_bst.remove(scan.nextLine());
+				}
+			}
+			else if (command.equals("regionsearch")) {
+				my_bst.regionsearch(scan.nextLine().split(" ")); //send in array of strings
+			}
+			else if (command.equals("search")) {
+				my_bst.search(scan.nextLine());
 			}
 			else if (command.equals("intersection")) {
-				
+				my_bst.intersection();
 			}
 			else if (command.equals("dump")) {
-				
+				my_bst.dump();
 			}
 		}
 
