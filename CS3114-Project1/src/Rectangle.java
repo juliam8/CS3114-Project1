@@ -8,13 +8,13 @@
  */
 public class Rectangle implements Comparable<Rectangle>{
 
-	Rectangle(String s, String[] i){
+	Rectangle(String s, int[] i){
 		name = s;
 		try {
-			x = Integer.parseInt(i[0]);
-			y = Integer.parseInt(i[1]);
-			w = Integer.parseInt(i[2]);
-			h = Integer.parseInt(i[3]);
+			x = i[0]; 
+			y = i[1]; 
+			w = i[2]; 
+			h = i[3];
 		}
 		catch(ArrayIndexOutOfBoundsException e) {
 			System.out.print("Error, array index out of bounds\n");

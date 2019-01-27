@@ -29,7 +29,7 @@ public class BST_node<T extends Comparable<T>> implements Comparable<BST_node<T>
 	}
 	
 	public void insert(T r) {
-		if (key.compareTo(r) < 0) {
+		if (key.compareTo(r) <= 0) {
 			if (right == null) {
 				right = new BST_node<T>(r);
 			} else {
@@ -45,7 +45,6 @@ public class BST_node<T extends Comparable<T>> implements Comparable<BST_node<T>
 	}
 
 	public T get_key() {
-
 		return key;
 	}
 	

@@ -39,21 +39,32 @@ public class Rectangle1 {
 
 			if (command.equals("insert")) {
 				String name = scan.next();
-				String[] nums = scan.nextLine().split(" ");
+				int[] nums;
+				for (int i = 0; i < 4; i++) {
+					nums[i] = Integer.parseInt(scan.next());
+				}
 				Rectangle my_rect = new Rectangle(name, nums);
 				BST_node<Rectangle> mynode = new BST_node<Rectangle>(my_rect);
 				my_bst.insert(mynode);
 			}
 			else if (command.equals("remove")) {
 				if (scan.hasNextInt()) {
-					my_bst.remove(scan.nextLine().split(" ")); //send in array of strings
+					int[] nums = {};
+					for (int i = 0; i < 4; i++) {
+						nums[i] = Integer.parseInt(scan.next());
+					}
+					my_bst.remove(nums); //send in array of integers
 				}
 				else {
 					my_bst.remove(scan.nextLine());
 				}
 			}
 			else if (command.equals("regionsearch")) {
-				my_bst.regionsearch(scan.nextLine().split(" ")); //send in array of strings
+				int[] nums = {};
+				for (int i = 0; i < 4; i++) {
+					nums[i] = Integer.parseInt(scan.next());
+				}
+				my_bst.regionsearch(nums); //send in array of integers
 			}
 			else if (command.equals("search")) {
 				my_bst.search(scan.nextLine());

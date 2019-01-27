@@ -17,6 +17,7 @@ public class BST<T extends Comparable<T>> {
 	}
 	
 	 BST_node<T> root;
+	 int count;
 	
 	void insert(T t) {
 		if(root == null) {
@@ -24,6 +25,7 @@ public class BST<T extends Comparable<T>> {
 		}
 		else
 			root.insert(t);
+		count++;
 	}
 	
 	public void dump(BST_node<T> node) {
@@ -38,11 +40,11 @@ public class BST<T extends Comparable<T>> {
 		
 	}
 	
-	void remove(String[] coordinates) {
+	void remove(int[] coordinates) {
 		
 	}
 	
-	void regionsearch(String[] coordinates) {
+	void regionsearch(int[] coordinates) {
 		
 	}
 	
