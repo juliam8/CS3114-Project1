@@ -8,17 +8,20 @@
  */
 public class BST<T> {
 	
-	BST(){}
+	BST(){
+		root = null;
+	}
+	
+	T root;
 	
 	void insert(T node) {
-		
 	}
 	
 	void remove(String node_name) {
 		
 	}
 	
-	void remove(int[] coordinates) {
+	void remove(String[] coordinates) {
 		
 	}
 	
@@ -26,3 +29,5 @@ public class BST<T> {
 		
 	}
 }
+
+

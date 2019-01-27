@@ -43,7 +43,7 @@ public class Rectangle1 {
 			if (command.equals("insert")) {
 				String rest = scan.nextLine();
 				String[] split_num = rest.split(" ", 4);
-				BST_node mynode = new BST_node(scan.next(), );
+				//BST_node mynode = new BST_node(scan.next(), split_num);
 						///my_bst.insert(my_bst);
 			}
 			

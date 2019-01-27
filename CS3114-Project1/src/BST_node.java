@@ -10,7 +10,7 @@
 public class BST_node {
 	
 	BST_node(String s, int[] i){
-		name = s;
+		key = s;
 		left = right = null;
 		try
         { 
@@ -24,13 +24,22 @@ public class BST_node {
             System.out.println("Incorrect input to BST_Node constructor"); 
         } 
 	}
+	
+	BST_node(BST_node n){
+		key = n.key;
+		left = n.left;
+		right = n.right;
+		x = n.get_xloc();
+		y = n.get_yloc();
+		
+	}
 
-	public String get_name() {
-		return name;
+	public String name() {
+		return key;
 	}
 	
-	public void set_name(String s) {
-		name = s;
+	public void set_key(String s) {
+		key = s;
 	}
 	
 	public int get_xloc() {
@@ -49,10 +58,26 @@ public class BST_node {
 		y = i;
 	}
 	
+	public int get_width() {
+		return w;
+	}
+	
+	public void set_width(int i) {
+		w = i;
+	}
+	
+	public int get_height() {
+		return h;
+	}
+	
+	public void set_height(int i) {
+		h = i;
+	}
+	
 	
 	BST_node left, right;
 	
-	private String name;
+	private String key;
 	private int x;
 	private int y;
 	private int w;
