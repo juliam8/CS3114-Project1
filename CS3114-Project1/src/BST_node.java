@@ -7,80 +7,32 @@
  *
  */
 
-public class BST_node {
+public class BST_node<T extends Comparable<T>> {
 	
-	BST_node(String s, int[] i){
-		key = s;
+	BST_node(T n){
+		key = n;
 		left = right = null;
-		try
-        { 
-            x = i[0]; 
-            y = i[1];
-            w = i[2];
-            h = i[3];
-        } 
-        catch(ArrayIndexOutOfBoundsException e) 
-        { 
-            System.out.println("Incorrect input to BST_Node constructor"); 
-        } 
-	}
-	
-	BST_node(BST_node n){
-		key = n.key;
-		left = n.left;
-		right = n.right;
-		x = n.get_xloc();
-		y = n.get_yloc();
 		
 	}
+	
+	/*BST_node(BST_node n){
+		key = n.get_key();
+		left = n.left;
+		right = n.right;
 
-	public String name() {
+		
+	}*/
+
+	public T get_key() {
 		return key;
 	}
 	
-	public void set_key(String s) {
-		key = s;
-	}
-	
-	public int get_xloc() {
-		return x;
-	}
-	
-	public void set_xloc(int i) {
-		x = i;
-	}
-	
-	public int get_yloc() {
-		return y;
-	}
-	
-	public void set_yloc(int i) {
-		y = i;
-	}
-	
-	public int get_width() {
-		return w;
-	}
-	
-	public void set_width(int i) {
-		w = i;
-	}
-	
-	public int get_height() {
-		return h;
-	}
-	
-	public void set_height(int i) {
-		h = i;
+	public void set_key(T k) {
+		key = k;
 	}
 	
 	
-	BST_node left, right;
-	
-	private String key;
-	private int x;
-	private int y;
-	private int w;
-	private int h;
+	BST_node<T> left, right;
+	private T key;
 	
 }

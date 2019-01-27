@@ -6,18 +6,18 @@
  * @author juliam8
  *
  */
-public class BST<T> {
+public class BST<T extends Comparable<T>> {
 	
 	BST(){
 		root = null;
 	}
 	
-	T root;
+	 BST_node<T> root;
 	
 	void insert(T node) {
 	}
 	
-	void remove(String node_name) {
+	void remove(T node_name) {
 		
 	}
 	
