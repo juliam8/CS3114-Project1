@@ -28,6 +28,8 @@ public class Rectangle1 {
 		Scanner scan = new Scanner(new File(args[0]));
 		String command = scan.next();
 		
+		System.out.println("Lets make a conflict");
+		
 		while (scan.hasNext()) {
 			String temp = scan.next();
 			if (temp.equals("hi")) {
