@@ -34,14 +34,20 @@ public class Rectangle1 {
 		
 		Parser myparse = new Parser();
 		
+		BST <BST_node> my_bst= new BST<BST_node>();
+		
 		System.out.println("Lets make a conflict");
 		
 		while (scan.hasNext()) {
 			String command = scan.next();
 			//myparse.parse_string(temp);
 			if (command.equals("insert")) {
-				
+				String rest = scan.nextLine();
+				String[] split_num = rest.split(" ", 4);
+				BST_node mynode = new BST_node(scan.next(), );
+						///my_bst.insert(my_bst);
 			}
+			
 			else if (command.equals("regionsearch")) {
 				
 			}
