@@ -39,7 +39,7 @@ public class Rectangle1 {
 
 			if (command.equals("insert")) {
 				String name = scan.next();
-				int[] nums;
+				int[] nums = new int[4];
 				for (int i = 0; i < 4; i++) {
 					nums[i] = Integer.parseInt(scan.next());
 				}
@@ -49,7 +49,7 @@ public class Rectangle1 {
 			}
 			else if (command.equals("remove")) {
 				if (scan.hasNextInt()) {
-					int[] nums = {};
+					int[] nums = new int[4];
 					for (int i = 0; i < 4; i++) {
 						nums[i] = Integer.parseInt(scan.next());
 					}
@@ -60,7 +60,7 @@ public class Rectangle1 {
 				}
 			}
 			else if (command.equals("regionsearch")) {
-				int[] nums = {};
+				int[] nums = new int[4];
 				for (int i = 0; i < 4; i++) {
 					nums[i] = Integer.parseInt(scan.next());
 				}
@@ -73,7 +73,7 @@ public class Rectangle1 {
 				my_bst.intersection();
 			}
 			else if (command.equals("dump")) {
-				//my_bst.dump();
+				my_bst.dump();
 			}
 		}
 

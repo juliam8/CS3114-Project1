@@ -25,11 +25,17 @@ public class BST<T extends Comparable<T>> {
 		count++;
 	}
 	
-	public void dump(BST_node<T> node) {
-		if (node != null) {
-			dump(node.left());
-			node.print();
-			dump(node.right());
+	public void dump() {
+		if (root != null) {
+			dump_helper(root);
+		}
+	}
+	private void dump_helper(BST_node<T> root) {
+		if (root != null) {
+			dump_helper(root.left());
+			root.print();
+			dump_helper(root.right());
+			System.out.println("hola");
 		}
 	}
 	
