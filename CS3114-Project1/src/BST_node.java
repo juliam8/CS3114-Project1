@@ -9,15 +9,15 @@
 
 public class BST_node {
 	
-	BST_node(String s, int[] i){
+	BST_node(String s, String[] i){
 		name = s;
 		left = right = null;
 		try
         { 
-            x = i[0]; 
-            y = i[1];
-            w = i[2];
-            h = i[3];
+            x = Integer.parseInt(i[0]); 
+            y = Integer.parseInt(i[1]); 
+            w = Integer.parseInt(i[2]); 
+            h = Integer.parseInt(i[3]); 
         } 
         catch(ArrayIndexOutOfBoundsException e) 
         { 
@@ -25,7 +25,7 @@ public class BST_node {
         } 
 	}
 
-	public String get_name() {
+	public String name() {
 		return name;
 	}
 	

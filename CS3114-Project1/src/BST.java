@@ -10,19 +10,26 @@ public class BST<T> {
 	
 	BST(){}
 	
-	void insert(T node) {
+	void insert(T node, String name) {
 		
 	}
 	
-	void remove(String node_name) {
+	void remove(String name) {
 		
 	}
 	
-	void remove(int[] coordinates) {
+	void remove(String[] coordinates) {
 		
 	}
 	
-	void search(T node) {
+	void regionsearch(String[] coordinates) {
 		
 	}
+	
+	void search(String node_name) {
+		
+	}
+	
+	void intersection() {}
+	void dump() {}
 }
