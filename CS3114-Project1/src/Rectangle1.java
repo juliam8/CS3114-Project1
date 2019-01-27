@@ -73,7 +73,7 @@ public class Rectangle1 {
 				my_bst.intersection();
 			}
 			else if (command.equals("dump")) {
-				my_bst.dump();
+				//my_bst.dump();
 			}
 		}
 

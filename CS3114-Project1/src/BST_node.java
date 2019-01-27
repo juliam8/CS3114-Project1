@@ -25,7 +25,7 @@ public class BST_node<T extends Comparable<T>> implements Comparable<BST_node<T>
 	
 	@Override
     public int compareTo(BST_node<T> b) {
-        return get_key().compareTo(b.get_key());
+        return key().compareTo(b.key());
 	}
 	
 	public void insert(T r) {
@@ -44,7 +44,7 @@ public class BST_node<T extends Comparable<T>> implements Comparable<BST_node<T>
 		}
 	}
 
-	public T get_key() {
+	public T key() {
 		return key;
 	}
 	
@@ -52,12 +52,19 @@ public class BST_node<T extends Comparable<T>> implements Comparable<BST_node<T>
 		key = k;
 	}
 	
+	public BST_node<T> right() {
+		return right;
+	}
+	
+	public BST_node<T> left() {
+		return left;
+	}
 
 	public void print() {
 		System.out.print(this.key + "\n");
 	}
 	
-	BST_node<T> left, right;
+	private BST_node<T> left, right;
 	private T key;
 	
 }

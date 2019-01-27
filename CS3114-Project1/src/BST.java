@@ -16,9 +16,6 @@ public class BST<T extends Comparable<T>> {
 		root = n;
 	}
 	
-	 BST_node<T> root;
-	 int count;
-	
 	void insert(T t) {
 		if(root == null) {
 			root = new BST_node<T>(t);
@@ -30,9 +27,9 @@ public class BST<T extends Comparable<T>> {
 	
 	public void dump(BST_node<T> node) {
 		if (node != null) {
-			dump(node.left);
+			dump(node.left());
 			node.print();
-			dump(node.right);
+			dump(node.right());
 		}
 	}
 	
@@ -53,7 +50,17 @@ public class BST<T extends Comparable<T>> {
 	}
 	
 	void intersection() {}
-	void dump() {}
+	
+	public BST_node<T> root() {
+		return root;
+	}
+	
+	public int node_count() {
+		return count;
+	}
+	
+	private BST_node<T> root;
+	private int count;
 }
 
 
