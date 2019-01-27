@@ -33,9 +33,8 @@ public class Rectangle1 {
 		//String command = scan.next();
 		
 		Parser myparse = new Parser();
-		
 		BST <BST_node> my_bst= new BST<BST_node>();
-		
+
 		System.out.println("Lets make a conflict");
 		
 		while (scan.hasNext()) {

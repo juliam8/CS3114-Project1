@@ -25,5 +25,4 @@ public class BST<T> {
 	void search(T node) {
 		
 	}
-
 }
