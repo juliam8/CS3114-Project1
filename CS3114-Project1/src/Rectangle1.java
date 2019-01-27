@@ -9,7 +9,7 @@
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.*;	
+import java.util.*;
 
 
 public class Rectangle1 {
@@ -26,38 +26,39 @@ public class Rectangle1 {
 	 *also do @return if needed
 	 */
 	public static void main(String[] args) throws FileNotFoundException {
-		// TODO Auto-generated method stub
-		System.out.println("Hello World");
 		System.out.println("Julia");
 		
 		Scanner scan = new Scanner(new File(args[0]));
 		//String command = scan.next();
 		
+		Parser myparse = new Parser(scan);
+		
 		while (scan.hasNext()) {
-			String temp = scan.next();
-			if (temp.equals("insert")) {
+			String command = scan.next();
+			//myparse.parse_string(temp);
+			if (command.equals("insert")) {
 				
 			}
-			else if (temp.equals("regionsearch")) {
+			else if (command.equals("regionsearch")) {
 				
 			}
-			else if (temp.equals("search")) {
+			else if (command.equals("search")) {
 				
 			}
-			else if (temp.equals("remove")) {
+			else if (command.equals("remove")) {
 				
 			}
-			else if (temp.equals("intersection")) {
+			else if (command.equals("intersection")) {
 				
 			}
-			else if (temp.equals("dump")) {
+			else if (command.equals("dump")) {
 				
 			}
 		}
+		
 		scan.close();
 	}
+
 	
-	public void parser() {
-		
-	}
+	
 }
