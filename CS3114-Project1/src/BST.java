@@ -16,12 +16,12 @@ public class BST<T extends Comparable<T>> {
 		root = n;
 	}
 	
-	void insert(T t) {
+	void insert(BST_node<T> t) {
 		if(root == null) {
-			root = new BST_node<T>(t);
+			//root = new BST_node<T>(t);
 		}
 		else
-			root.insert(t);
+			//root.insert(t);
 		count++;
 	}
 	

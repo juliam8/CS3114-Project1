@@ -30,7 +30,6 @@ public class Rectangle1 {
 		
 		Scanner scan = new Scanner(new File(args[0]));
 		
-		Parser myparse = new Parser();
 
 		BST<BST_node<Rectangle>> my_bst= new BST<BST_node<Rectangle>>();
 		
@@ -45,7 +44,7 @@ public class Rectangle1 {
 				}
 				Rectangle my_rect = new Rectangle(name, nums);
 				BST_node<Rectangle> mynode = new BST_node<Rectangle>(my_rect);
-				my_bst.insert(mynode);
+				//my_bst.insert(mynode);
 			}
 			else if (command.equals("remove")) {
 				if (scan.hasNextInt()) {

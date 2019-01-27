@@ -19,8 +19,6 @@ public class BST_node<T extends Comparable<T>> implements Comparable<BST_node<T>
 		key = n.get_key();
 		left = n.left;
 		right = n.right;
-
-		
 	}*/
 	
 	@Override
@@ -61,10 +59,13 @@ public class BST_node<T extends Comparable<T>> implements Comparable<BST_node<T>
 	}
 
 	public void print() {
-		System.out.print(this.key + "\n");
+		//integer[] a = { 2, 3, 4, 5 }; 
+        //Rectangle c1 = new Rectangle("me", a); 
+        //System.out.println(c1); 
+		System.out.print(this.right.key + "\n");
 	}
 	
 	private BST_node<T> left, right;
-	private T key;
+	T key;
 	
 }
