@@ -6,20 +6,26 @@
  * @author jmkuz
  *
  */
-public class Rectangle {
+public class Rectangle implements Comparable<Rectangle>{
 
-	Rectangle(String s, int[] i){
+	Rectangle(String s, String[] i){
 		name = s;
-		
-	}
-	
-	public class Rectangle implements Comparable<Rectangle> {
-		public int compareTo(Rectangle b){ 
-		    if(this.name > b.name) return 1; 
-		    if(this.name < b.name) return -1;
-		    else                   return 0;
+		try {
+			x = Integer.parseInt(i[0]);
+			y = Integer.parseInt(i[1]);
+			w = Integer.parseInt(i[2]);
+			h = Integer.parseInt(i[3]);
+		}
+		catch(ArrayIndexOutOfBoundsException e) {
+			System.out.print("Error, array index out of bounds\n");
 		}
 	}
+	
+	//public class Rectangle implements Comparable<Rectangle> {
+		public int compareTo(Rectangle b){ 
+			return name.compareTo(b.get_name());
+		}
+	//}
 	
 	public String toString() {
         return "(" + name + ", " + x + ", " + y + ", " + w + ", " + h + ")";
