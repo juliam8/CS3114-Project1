@@ -6,20 +6,21 @@
  * @author jmkuz
  *
  */
-public class Rectangle {
+public class Rectangle implements Comparable<Rectangle>{
 
 	Rectangle(String s, int[] i){
 		name = s;
 		
 	}
 	
-	public class Rectangle implements Comparable<Rectangle> {
+	//public class Rectangle implements Comparable<Rectangle> {
 		public int compareTo(Rectangle b){ 
+			//return b.compareTo(b.name);
 		    if(this.name > b.name) return 1; 
 		    if(this.name < b.name) return -1;
 		    else                   return 0;
 		}
-	}
+	//}
 	
 	public String toString() {
         return "(" + name + ", " + x + ", " + y + ", " + w + ", " + h + ")";

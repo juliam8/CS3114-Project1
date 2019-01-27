@@ -32,7 +32,7 @@ public class Rectangle1 {
 		//String command = scan.next();
 		
 		Parser myparse = new Parser();
-		BST<BST_node<Rectangle>> my_bst= new BST<BST_node>();
+		BST<BST_node<T>> my_bst= new BST<BST_node<Rectangle>>();
 
 		System.out.println("Lets make a conflict");
 		
