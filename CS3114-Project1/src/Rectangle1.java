@@ -26,12 +26,15 @@ public class Rectangle1 {
 	 *also do @return if needed
 	 */
 	public static void main(String[] args) throws FileNotFoundException {
+
 		System.out.println("Julia");
 		
 		Scanner scan = new Scanner(new File(args[0]));
 		//String command = scan.next();
 		
-		Parser myparse = new Parser(scan);
+		Parser myparse = new Parser();
+		
+		System.out.println("Lets make a conflict");
 		
 		while (scan.hasNext()) {
 			String command = scan.next();
@@ -55,8 +58,9 @@ public class Rectangle1 {
 				
 			}
 		}
-		
-		scan.close();
+
+		scan.close();		
+
 	}
 
 	
