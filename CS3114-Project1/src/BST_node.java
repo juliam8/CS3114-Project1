@@ -22,6 +22,22 @@ public class BST_node<T extends Comparable<T>> {
 
 		
 	}*/
+	
+	public void insert(T r) {
+		if (key.compareTo(r) < 0) {
+			if (right == null) {
+				right = new BST_node<T>(r);
+			} else {
+				right.insert(r);
+			}
+		} else if (key.compareTo(r) > 0) {
+			if (left == null) {
+				left = new BST_node<T>(r);
+			} else {
+				left.insert(r);
+			}
+		}
+	}
 
 	public T get_key() {
 
@@ -32,6 +48,10 @@ public class BST_node<T extends Comparable<T>> {
 		key = k;
 	}
 	
+
+	public void print() {
+		System.out.print(this.key + "\n");
+	}
 	
 	BST_node<T> left, right;
 	private T key;
