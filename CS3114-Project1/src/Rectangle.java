@@ -26,6 +26,7 @@ public class Rectangle implements Comparable<Rectangle>{
 		return name.compareTo(b.get_name());
 	}
 	
+	@Override
 	public String toString() {
         return "(" + name + ", " + x + ", " + y + ", " + w + ", " + h + ")";
     }

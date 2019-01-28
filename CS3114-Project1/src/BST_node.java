@@ -14,6 +14,7 @@ public class BST_node<T extends Comparable<T>> implements Comparable<BST_node<T>
 		key = n;
 		left = right = null;
 	}
+
 	BST_node(T n, BST_node<T> l, BST_node<T> r){
 		key = n;
 		left = l;
@@ -51,7 +52,10 @@ public class BST_node<T extends Comparable<T>> implements Comparable<BST_node<T>
 	public boolean isLeaf() { return (left == null && right == null); }
 	
 	public void print() {
-		System.out.print(this.key + "\n");
+		//integer[] a = { 2, 3, 4, 5 }; 
+        //Rectangle c1 = new Rectangle("me", a); 
+        //System.out.println(c1); 
+		System.out.print(this.right.key + "\n");
 	}
 	
 	@Override
@@ -61,5 +65,6 @@ public class BST_node<T extends Comparable<T>> implements Comparable<BST_node<T>
 	
 	//private data members
 	private BST_node<T> left, right;
+
 	private T key;
 }
