@@ -35,11 +35,10 @@ public class BST_node<T extends Comparable<T>> implements Comparable<BST_node<T>
 	//return true IFF this is a leaf node
 	public boolean isLeaf() { return (left == null && right == null); }
 	
-	//public T print() {
-		//for (T t : )
-		//return key;
-		//System.out.print(key.toString() + "\n");
-	//}
+	@Override
+	public String toString() {
+        return key.toString();
+    }
 	
 	@Override
     public int compareTo(BST_node<T> b) {
@@ -48,6 +47,5 @@ public class BST_node<T extends Comparable<T>> implements Comparable<BST_node<T>
 	
 	//private data members
 	private BST_node<T> left, right;
-
-	public T key;
+	private T key;
 }
