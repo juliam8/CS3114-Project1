@@ -22,12 +22,15 @@ public class Rectangle implements Comparable<Rectangle>{
 	}
 	
 	public int compareTo(Rectangle b){ 
-
 		return name.compareTo(b.get_name());
 	}
 	
 	@Override
 	public String toString() {
+        return "(" + name + ", " + x + ", " + y + ", " + w + ", " + h + ")";
+    }
+	
+	public String print() {
         return "(" + name + ", " + x + ", " + y + ", " + w + ", " + h + ")";
     }
 	

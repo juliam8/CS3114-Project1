@@ -27,8 +27,7 @@ public class BST<T extends Comparable<T>> {
 		else
 			rt.set_r(insert_helper(rt.right(), n));
 		return rt;	
-	}
-	
+	}	
 
 	
 	public void dump() {
@@ -39,7 +38,8 @@ public class BST<T extends Comparable<T>> {
 	private void dump_helper(BST_node<T> root) {
 		if (root != null) {
 			dump_helper(root.left());
-			root.print();
+			System.out.print(root.key + "\n");
+			//root.print();
 			dump_helper(root.right());
 			System.out.println("hola");
 		}
