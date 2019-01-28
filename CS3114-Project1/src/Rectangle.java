@@ -3,7 +3,7 @@
  */
 
 /**
- * @author jmkuz
+ * @author juliam8 && abbym1
  *
  */
 public class Rectangle implements Comparable<Rectangle>{
