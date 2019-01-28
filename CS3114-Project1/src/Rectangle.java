@@ -30,9 +30,6 @@ public class Rectangle implements Comparable<Rectangle>{
         return "(" + name + ", " + x + ", " + y + ", " + w + ", " + h + ")";
     }
 	
-	public String print() {
-        return "(" + name + ", " + x + ", " + y + ", " + w + ", " + h + ")";
-    }
 	
 	public String get_name() {
 		return name;

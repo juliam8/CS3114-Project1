@@ -35,10 +35,16 @@ public class BST<T extends Comparable<T>> {
 			dump_helper(root);
 		}
 	}
+	
+    protected void visit(BST_node<T> p) {
+        System.out.print(p.key + " ");
+    }
+	
 	private void dump_helper(BST_node<T> root) {
 		if (root != null) {
 			dump_helper(root.left());
-			System.out.print(root.key + "\n");
+			visit(root);
+			//System.out.print(root.key + "\n");
 			//root.print();
 			dump_helper(root.right());
 			System.out.println("hola");

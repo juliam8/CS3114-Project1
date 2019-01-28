@@ -20,6 +20,22 @@ public class BST_node<T extends Comparable<T>> implements Comparable<BST_node<T>
 		left = l;
 		right = r;
 	}
+
+	/*public void insert(T r) {
+		if (key.compareTo(r) <= 0) {
+			if (right == null) {
+				right = new BST_node<T>(r);
+			} else {
+				right.insert(r);
+			}
+		} else if (key.compareTo(r) > 0) {
+			if (left == null) {
+				left = new BST_node<T>(r);
+			} else {
+				left.insert(r);
+			}
+		}
+	}*/
 	
 	//Get and set the key value
 	public T key() { return key; }
@@ -35,11 +51,10 @@ public class BST_node<T extends Comparable<T>> implements Comparable<BST_node<T>
 	//return true IFF this is a leaf node
 	public boolean isLeaf() { return (left == null && right == null); }
 	
-	//public T print() {
-		//for (T t : )
-		//return key;
-		//System.out.print(key.toString() + "\n");
-	//}
+	public void print() {
+		System.out.print(key.toString() + "\n");
+	}
+
 	
 	@Override
     public int compareTo(BST_node<T> b) {
