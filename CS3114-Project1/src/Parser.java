@@ -12,7 +12,7 @@ import java.util.Scanner;
  */
 public class Parser {
 	
-	Parser(File f, BST<RectKey, RectData> BST) {
+	Parser(File f, BST_Rectangle<RectKey, RectData> BST) {
 		try {
 			my_bst = BST;
 			scan = new Scanner(f);
@@ -82,5 +82,5 @@ public class Parser {
 	//	to the coordinates or the name and then send that rectangle into the BST?
 	
 	private Scanner scan;
-	private BST<RectKey, RectData> my_bst;
+	private BST_Rectangle<RectKey, RectData> my_bst;
 }

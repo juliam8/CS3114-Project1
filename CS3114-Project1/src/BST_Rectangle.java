@@ -6,7 +6,9 @@
  * @author juliam8
  *
  */
-public class BST_Rectangle extends BST<RectKey, RectData> {
+public class BST_Rectangle<k, d> extends BST<RectKey, RectData> {
+	
+	BST_Rectangle(){ root = null; node_count = 0; }
 	
 	BST_node<RectKey, RectData> remove(String node_name) {	//maybe should be made null
 		RectKey k = new RectKey(node_name);
