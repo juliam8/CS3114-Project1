@@ -85,7 +85,7 @@ public class Parser {
 		RectKey node_key = new RectKey(scan.next());
 		BST_node<RectKey, RectData> temp = my_bst.remove(node_key);
 		if (temp == null) {
-			System.out.print("Rectangle accepted: ");
+			System.out.print("Rectangle rejected: ");
 			System.out.print(node_key + "\n");
 		}
 	}
