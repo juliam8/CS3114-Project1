@@ -1,10 +1,6 @@
 import java.util.Iterator;
 
 /**
- * 
- */
-
-/**
  * @author juliam8 && abbym1
  *
  */
@@ -69,15 +65,16 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<K>{
 	
 	public void dump() {
 		if (root != null) {
-			inorder(root);
+			dump_helper(root);
 		}
 	}
 
-	private void inorder(BST_node<K, D> rt) {	//in order traversal
+	private void dump_helper(BST_node<K, D> rt) {	//in order traversal
 		if (rt != null) {
-			inorder(rt.left());
-			System.out.print(rt.key().toString() + "\n");
-			inorder(rt.right());
+			dump_helper(rt.left());
+			System.out.print(rt.key().toString());
+			System.out.print(rt.data().toString() + "\n");
+			dump_helper(rt.right());
 		}
 	}
 	

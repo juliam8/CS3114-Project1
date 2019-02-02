@@ -7,7 +7,7 @@ import java.util.Scanner;
  */
 
 /**
- * @author jmkuz
+ * @author juliam8 && abbym1
  *
  */
 public class Parser {
@@ -58,6 +58,9 @@ public class Parser {
 			System.out.print(node_data + "\n");
 			//BST_node<RectKey, RectData> mynode = new BST_node<RectKey, RectData>(node_key, node_data);
 			my_bst.insert(node_key, node_data);
+			System.out.print("Rectangle accepted: ");
+			System.out.print(node_key);
+			System.out.print(node_data + "\n");
 		}
 	}
 	

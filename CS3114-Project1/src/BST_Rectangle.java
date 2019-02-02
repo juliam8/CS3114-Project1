@@ -8,7 +8,7 @@
  */
 public class BST_Rectangle<K, D> extends BST<RectKey, RectData> {
 	
-	BST_Rectangle(){ root = null; node_count = 0; }
+	//BST_Rectangle(){ root = null; node_count = 0; }
 	
 	BST_node<RectKey, RectData> remove(RectKey k) {	//maybe should be made null
 		//RectKey k = new RectKey(node_name);
