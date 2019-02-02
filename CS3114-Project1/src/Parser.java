@@ -55,6 +55,9 @@ public class Parser {
 		else {
 			BST_node<RectKey, RectData> mynode = new BST_node<RectKey, RectData>(node_key, node_data);
 			my_bst.insert(node_key, node_data);
+			System.out.print("Rectangle accepted: ");
+			System.out.print(node_key);
+			System.out.print(node_data + "\n");
 		}
 	}
 	private void region_search() {

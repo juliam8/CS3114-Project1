@@ -26,6 +26,7 @@ public class BST_node<K, D>{// implements BinNode<D>{
 	BST_node(){ left = right = null; }
 	BST_node(K k, D d){
 		key = k; //it is setting the key as the entire rectangle
+		data = d;
 		left = right = null;
 	}
 
