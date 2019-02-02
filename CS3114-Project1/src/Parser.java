@@ -7,7 +7,7 @@ import java.util.Scanner;
  */
 
 /**
- * @author jmkuz
+ * @author juliam8 && abbym1
  *
  */
 public class Parser {
