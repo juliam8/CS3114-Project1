@@ -53,10 +53,14 @@ public class Parser {
 			System.out.print(node_data + "\n");
 		}
 		else {
-			BST_node<RectKey, RectData> mynode = new BST_node<RectKey, RectData>(node_key, node_data);
+			System.out.print("Rectangle accepted: ");
+			System.out.print(node_key);
+			System.out.print(node_data + "\n");
+			//BST_node<RectKey, RectData> mynode = new BST_node<RectKey, RectData>(node_key, node_data);
 			my_bst.insert(node_key, node_data);
 		}
 	}
+	
 	private void region_search() {
 		int[] nums = new int[4];
 		for (int i = 0; i < 4; i++) {
@@ -67,19 +71,35 @@ public class Parser {
 
 	private void remove() {
 		if (scan.hasNextInt()) {
-			int[] nums = new int[4];
-			for (int i = 0; i < 4; i++) {
-				nums[i] = Integer.parseInt(scan.next());
-			}
-			my_bst.remove(nums); //send in array of integers
+			remove_data();
 		}
 		else {
-			my_bst.remove(scan.nextLine());
+			remove_key();
 		}
 	}
 	
-	//can I search through the BST here to get the rectangle corresponding
-	//	to the coordinates or the name and then send that rectangle into the BST?
+	private void remove_key() {
+		RectKey node_key = new RectKey(scan.next());
+		BST_node<RectKey, RectData> temp = my_bst.remove(node_key);
+		if (temp == null) {
+			System.out.print("Rectangle accepted: ");
+			System.out.print(node_key + "\n");
+		}
+	}
+	
+	private void remove_data() {
+		int[] nums = new int[4];
+		for (int i = 0; i < 4; i++) {
+			nums[i] = Integer.parseInt(scan.next());
+		}
+		RectData node_data = new RectData(nums);
+		BST_node<RectKey, RectData> temp = my_bst.remove(node_data); //send in array of integers
+		if (temp == null) {
+			System.out.print("Rectangle rejected: ");
+			System.out.print(node_data + "\n");
+		}
+		
+	}
 	
 	private Scanner scan;
 	private BST_Rectangle<RectKey, RectData> my_bst;

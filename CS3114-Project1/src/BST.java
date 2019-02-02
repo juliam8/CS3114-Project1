@@ -35,19 +35,49 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<K>{
 			rt.set_r(insert_helper(rt.right(), k, d));
 		return rt;	
 	}	
+	
+	protected BST_node<K, D> remove_helper(BST_node<K, D> rt) {	//remove the temp found by find_helper
+		if (rt.left() == null)
+			return rt.right();
+		else if (rt.right() == null)
+			return rt.left();
+		else {	//two children
+			BST_node<K, D> temp = get_min(rt.right());
+			rt.set_data(temp.data());
+			rt.set_key(temp.key());
+			rt.set_r(delete_min(rt.right()));
+			return rt;
+		}
+	}
+	
+	private BST_node<K, D> get_min(BST_node<K, D> rt){
+		if (rt.left() == null)
+			return rt;
+		else 
+			return get_min(rt.left());
+	}
+	
+	private BST_node<K, D> delete_min(BST_node<K, D> rt){
+		if (rt.left() == null)
+			return rt.right();
+		else {
+			rt.set_l(delete_min(rt.left()));
+			return rt;
+		}
+	}
 
 	
 	public void dump() {
 		if (root != null) {
-			dump_helper(root);
+			inorder(root);
 		}
 	}
 
-	private void dump_helper(BST_node<K, D> rt) {	//in order traversal
+	private void inorder(BST_node<K, D> rt) {	//in order traversal
 		if (rt != null) {
-			dump_helper(rt.left());
+			inorder(rt.left());
 			System.out.print(rt.key().toString() + "\n");
-			dump_helper(rt.right());
+			inorder(rt.right());
 		}
 	}
 	
@@ -74,7 +104,6 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<K>{
 	
 	protected BST_node<K, D> root;
 	protected int node_count;
-	
 	
 
 	public class BST_Iterator implements Iterator<K> {
