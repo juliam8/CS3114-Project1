@@ -1,3 +1,5 @@
+import java.util.Iterator;
+
 /**
  * 
  */
@@ -6,26 +8,31 @@
  * @author juliam8 && abbym1
  *
  */
-public class BST<T extends Comparable<T>> {
+public class BST<K extends Comparable<? super K>, D> implements Iterable<K>{
 	//constructor
-	BST(){ root = null; count = 0; }
+	BST(){ root = null; node_count = 0; }
+	
+    @Override
+    public Iterator<K> iterator() {
+        return new BST_Iterator(root);
+    }
 	
 	//clear, apparently
-	public void clear() { root = null; count = 0; }
+	public void clear() { root = null; node_count = 0; }
 	
 	//insert a node into the BST
 	//input must be a comparable data type
-	public void insert(T t) {
-		root = insert_helper(root, t);
-		count++;
+	public void insert(K k, D d) {
+		root = insert_helper(root, k, d);
+		node_count++;
 	}
 	
-	public BST_node<T> insert_helper(BST_node<T> rt, T n){
-		if(rt == null) return new BST_node<T>(n);
-		if(rt.key().compareTo(n) >= 0)
-			rt.set_l(insert_helper(rt.left(), n));
+	public BST_node<K, D> insert_helper(BST_node<K, D> rt, K k, D d){
+		if(rt == null) return new BST_node<K, D>(k, d);
+		if(rt.key().compareTo(k) >= 0)
+			rt.set_l(insert_helper(rt.left(), k, d));
 		else
-			rt.set_r(insert_helper(rt.right(), n));
+			rt.set_r(insert_helper(rt.right(), k, d));
 		return rt;	
 	}	
 
@@ -35,50 +42,58 @@ public class BST<T extends Comparable<T>> {
 			dump_helper(root);
 		}
 	}
-	
-    protected void visit(BST_node<T> p) {
-        System.out.print(p.key + " ");
-    }
-	
-	private void dump_helper(BST_node<T> root) {
-		if (root != null) {
-			dump_helper(root.left());
-			visit(root);
-			//System.out.print(root.key + "\n");
-			//root.print();
-			dump_helper(root.right());
-			System.out.println("hola");
+
+	private void dump_helper(BST_node<K, D> rt) {	//in order traversal
+		if (rt != null) {
+			dump_helper(rt.left());
+			System.out.print(rt.key().toString() + "\n");
+			dump_helper(rt.right());
 		}
 	}
 	
-	void remove(String node_name) {
-		
+	BST_node<K, D> find_helper(BST_node<K, D> rt, K key) {
+		if (rt == null) return null;
+		if (rt.key().compareTo(key) > 0)
+			return find_helper(rt.left(), key);
+		else if (rt.key().compareTo(key) < 0)
+			return find_helper(rt.right(), key);
+		else
+			return rt;	
 	}
-	
-	void remove(int[] coordinates) {
-		
-	}
-	
-	void regionsearch(int[] coordinates) {
-		
-	}
-	
-	void search(String node_name) {
-		
-	}
+
 	
 	void intersection() {}
 	
-	public BST_node<T> root() {
+	public BST_node<K, D> root() {
 		return root;
 	}
 	
 	public int node_count() {
-		return count;
+		return node_count;
 	}
 	
-	private BST_node<T> root;
-	private int count;
+	protected BST_node<K, D> root;
+	protected int node_count;
+	
+	
+
+	public class BST_Iterator implements Iterator<K> {
+		//i know this is wrong but it's a start
+		BST_Iterator(BST_node<K, D> root){ root = null;}//root = null; node_count = 0; }
+
+		@Override
+		public boolean hasNext() {
+			// TODO Auto-generated method stub
+			return false;
+		}
+
+		@Override
+		public K next() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+	}
 }
 
 

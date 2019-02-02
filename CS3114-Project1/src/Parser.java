@@ -12,7 +12,7 @@ import java.util.Scanner;
  */
 public class Parser {
 	
-	Parser(File f, BST<BST_node<Rectangle>> BST) {
+	Parser(File f, BST<RectKey, RectData> BST) {
 		try {
 			my_bst = BST;
 			scan = new Scanner(f);
@@ -27,7 +27,7 @@ public class Parser {
 		while (scan.hasNext()) {
 			String command = scan.next();
 
-			if (command.equals("insert")) { insert(); }
+			if 		(command.equals("insert")) { insert(); }
 			else if (command.equals("remove")) { remove(); }
 			else if (command.equals("regionsearch")) { region_search(); }
 			else if (command.equals("search")) { my_bst.search(scan.nextLine()); }
@@ -43,9 +43,19 @@ public class Parser {
 		for (int i = 0; i < 4; i++) {
 			nums[i] = Integer.parseInt(scan.next());
 		}
-		Rectangle my_rect = new Rectangle(name, nums);
-		BST_node<Rectangle> mynode = new BST_node<Rectangle>(my_rect);
-		my_bst.insert(mynode);
+		RectKey node_key = new RectKey(name);
+		RectData node_data = new RectData(nums);
+		//Rectangle my_rect = new Rectangle(name, nums);
+		if ((nums[2] <= 0 || nums[3] <= 0) ||
+		(nums[0]+nums[2] > 1024 || nums[0]+nums[2] < 0 || nums[1]+nums[3] > 1024 || nums[1]+nums[3] < 0)) {
+			System.out.print("Rectangle rejected: ");
+			System.out.print(node_key);
+			System.out.print(node_data + "\n");
+		}
+		else {
+			BST_node<RectKey, RectData> mynode = new BST_node<RectKey, RectData>(node_key, node_data);
+			my_bst.insert(node_key, node_data);
+		}
 	}
 	private void region_search() {
 		int[] nums = new int[4];
@@ -68,6 +78,9 @@ public class Parser {
 		}
 	}
 	
+	//can I search through the BST here to get the rectangle corresponding
+	//	to the coordinates or the name and then send that rectangle into the BST?
+	
 	private Scanner scan;
-	private BST<BST_node<Rectangle>> my_bst;
+	private BST<RectKey, RectData> my_bst;
 }
