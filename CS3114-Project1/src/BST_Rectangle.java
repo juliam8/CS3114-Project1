@@ -8,11 +8,10 @@ public class BST_Rectangle<K, D> extends BST<RectKey, RectData> {
 	BST_Rectangle(){ root = null; node_count = 0; }
 	
 	BST_node<RectKey, RectData> remove(RectKey k) {	//maybe should be made null
-		//RectKey k = new RectKey(node_name);
 		if (root != null) {	
 		    BST_node<RectKey, RectData> temp = find_helper(root, k); // First find it
 		    if (temp != null) {
-		      root = remove_helper(temp, k); // removed "root = "
+		      root = remove_helper(root, k); // removed "root = "
 		      node_count--;
 		    }
 		    return temp;
@@ -24,7 +23,7 @@ public class BST_Rectangle<K, D> extends BST<RectKey, RectData> {
 		if (root != null) {
 			BST_node<RectKey, RectData> temp = find_helper_data(root, d);
 		    if (temp != null) {
-			      root = remove_helper(temp, temp.key()); // removed "root = "
+			      root = remove_helper(root, temp.key()); // removed "root = "
 			      node_count--;
 		    }
 		    return temp;
@@ -63,11 +62,34 @@ public class BST_Rectangle<K, D> extends BST<RectKey, RectData> {
 		}
 	}
 
-	
-	void regionsearch(int[] coordinates) {
-		System.out.print("regionsearch yo");
+	//height and width must be greater than 0
+	//can be outside 0 1024 range
+	Vector<BST_node<RectKey, RectData>> regionsearch(RectData d) {
+		Vector<BST_node<RectKey, RectData>> result  = new Vector<BST_node<RectKey, RectData>>();;
+		regionsearch_helper(root, d, result);
+		return result;
 	}
-	
+
+	void regionsearch_helper(BST_node<RectKey, RectData> rt, RectData d, Vector<BST_node<RectKey, RectData>> r) {
+		int n_x1 = rt.data().x();//left
+		int n_x2 = rt.data().x() + rt.data().w();//right
+		int n_y1 = rt.data().y();//top
+		int n_y2 = rt.data().y() - rt.data().h();//bottom
+		
+		if (rt == null) return;
+		if (n_x1 > (d.x()+d.w()) || d.x() > n_x2 || n_y1 < (d.y()-d.h()) || d.y() < n_y2) {
+			//not overlapping
+			if (rt.left() != null)
+				regionsearch_helper(rt.left(), d, r);
+			else
+				regionsearch_helper(rt.right(), d, r);
+		}
+		else {
+			r.addElement(rt);
+			return;
+		}
+	}
+		
 	void intersection() {
 		
 	}

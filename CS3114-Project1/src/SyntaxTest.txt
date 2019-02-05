@@ -1,16 +1,12 @@
 
-insert r_r          1 20 3 4
-insert rec        7 8 1 3
-insert virtual_rec0 1 1 2 3
-insert virtual_REC0 0 0 11 5
-insert inExistRec_0 1 1 1 2
-
-search r_r
+insert c 	0 0 11 4
+insert d	 1 1 4 2
+insert a	 1 1 4 6
+insert b	 1 1 4 7
 
 dump
 
-remove r_r
-remove 7 8 1 3
+remove c
+remove 1 1 4 2
 
 dump
-

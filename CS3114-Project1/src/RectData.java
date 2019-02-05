@@ -20,7 +20,7 @@ public class RectData implements Comparable<RectData> {
 	
 	@Override
 	public int compareTo(RectData node_data) {
-		if (Arrays.equals(coordinates, node_data.get_coordinates()))
+		if (Arrays.equals(coordinates, node_data.coordinates()))
 			return 1;
 		return 0;
 	}
@@ -30,23 +30,23 @@ public class RectData implements Comparable<RectData> {
         return x + ", " + y + ", " + w + ", " + h;
     }
 	
-	public int[] get_coordinates() {
+	public int[] coordinates() {
 		return coordinates;
 	}
 	
-	public int get_x() {
+	public int x() {
 		return x;
 	}
 	
-	public int get_y() {
+	public int y() {
 		return y;
 	}
 	
-	public int get_w() {
+	public int w() {
 		return w;
 	}
 	
-	public int get_h() {
+	public int h() {
 		return h;
 	}
 	

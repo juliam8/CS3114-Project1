@@ -77,9 +77,13 @@ public class Parser {
 		for (int i = 0; i < 4; i++) {
 			nums[i] = Integer.parseInt(scan.next());
 		}
-		RectData node_data = new RectData(nums);
-		System.out.print("Rectangles intersecting region (" + node_data + ":\n");
-		my_bst.regionsearch(nums); //send in array of integers
+		if (nums[2] <= 0 || nums[3] <= 0) //command rejected if width/height is <= 0
+			System.out.print("Rectangles command rejected.");
+		else {
+			RectData node_data = new RectData(nums);
+			System.out.print("Rectangles intersecting region (" + node_data + ":\n");
+			my_bst.regionsearch(node_data); //send in array of integers
+		}
 	}
 
 	private void remove() {
