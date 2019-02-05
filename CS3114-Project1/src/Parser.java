@@ -53,9 +53,6 @@ public class Parser {
 			System.out.print(node_data + "\n");
 		}
 		else {
-			System.out.print("Rectangle accepted: ");
-			System.out.print(node_key);
-			System.out.print(node_data + "\n");
 			//BST_node<RectKey, RectData> mynode = new BST_node<RectKey, RectData>(node_key, node_data);
 			my_bst.insert(node_key, node_data);
 			System.out.print("Rectangle accepted: ");
@@ -86,7 +83,7 @@ public class Parser {
 		BST_node<RectKey, RectData> temp = my_bst.remove(node_key);
 		if (temp == null) {
 			System.out.print("Rectangle rejected: ");
-			System.out.print(node_key + "\n");
+			System.out.print(node_key.get_name());
 		}
 	}
 	
