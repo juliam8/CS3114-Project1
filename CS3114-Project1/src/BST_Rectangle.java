@@ -1,3 +1,4 @@
+import java.util.Vector;
 /**
  * @author juliam8
  *
@@ -40,6 +41,26 @@ public class BST_Rectangle<K, D> extends BST<RectKey, RectData> {
 		else
 			return find_helper_data(rt.right(), d);
 	}
+	
+	
+	public Vector<BST_node<RectKey, RectData>> search(String node_name) {
+		RectKey k = new RectKey(node_name);
+		Vector<BST_node<RectKey, RectData>> result = new Vector<BST_node<RectKey, RectData>>();
+		search_helper(root, k, result);
+		return result;
+	}
+	
+	public void search_helper(BST_node<RectKey, RectData> rt, RectKey key, Vector<BST_node<RectKey, RectData>> r) {
+		if (rt == null) return;
+		if (rt.key().compareTo(key) > 0)
+			search_helper(rt.left(), key, r);
+		else if (rt.key().compareTo(key) < 0)
+			search_helper(rt.right(), key, r);
+		else {
+			r.addElement(rt);
+			return;
+		}
+	}
 
 	//height and width must be greater than 0
 	//can be outside 0 1024 range
@@ -48,7 +69,10 @@ public class BST_Rectangle<K, D> extends BST<RectKey, RectData> {
 		regionsearch_helper(root, d, result);
 		return result;
 	}
-
+	
+	//how about we just get the top left coordi
+	//l1 top left
+	//r1 bottom right
 	void regionsearch_helper(BST_node<RectKey, RectData> rt, RectData d, Vector<BST_node<RectKey, RectData>> r) {
 		int n_x1 = rt.data().x();//left
 		int n_x2 = rt.data().x() + rt.data().w();//right

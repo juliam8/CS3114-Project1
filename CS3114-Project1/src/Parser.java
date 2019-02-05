@@ -42,7 +42,7 @@ public class Parser {
 		String name = scan.next();
 		Vector<BST_node<RectKey, RectData>> res =  my_bst.search(name);
 		if(res.isEmpty())
-			System.out.print("Rectanlge not found: " + name + "\n");
+			System.out.print("Rectangle not found: " + name + "\n");
 		for(BST_node<RectKey, RectData> a : res) {
 			System.out.print("Rectangle found: " + a + "\n");
 		}
@@ -82,7 +82,11 @@ public class Parser {
 		else {
 			RectData node_data = new RectData(nums);
 			System.out.print("Rectangles intersecting region (" + node_data + ":\n");
-			my_bst.regionsearch(node_data); //send in array of integers
+			Vector<BST_node<RectKey, RectData>> result = my_bst.regionsearch(node_data);
+			for(BST_node<RectKey, RectData> a : result) {
+				System.out.println(a);
+			}
+			
 		}
 	}
 
