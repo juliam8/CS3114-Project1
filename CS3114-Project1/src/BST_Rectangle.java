@@ -56,5 +56,9 @@ public class BST_Rectangle<K, D> extends BST<RectKey, RectData> {
 	void regionsearch(int[] coordinates) {
 		
 	}
+	
+	void intersection() {
+		
+	}
 
 }
