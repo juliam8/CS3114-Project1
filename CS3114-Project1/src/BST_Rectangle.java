@@ -1,8 +1,4 @@
 /**
- * 
- */
-
-/**
  * @author juliam8
  *
  */
@@ -57,6 +53,10 @@ public class BST_Rectangle<K, D> extends BST<RectKey, RectData> {
 
 	
 	void regionsearch(int[] coordinates) {
+		
+	}
+	
+	void intersection() {
 		
 	}
 

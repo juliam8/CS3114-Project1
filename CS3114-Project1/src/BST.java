@@ -72,19 +72,20 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<K>{
 
 	
 	public void dump() {
+		System.out.print("BST dump:\n");
 		if (root != null) {
-			System.out.print("BST dump:\n");
-			dump_helper(root);
+			dump_helper(root, 0);
 		}
+		System.out.print("BST size is " + node_count + "\n");
 	}
 
-	private void dump_helper(BST_node<K, D> rt) {	//in order traversal
+	private void dump_helper(BST_node<K, D> rt, int count) {	//in order traversal
 		if (rt != null) {
-			dump_helper(rt.left());
-			System.out.print("Node has depth __, Value ");
-			System.out.print("(" + rt.key().toString() + " ");
+			dump_helper(rt.left(), count + 1);
+			System.out.print("Node has depth " + count + ", Value (");
+			System.out.print(rt.key().toString() + " ");
 			System.out.print(rt.data().toString() + ")\n");
-			dump_helper(rt.right());
+			dump_helper(rt.right(), count + 1);
 		}
 	}
 	
@@ -99,7 +100,7 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<K>{
 	}
 
 	
-	void intersection() {}
+	//void intersection() {}
 	
 	public BST_node<K, D> root() {
 		return root;

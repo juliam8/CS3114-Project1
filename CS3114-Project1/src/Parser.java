@@ -65,6 +65,8 @@ public class Parser {
 		for (int i = 0; i < 4; i++) {
 			nums[i] = Integer.parseInt(scan.next());
 		}
+		RectData node_data = new RectData(nums);
+		System.out.print("Rectangles intersecting region (" + node_data + ":\n");
 		my_bst.regionsearch(nums); //send in array of integers
 	}
 
