@@ -1,6 +1,9 @@
 
 insert r_r          1 20 3 4
 insert rec        7 8 1 3
+insert virtual_rec0 1 1 2 3
+insert virtual_REC0 0 0 11 5
+insert inExistRec_0 1 1 1 2
 
 search r_r
 

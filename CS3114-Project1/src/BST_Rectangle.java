@@ -21,27 +21,26 @@ public class BST_Rectangle<K, D> extends BST<RectKey, RectData> {
 	}
 	
 	BST_node<RectKey, RectData> remove(RectData d){		///Ah I don't know if it should be void or not
-		//RectData d = new RectData(coordinates);
 		if (root != null) {
 			BST_node<RectKey, RectData> temp = find_helper_data(root, d);
 		    if (temp != null) {
-			     // remove_helper_data(temp, k); // removed "root = "
+			      root = remove_helper(temp, temp.key()); // removed "root = "
 			      node_count--;
-			      return temp;
 		    }
-		    return null;
+		    return temp;
 		}
 		return null;
 	}
-	
-	private BST_node<RectKey, RectData> find_helper_data(BST_node<RectKey, RectData> rt, RectData d) {	//FIX
-		if (rt != null) { 
-			find_helper_data(rt.left(), d);
-			if (rt.data().compareTo(d) == 1)
-				return rt;
-			find_helper_data(rt.right(), d);
-		}
-		return null;
+			
+	BST_node<RectKey, RectData> find_helper_data(BST_node<RectKey, RectData> rt, RectData d) {
+		if (rt == null) return null;
+		
+		if (rt.data().compareTo(d) == 1)
+			return rt;
+		else if (rt.left() != null)
+			return find_helper_data(rt.left(), d);
+		else
+			return find_helper_data(rt.right(), d);
 	}
 	
 	
