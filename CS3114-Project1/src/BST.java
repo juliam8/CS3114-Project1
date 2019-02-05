@@ -1,5 +1,5 @@
 import java.util.Iterator;
-
+import java.util.Vector;
 /**
  * @author juliam8 && abbym1
  *
@@ -97,9 +97,26 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<K>{
 		else
 			return rt;	
 	}
+	
+	public Vector<BST_node<K, D>> search(String node_name) {
+		Vector<BST_node<K, D>> result = new Vector<BST_node<K, D>>();
+		search_helper(root, node_name, result);
+		return result;
+	}
+	
+	public void search_helper(BST_node<K, D> rt, String key, Vector<BST_node<K, D>> r) {
+		if (rt == null) return;
+		if (rt.key().toString().compareTo(key) > 0)
+			search_helper(rt.left(), key, r);
+		else if (rt.key().toString().compareTo(key) < 0)
+			search_helper(rt.right(), key, r);
+		else {
+			r.addElement(rt);
+			return;
+		}
+	}
 
 	
-	//void intersection() {}
 	
 	public BST_node<K, D> root() {
 		return root;

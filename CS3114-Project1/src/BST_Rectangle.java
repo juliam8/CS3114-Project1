@@ -1,4 +1,3 @@
-import java.util.Vector;
 /**
  * @author juliam8
  *
@@ -40,26 +39,6 @@ public class BST_Rectangle<K, D> extends BST<RectKey, RectData> {
 			return find_helper_data(rt.left(), d);
 		else
 			return find_helper_data(rt.right(), d);
-	}
-	
-	
-	public Vector<BST_node<RectKey, RectData>> search(String node_name) {
-		RectKey k = new RectKey(node_name);
-		Vector<BST_node<RectKey, RectData>> result = new Vector<BST_node<RectKey, RectData>>();
-		search_helper(root, k, result);
-		return result;
-	}
-	
-	public void search_helper(BST_node<RectKey, RectData> rt, RectKey key, Vector<BST_node<RectKey, RectData>> r) {
-		if (rt == null) return;
-		if (rt.key().compareTo(key) > 0)
-			search_helper(rt.left(), key, r);
-		else if (rt.key().compareTo(key) < 0)
-			search_helper(rt.right(), key, r);
-		else {
-			r.addElement(rt);
-			return;
-		}
 	}
 
 	//height and width must be greater than 0
