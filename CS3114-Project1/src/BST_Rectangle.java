@@ -31,7 +31,7 @@ public class BST_Rectangle<K, D> extends BST<RectKey, RectData> {
 		}
 		return null;
 	}
-			
+
 	BST_node<RectKey, RectData> find_helper_data(BST_node<RectKey, RectData> rt, RectData d) {
 		if (rt == null) return null;
 		
