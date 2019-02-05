@@ -1,10 +1,11 @@
+import java.util.Vector;
 /**
  * @author juliam8
  *
  */
 public class BST_Rectangle<K, D> extends BST<RectKey, RectData> {
 	
-	//BST_Rectangle(){ root = null; node_count = 0; }
+	BST_Rectangle(){ root = null; node_count = 0; }
 	
 	BST_node<RectKey, RectData> remove(RectKey k) {	//maybe should be made null
 		//RectKey k = new RectKey(node_name);
@@ -33,7 +34,7 @@ public class BST_Rectangle<K, D> extends BST<RectKey, RectData> {
 		return null;
 	}
 	
-	BST_node<RectKey, RectData> find_helper_data(BST_node<RectKey, RectData> rt, RectData d) {	//FIX
+	private BST_node<RectKey, RectData> find_helper_data(BST_node<RectKey, RectData> rt, RectData d) {	//FIX
 		if (rt != null) { 
 			find_helper_data(rt.left(), d);
 			if (rt.data().compareTo(d) == 1)
@@ -44,16 +45,28 @@ public class BST_Rectangle<K, D> extends BST<RectKey, RectData> {
 	}
 	
 	
-	BST_node<RectKey, RectData> search(String node_name) {
+	public Vector<BST_node<RectKey, RectData>> search(String node_name) {
 		RectKey k = new RectKey(node_name);
-		BST_node<RectKey, RectData> temp = find_helper(root, k);
-		return temp;
+		Vector<BST_node<RectKey, RectData>> result = new Vector<BST_node<RectKey, RectData>>();
+		search_helper(root, k, result);
+		return result;
 	}
 	
+	public void search_helper(BST_node<RectKey, RectData> rt, RectKey key, Vector<BST_node<RectKey, RectData>> r) {
+		if (rt == null) return;
+		if (rt.key().compareTo(key) > 0)
+			search_helper(rt.left(), key, r);
+		else if (rt.key().compareTo(key) < 0)
+			search_helper(rt.right(), key, r);
+		else {
+			r.addElement(rt);
+			return;
+		}
+	}
 
 	
 	void regionsearch(int[] coordinates) {
-		
+		System.out.print("regionsearch yo");
 	}
 	
 	void intersection() {

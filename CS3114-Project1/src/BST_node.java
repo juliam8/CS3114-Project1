@@ -76,7 +76,7 @@ public class BST_node<K, D>{// implements BinNode<D>{
 
 	@Override
 	public String toString() {
-        return key.toString();
+        return "(" + key.toString() + " " + data.toString() + ")";
     }
 	
 	//@Override
