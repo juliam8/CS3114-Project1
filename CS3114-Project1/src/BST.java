@@ -33,7 +33,6 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<K>{
 	}	
 	
 	protected BST_node<K, D> remove_helper(BST_node<K, D> rt, K key) {	//remove the temp found by find_helper
-		
 		if (rt == null) return null;
 		if (rt.key().compareTo(key) > 0)
 			rt.set_l(remove_helper(rt.left(), key));
@@ -54,14 +53,14 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<K>{
 		return rt;
 	}
 	
-	private BST_node<K, D> get_min(BST_node<K, D> rt){
+	protected BST_node<K, D> get_min(BST_node<K, D> rt){
 		if (rt.left() == null)
 			return rt;
 		else 
 			return get_min(rt.left());
 	}
 	
-	private BST_node<K, D> delete_min(BST_node<K, D> rt){
+	protected BST_node<K, D> delete_min(BST_node<K, D> rt){
 		if (rt.left() == null)
 			return rt.right();
 		else {
