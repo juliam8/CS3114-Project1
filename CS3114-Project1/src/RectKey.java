@@ -19,7 +19,7 @@ public class RectKey implements Comparable<RectKey>{
 	
 	@Override
 	public String toString() {
-        return "(" + name + ", ";
+        return name;
     }
 	
 	public String get_name() {

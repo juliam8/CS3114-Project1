@@ -25,7 +25,7 @@ public class RectData implements Comparable<RectData> {
 	
 	@Override
 	public String toString() {
-        return x + ", " + y + ", " + w + ", " + h + ")";
+        return x + ", " + y + ", " + w + ", " + h;
     }
 	
 	public int[] get_coordinates() {

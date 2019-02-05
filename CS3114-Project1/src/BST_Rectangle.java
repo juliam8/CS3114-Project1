@@ -15,11 +15,10 @@ public class BST_Rectangle<K, D> extends BST<RectKey, RectData> {
 		if (root != null) {	
 		    BST_node<RectKey, RectData> temp = find_helper(root, k); // First find it
 		    if (temp != null) {
-		      remove_helper(temp); // removed "root = "
+		      root = remove_helper(temp, k); // removed "root = "
 		      node_count--;
-		      return temp;
 		    }
-		    return null;
+		    return temp;
 		}
 		return null;	//return null
 	}
@@ -29,7 +28,7 @@ public class BST_Rectangle<K, D> extends BST<RectKey, RectData> {
 		if (root != null) {
 			BST_node<RectKey, RectData> temp = find_helper_data(root, d);
 		    if (temp != null) {
-			      remove_helper(temp); // removed "root = "
+			     // remove_helper_data(temp, k); // removed "root = "
 			      node_count--;
 			      return temp;
 		    }
@@ -38,14 +37,14 @@ public class BST_Rectangle<K, D> extends BST<RectKey, RectData> {
 		return null;
 	}
 	
-	BST_node<RectKey, RectData> find_helper_data(BST_node<RectKey, RectData> rt, RectData d) {
-		if (rt == null) return null;
-		if (rt.data().compareTo(d) > 0)
-			return find_helper_data(rt.left(), d);
-		else if (rt.data().compareTo(d) < 0)
-			return find_helper_data(rt.right(), d);
-		else
-			return rt;	
+	BST_node<RectKey, RectData> find_helper_data(BST_node<RectKey, RectData> rt, RectData d) {	//FIX
+		if (rt != null) { 
+			find_helper_data(rt.left(), d);
+			if (rt.data().compareTo(d) == 1)
+				return rt;
+			find_helper_data(rt.right(), d);
+		}
+		return null;
 	}
 	
 	

@@ -32,18 +32,26 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<K>{
 		return rt;	
 	}	
 	
-	protected BST_node<K, D> remove_helper(BST_node<K, D> rt) {	//remove the temp found by find_helper
-		if (rt.left() == null)
-			return rt.right();
-		else if (rt.right() == null)
-			return rt.left();
-		else {	//two children
-			BST_node<K, D> temp = get_min(rt.right());
-			rt.set_data(temp.data());
-			rt.set_key(temp.key());
-			rt.set_r(delete_min(rt.right()));
-			return rt;
+	protected BST_node<K, D> remove_helper(BST_node<K, D> rt, K key) {	//remove the temp found by find_helper
+		
+		if (rt == null) return null;
+		if (rt.key().compareTo(key) > 0)
+			rt.set_l(remove_helper(rt.left(), key));
+		else if (rt.key().compareTo(key) < 0)
+			rt.set_r(remove_helper(rt.left(), key));
+		else {		
+			if (rt.left() == null)
+				return rt.right();
+			else if (rt.right() == null)
+				return rt.left();
+			else {	//two children
+				BST_node<K, D> temp = get_min(rt.right());
+				rt.set_data(temp.data());
+				rt.set_key(temp.key());
+				rt.set_r(delete_min(rt.right()));
+			}
 		}
+		return rt;
 	}
 	
 	private BST_node<K, D> get_min(BST_node<K, D> rt){
@@ -65,6 +73,7 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<K>{
 	
 	public void dump() {
 		if (root != null) {
+			System.out.print("BST dump:\n");
 			dump_helper(root);
 		}
 	}
@@ -72,8 +81,9 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<K>{
 	private void dump_helper(BST_node<K, D> rt) {	//in order traversal
 		if (rt != null) {
 			dump_helper(rt.left());
-			System.out.print(rt.key().toString());
-			System.out.print(rt.data().toString() + "\n");
+			System.out.print("Node has depth __, Value ");
+			System.out.print("(" + rt.key().toString() + " ");
+			System.out.print(rt.data().toString() + ")\n");
 			dump_helper(rt.right());
 		}
 	}
