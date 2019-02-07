@@ -27,7 +27,7 @@ public class Parser {
 			else if (command.equals("remove")) { remove(); }
 			else if (command.equals("regionsearch")) { region_search(); }
 			else if (command.equals("search")) { my_bst.search(scan.next()); }
-			else if (command.equals("intersection")) { my_bst.intersection(); }
+			else if (command.equals("intersection")) {}// my_bst.intersection(); }
 			else if (command.equals("dump")) { my_bst.dump(); }
 		}
 		scan.close();		
@@ -60,7 +60,7 @@ public class Parser {
 		else {
 			RectData node_data = new RectData(nums);
 			System.out.print("Rectangles intersecting region (" + node_data + "):\n");
-			my_bst.regionsearch(node_data);
+			my_bst.regionsearch(my_bst.root(), node_data);
 		}
 	}
 
@@ -94,7 +94,8 @@ public class Parser {
 	}
 	void intersection() {
 		//do you create two new BSTs to iterate through the bitch?
-		BST<RectKey, RectData>.BST_Iterator outside = new BST<RectKey, RectData>.BST_Iterator(my_bst.root());
+		BST<RectKey, RectData>.BST_Iterator outside;
+		//= new BST<RectKey, RectData>.BST_Iterator();
 		
 	}
 	

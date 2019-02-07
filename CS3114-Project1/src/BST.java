@@ -1,14 +1,15 @@
 import java.util.Iterator;
+import java.util.Stack;
 /**
  * @author juliam8 && abbym1
  *
  */
-public class BST<K extends Comparable<? super K>, D> implements Iterable<K>{
+public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_node<K, D>>{
 	//constructor
 	BST(){ root = null; node_count = 0; }
 	
     @Override
-    public Iterator<K> iterator() {
+    public Iterator<BST_node<K, D>> iterator() {
         return new BST_Iterator(root);
     }
 	
@@ -129,20 +130,31 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<K>{
 	protected BST_node<K, D> root;
 	protected int node_count;
 
-	public class BST_Iterator implements Iterator<K> {
-		
-		BST_Iterator(BST_node<K, D> root){ root = null;}//root = null; node_count = 0; }
+	public class BST_Iterator implements Iterator<BST_node<K, D>> {
+		//i know this is wrong but it's a start
+		BST_Iterator(BST_node<K, D> root){ node_stack.push(root); }
 
 		@Override
 		public boolean hasNext() {
-			return false;
+			return !node_stack.isEmpty();
 		}
 
 		@Override
-		public K next() {
-			return null;
+		public BST_node<K, D> next() {
+			BST_node<K, D> cur = null;
+			if(!node_stack.empty()) {
+				cur = node_stack.peek();
+				node_stack.pop();
+				
+				if(cur.right() != null) 
+					node_stack.push(cur.right());
+				
+				if(cur.left() != null)
+					node_stack.push(cur.left());
+			}
+			return cur;
 		}
-
+		protected Stack<BST_node<K, D>> node_stack = new Stack<BST_node<K, D>>();
 	}
 }
 

@@ -45,20 +45,20 @@ public class BST_Rectangle<K, D> extends BST<RectKey, RectData> {
 
 	//height and width must be greater than 0
 	//can be outside 0 1024 range
-	void regionsearch(RectData d) {
-		regionsearch_traverse(root, d);
-	}
+	//void regionsearch(RectData d) {
+		//regionsearch_traverse(root, d);
+	//}
 	
 	//how about we just get the top left coordi
 	//l1 top left
 	//r1 bottom right
-	void regionsearch_traverse(BST_node<RectKey, RectData> rt, RectData d) {
+	void regionsearch(BST_node<RectKey, RectData> rt, RectData d) {
 		if (rt == null) return;
 		
 		if (rt != null) {
-			regionsearch_traverse(rt.left(), d);
+			regionsearch(rt.left(), d);
 			regionsearch_check(rt, d);
-			regionsearch_traverse(rt.right(), d);
+			regionsearch(rt.right(), d);
 		}
 	}
 	
@@ -75,6 +75,5 @@ public class BST_Rectangle<K, D> extends BST<RectKey, RectData> {
 			System.out.println(rt);
 	}
 		
-
 
 }
