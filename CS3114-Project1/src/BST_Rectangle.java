@@ -75,8 +75,6 @@ public class BST_Rectangle<K, D> extends BST<RectKey, RectData> {
 			System.out.println(rt);
 	}
 		
-	void intersection() {
-		
-	}
+
 
 }

@@ -73,13 +73,13 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<K>{
 		if (root != null) {
 			dump_helper(root, 0);
 		}
-		System.out.print("BST size is " + node_count + "\n");
+		System.out.print("\tBST size is: " + node_count + "\n");
 	}
 
 	private void dump_helper(BST_node<K, D> rt, int count) {	//in order traversal
 		if (rt != null) {
 			dump_helper(rt.left(), count + 1);
-			System.out.print("Node has depth " + count + ", Value (");
+			System.out.print("\tNode has depth " + count + ", Value (");
 			System.out.print(rt.key().toString() + " ");
 			System.out.print(rt.data().toString() + ")\n");
 			dump_helper(rt.right(), count + 1);
@@ -99,7 +99,7 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<K>{
 	public void search(String node_name) {
 		boolean found = search_helper(root, node_name, false);
 		if(!found)
-			System.out.print("Rectanlge not found: " + node_name + "\n");
+			System.out.print("Rectangle not found: " + node_name + "\n");
 		return;
 	}
 	
@@ -130,18 +130,16 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<K>{
 	protected int node_count;
 
 	public class BST_Iterator implements Iterator<K> {
-		//i know this is wrong but it's a start
+		
 		BST_Iterator(BST_node<K, D> root){ root = null;}//root = null; node_count = 0; }
 
 		@Override
 		public boolean hasNext() {
-			// TODO Auto-generated method stub
 			return false;
 		}
 
 		@Override
 		public K next() {
-			// TODO Auto-generated method stub
 			return null;
 		}
 

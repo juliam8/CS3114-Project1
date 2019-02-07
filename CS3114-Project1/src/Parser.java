@@ -78,7 +78,6 @@ public class Parser {
 		BST_node<RectKey, RectData> temp = my_bst.remove(node_key);
 		if (temp == null) {
 			System.out.print("Rectangle rejected (" + node_key + ")\n");
-			System.out.print("(" + node_key + ")\n");
 		}
 	}
 	
@@ -90,9 +89,12 @@ public class Parser {
 		RectData node_data = new RectData(nums);
 		BST_node<RectKey, RectData> temp = my_bst.remove(node_data); //send in array of integers
 		if (temp == null) {
-			System.out.print("Rectangle rejected: ");
-			System.out.print("(" + node_data + ")\n");
+			System.out.print("Rectangle rejected (" + node_data + ")\n");
 		}
+	}
+	void intersection() {
+		//do you create two new BSTs to iterate through the bitch?
+		BST<RectKey, RectData>.BST_Iterator outside = new BST<RectKey, RectData>.BST_Iterator(my_bst.root());
 		
 	}
 	
