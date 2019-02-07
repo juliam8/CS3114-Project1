@@ -131,7 +131,7 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_nod
 	protected int node_count;
 
 	public class BST_Iterator implements Iterator<BST_node<K, D>> {
-		//i know this is wrong but it's a start
+	
 		BST_Iterator(BST_node<K, D> root){ node_stack.push(root); }
 
 		@Override
