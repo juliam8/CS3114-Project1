@@ -111,10 +111,12 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<K>{
 		else if (rt.key().toString().compareTo(key) < 0) 
 			search_helper(rt.right(), key, b);
 		else {
+			search_helper(rt.left(), key, true);
 			System.out.print("Rectangle found: " + rt + "\n");
-			return b || true;
+			search_helper(rt.right(), key, true);
+			b = true;
 		}
-		return false;
+		return b;
 	}
 	
 	public BST_node<K, D> root() {
