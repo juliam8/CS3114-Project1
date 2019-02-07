@@ -45,22 +45,20 @@ public class BST_Rectangle<K, D> extends BST<RectKey, RectData> {
 
 	//height and width must be greater than 0
 	//can be outside 0 1024 range
-	Vector<BST_node<RectKey, RectData>> regionsearch(RectData d) {
-		Vector<BST_node<RectKey, RectData>> result  = new Vector<BST_node<RectKey, RectData>>();;
-		regionsearch_helper(root, d, result);
-		return result;
+	void regionsearch(RectData d) {
+		regionsearch_helper(root, d);
 	}
 	
 	//how about we just get the top left coordi
 	//l1 top left
 	//r1 bottom right
-	void regionsearch_helper(BST_node<RectKey, RectData> rt, RectData d, Vector<BST_node<RectKey, RectData>> r) {
+	void regionsearch_helper(BST_node<RectKey, RectData> rt, RectData d) {
 		if (rt == null) return;
 		
 		if (rt != null) {
-			regionsearch_helper(rt.left(), d, r);
+			regionsearch_helper(rt.left(), d);
 			regionsearch_check(rt, d);
-			regionsearch_helper(rt.right(), d, r);
+			regionsearch_helper(rt.right(), d);
 		}
 	}
 	

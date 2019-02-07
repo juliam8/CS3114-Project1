@@ -71,13 +71,7 @@ public class Parser {
 		else {
 			RectData node_data = new RectData(nums);
 			System.out.print("Rectangles intersecting region (" + node_data + "):\n");
-			Vector<BST_node<RectKey, RectData>> result = my_bst.regionsearch(node_data);
-			if (!result.isEmpty()) {
-				for(BST_node<RectKey, RectData> a : result) {
-					System.out.println(a);
-				}
-			}
-			
+			my_bst.regionsearch(node_data);
 		}
 	}
 
