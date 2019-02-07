@@ -72,7 +72,7 @@ public class BST_Rectangle<K, D> extends BST<RectKey, RectData> {
 		for(int i = 0; i < node_count; ++i) {
 			cur = outer.next();
 			BST_Iterator inner = new BST_Iterator(root);
-			for(int k = 0; k < i; ++k)
+			for(int k = 0; k < i; ++k)	//goes forward the amount of times on outside
 				inner.next();
 			for(int j = 0; j < node_count-i; ++j) {
 				iterator_check(cur, inner.next());
