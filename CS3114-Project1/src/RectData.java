@@ -15,8 +15,8 @@ public class RectData implements Comparable<RectData> {
 	@Override
 	public int compareTo(RectData node_data) {
 		if (coordinates == node_data.coordinates())
-			return 1;
-		return 0;
+			return 0;
+		return 1;
 	}
 	
 	@Override

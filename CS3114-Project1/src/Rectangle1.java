@@ -24,7 +24,6 @@ public class Rectangle1 {
 	 *also do @return if needed
 	 */
 	public static void main(String[] args) throws FileNotFoundException {
-		//BST<BST_node<Rectangle>> BST = new BST<BST_node<Rectangle>>();
 		BST_Rectangle<RectKey, RectData> BST = new BST_Rectangle<RectKey, RectData>();
 		Parser myparse = new Parser(new File(args[0]), BST);
 		myparse.execute();
