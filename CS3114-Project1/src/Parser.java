@@ -27,7 +27,7 @@ public class Parser {
 			else if (command.equals("remove")) { remove(); }
 			else if (command.equals("regionsearch")) { region_search(); }
 			else if (command.equals("search")) { my_bst.search(scan.next()); }
-			else if (command.equals("intersection")) {}// my_bst.intersection(); }
+			else if (command.equals("intersections")) { intersections(); }
 			else if (command.equals("dump")) { my_bst.dump(); }
 		}
 		scan.close();		
@@ -97,6 +97,11 @@ public class Parser {
 		BST<RectKey, RectData>.BST_Iterator outside;
 		//= new BST<RectKey, RectData>.BST_Iterator();
 		
+	}
+	
+	private void intersections() {
+		System.out.print("Intersection pairs:\n");
+		my_bst.intersection();
 	}
 	
 	private Scanner scan;
