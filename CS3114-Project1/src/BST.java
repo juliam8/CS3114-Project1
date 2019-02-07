@@ -74,13 +74,13 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_nod
 		if (root != null) {
 			dump_helper(root, 0);
 		}
-		System.out.print("BST size is " + node_count + "\n");
+		System.out.print("\tBST size is: " + node_count + "\n");
 	}
 
 	private void dump_helper(BST_node<K, D> rt, int count) {	//in order traversal
 		if (rt != null) {
 			dump_helper(rt.left(), count + 1);
-			System.out.print("Node has depth " + count + ", Value (");
+			System.out.print("\tNode has depth " + count + ", Value (");
 			System.out.print(rt.key().toString() + " ");
 			System.out.print(rt.data().toString() + ")\n");
 			dump_helper(rt.right(), count + 1);
@@ -100,7 +100,7 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_nod
 	public void search(String node_name) {
 		boolean found = search_helper(root, node_name, false);
 		if(!found)
-			System.out.print("Rectanlge not found: " + node_name + "\n");
+			System.out.print("Rectangle not found: " + node_name + "\n");
 		return;
 	}
 	

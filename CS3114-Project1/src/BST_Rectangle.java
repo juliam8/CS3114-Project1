@@ -64,6 +64,7 @@ public class BST_Rectangle<K, D> extends BST<RectKey, RectData> {
 			System.out.println(rt);
 	}
 		
+
 	//Work in progress! ? maybe done
 	public void intersection() {
 		BST_Iterator outer = new BST_Iterator(root);
@@ -92,7 +93,4 @@ public class BST_Rectangle<K, D> extends BST<RectKey, RectData> {
 		else
 			System.out.println("\t" + a + " : " + b);
 	}
-	
-	
-
 }
