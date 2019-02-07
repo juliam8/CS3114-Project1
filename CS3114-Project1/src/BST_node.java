@@ -5,7 +5,10 @@
 	
 public class BST_node<K, D>{
 	//constructors
-	BST_node(){ left = right = null; }
+	BST_node(){ 
+		left = right = null; 
+	}
+	
 	BST_node(K k, D d){
 		key = k; 
 		data = d;
