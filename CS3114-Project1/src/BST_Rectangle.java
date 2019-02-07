@@ -1,11 +1,10 @@
-import java.util.Vector;
 /**
- * @author juliam8
+ * @author juliam8 && abbym1
  *
  */
 public class BST_Rectangle<K, D> extends BST<RectKey, RectData> {
 	
-	public BST_Rectangle(){ root = null; node_count = 0; }
+	BST_Rectangle(){ root = null; node_count = 0; }
 	
 	public BST_node<RectKey, RectData> remove(RectKey k) {	//maybe should be made null
 		if (root != null) {	
@@ -42,16 +41,6 @@ public class BST_Rectangle<K, D> extends BST<RectKey, RectData> {
 			return find_helper_data(rt.right(), d);
 	}
 	
-
-	//height and width must be greater than 0
-	//can be outside 0 1024 range
-	//void regionsearch(RectData d) {
-		//regionsearch_traverse(root, d);
-	//}
-	
-	//how about we just get the top left coordi
-	//l1 top left
-	//r1 bottom right
 	public void regionsearch(BST_node<RectKey, RectData> rt, RectData d) {
 		if (rt == null) return;
 		
@@ -75,19 +64,18 @@ public class BST_Rectangle<K, D> extends BST<RectKey, RectData> {
 			System.out.println(rt);
 	}
 		
-	//Work in progress!
+	//Work in progress! ? maybe done
 	public void intersection() {
 		BST_Iterator outer = new BST_Iterator(root);
-		
+		BST_node<RectKey, RectData> cur = null;
 		for(int i = 0; i < node_count; ++i) {
+			cur = outer.next();
 			BST_Iterator inner = new BST_Iterator(root);
-			for(int k = 0; k <= i; ++k)
+			for(int k = 0; k < i; ++k)
 				inner.next();
-			for(int j = 0; j < node_count; ++j) {
-				iterator_check(outer.next(), inner.next());
-				inner.next();
+			for(int j = 0; j < node_count-i; ++j) {
+				iterator_check(cur, inner.next());
 			}
-			outer.next();
 		}
 		
 	}
@@ -100,7 +88,7 @@ public class BST_Rectangle<K, D> extends BST<RectKey, RectData> {
 		int d_x1 = b.data().x(); int d_x2 = b.data().x() + b.data().w();
 		int d_y1 = b.data().y(); int d_y2 = b.data().y() + b.data().h();
 		
-		if (n_x1 > d_x2 || d_x1 > n_x2 || n_y1 > d_y2 || d_y1 > n_y2) {}
+		if (n_x1 > d_x2 || d_x1 > n_x2 || n_y1 > d_y2 || d_y1 > n_y2 || a == b) {}
 		else
 			System.out.println("\t" + a + " : " + b);
 	}

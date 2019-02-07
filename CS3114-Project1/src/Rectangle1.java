@@ -29,7 +29,4 @@ public class Rectangle1 {
 		Parser myparse = new Parser(new File(args[0]), BST);
 		myparse.execute();
 	}
-
-	
-	
 }

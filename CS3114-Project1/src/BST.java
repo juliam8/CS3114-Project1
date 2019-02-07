@@ -119,17 +119,15 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_nod
 		return b;
 	}
 	
-	public BST_node<K, D> root() {
-		return root;
-	}
+	public BST_node<K, D> root() { return root; }
 	
-	public int node_count() {
-		return node_count;
-	}
+	public int node_count() { return node_count; }
 	
+	//data members
 	protected BST_node<K, D> root;
 	protected int node_count;
 
+	//Iterator subclass for our BST implemented using a stack
 	public class BST_Iterator implements Iterator<BST_node<K, D>> {
 	
 		BST_Iterator(BST_node<K, D> root){ node_stack.push(root); }
