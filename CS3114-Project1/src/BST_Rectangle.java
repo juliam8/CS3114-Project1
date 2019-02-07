@@ -46,7 +46,7 @@ public class BST_Rectangle<K, D> extends BST<RectKey, RectData> {
 	//height and width must be greater than 0
 	//can be outside 0 1024 range
 	Vector<BST_node<RectKey, RectData>> regionsearch(RectData d) {
-		Vector<BST_node<RectKey, RectData>> result  = new Vector<BST_node<RectKey, RectData>>();;
+		Vector<BST_node<RectKey, RectData>> result  = new Vector<BST_node<RectKey, RectData>>();
 		regionsearch_helper(root, d, result);
 		return result;
 	}
