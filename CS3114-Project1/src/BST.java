@@ -4,12 +4,12 @@ import java.util.Stack;
  * @author juliam8 && abbym1
  *
  */
-public class BST<K extends Comparable<? super K>, D> implements Iterable<K>{
+public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_node<K, D>>{
 	//constructor
 	BST(){ root = null; node_count = 0; }
 	
     @Override
-    public Iterator<K> iterator() {
+    public Iterator<BST_node<K, D>> iterator() {
         return new BST_Iterator(root);
     }
 	
@@ -141,7 +141,7 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<K>{
 
 		@Override
 		public BST_node<K, D> next() {
-			BST_node<K, D> cur;
+			BST_node<K, D> cur = null;
 			if(!node_stack.empty()) {
 				cur = node_stack.peek();
 				node_stack.pop();
