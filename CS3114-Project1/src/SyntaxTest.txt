@@ -1,8 +1,15 @@
-
 insert c 	0 0 11 4
 insert d	 1 1 4 2
 insert a	 1 1 4 6
 insert b	 1 1 4 7
+
+search c
+
+insert c 50 50 50 50
+
+search c
+
+search nope
 
 dump
 
