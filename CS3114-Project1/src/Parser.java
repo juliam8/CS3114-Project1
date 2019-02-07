@@ -1,5 +1,4 @@
 import java.io.File;
-import java.util.Vector;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
@@ -42,18 +41,12 @@ public class Parser {
 		}
 		RectKey node_key = new RectKey(name);
 		RectData node_data = new RectData(nums);
-		//Rectangle my_rect = new Rectangle(name, nums);
 		my_bst.insert(node_key, node_data);
 		if ((nums[2] <= 0 || nums[3] <= 0) || (nums[0]+nums[2] > 1024 || nums[0]+nums[2] < 0 || nums[1]+nums[3] > 1024 || nums[1]+nums[3] < 0)) {
 			System.out.print("Rectangle rejected: (" + node_key + " " + node_data + ")\n");
-			//System.out.print("(" + node_key + " ");
-			//System.out.print(" " + node_data + ")\n");
 		}
 		else {
 			System.out.print("Rectangle accepted: (" + node_key + " " + node_data + ")\n");
-			//System.out.print("Rectangle accepted: ");
-			//System.out.print("(" + node_key + " ");
-			//System.out.print(" " + node_data + ")\n");
 		}
 	}
 	
@@ -84,7 +77,7 @@ public class Parser {
 		RectKey node_key = new RectKey(scan.next());
 		BST_node<RectKey, RectData> temp = my_bst.remove(node_key);
 		if (temp == null) {
-			System.out.print("Rectangle rejected: ");
+			System.out.print("Rectangle rejected (" + node_key + ")\n");
 			System.out.print("(" + node_key + ")\n");
 		}
 	}

@@ -11,7 +11,7 @@ public class BST_Rectangle<K, D> extends BST<RectKey, RectData> {
 		if (root != null) {	
 		    BST_node<RectKey, RectData> temp = find_helper(root, k); // First find it
 		    if (temp != null) {
-		      root = remove_helper(root, k); // removed "root = "
+		      root = remove_helper(root, k);
 		      node_count--;
 		    }
 		    return temp;
@@ -19,11 +19,11 @@ public class BST_Rectangle<K, D> extends BST<RectKey, RectData> {
 		return null;	//return null
 	}
 	
-	BST_node<RectKey, RectData> remove(RectData d){		///Ah I don't know if it should be void or not
+	BST_node<RectKey, RectData> remove(RectData d){		
 		if (root != null) {
 			BST_node<RectKey, RectData> temp = find_helper_data(root, d);
 		    if (temp != null) {
-			      root = remove_helper(root, temp.key()); // removed "root = "
+			      root = remove_helper(root, temp.key()); 
 			      node_count--;
 		    }
 		    return temp;
@@ -73,7 +73,6 @@ public class BST_Rectangle<K, D> extends BST<RectKey, RectData> {
 		if (n_x1 > d_x2 || d_x1 > n_x2 || n_y1 > d_y2 || d_y1 > n_y2) {}
 		else
 			System.out.println(rt);
-		
 	}
 		
 	void intersection() {
