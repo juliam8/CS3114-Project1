@@ -7,6 +7,7 @@ insert b	 1 1 4 7
 dump
 
 remove c
-remove 1 1 4 2
+
+regionsearch 0 0 1024 1024
 
 dump

@@ -55,13 +55,16 @@ public class BST_Rectangle<K, D> extends BST<RectKey, RectData> {
 	//l1 top left
 	//r1 bottom right
 	void regionsearch_helper(BST_node<RectKey, RectData> rt, RectData d, Vector<BST_node<RectKey, RectData>> r) {
-		int n_x1 = rt.data().x();//left
+		int n_x1 = rt.data().x();//left 
 		int n_x2 = rt.data().x() + rt.data().w();//right
 		int n_y1 = rt.data().y();//top
-		int n_y2 = rt.data().y() - rt.data().h();//bottom
+		int n_y2 = rt.data().y() + rt.data().h();//bottom
+		int d_x1 = d.x(); int d_x2 = d.x() + d.w();
+		int d_y1 = d.y(); int d_y2 = d.y() + d.h();
 		
 		if (rt == null) return;
-		if (n_x1 > (d.x()+d.w()) || d.x() > n_x2 || n_y1 < (d.y()-d.h()) || d.y() < n_y2) {
+		//if ((n_x2 <= d_x1) || (d_x2 <= n_x1))
+		if (n_x1 > d_x2 || d_x1 > n_x2 || n_y1 > d_y2 || d_y1 > n_y2) {
 			//not overlapping
 			if (rt.left() != null)
 				regionsearch_helper(rt.left(), d, r);
