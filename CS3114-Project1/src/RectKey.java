@@ -1,9 +1,5 @@
 /**
- * 
- */
-
-/**
- * @author juliam8 and abbym1
+ * @author juliam8 && abbym1
  *
  */
 public class RectKey implements Comparable<RectKey>{
@@ -14,17 +10,13 @@ public class RectKey implements Comparable<RectKey>{
 	
 	@Override
 	public int compareTo(RectKey key) {
-		return name.compareTo(key.get_name());
+		return name.compareTo(key.name());
 	}
 	
 	@Override
-	public String toString() {
-        return name;
-    }
+	public String toString() { return name; }
 	
-	public String get_name() {
-		return name;
-	}
+	public String name() { return name; }
 	
 	private String name;
 }

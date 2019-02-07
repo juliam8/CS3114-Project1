@@ -1,11 +1,5 @@
-import java.util.Arrays;
-
 /**
- * 
- */
-
-/**
- * @author jmkuz
+ * @author juliam8 && abbym1
  *
  */
 public class RectData implements Comparable<RectData> {
@@ -20,7 +14,7 @@ public class RectData implements Comparable<RectData> {
 	
 	@Override
 	public int compareTo(RectData node_data) {
-		if (Arrays.equals(coordinates, node_data.coordinates()))
+		if (coordinates == node_data.coordinates())
 			return 1;
 		return 0;
 	}
@@ -30,29 +24,14 @@ public class RectData implements Comparable<RectData> {
         return x + ", " + y + ", " + w + ", " + h;
     }
 	
-	public int[] coordinates() {
-		return coordinates;
-	}
+	public int[] coordinates() { return coordinates; }
 	
-	public int x() {
-		return x;
-	}
+	public int x() { return x; }
+	public int y() { return y; }
+	public int w() { return w; }
+	public int h() { return h; }
 	
-	public int y() {
-		return y;
-	}
-	
-	public int w() {
-		return w;
-	}
-	
-	public int h() {
-		return h;
-	}
-	
-	private int x;
-	private int y;
-	private int w;
-	private int h;
+	//private member variables
+	private int x, y, w, h;
 	private int[] coordinates;
 }
