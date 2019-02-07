@@ -120,7 +120,6 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_nod
 	}
 	
 	public BST_node<K, D> root() { return root; }
-	
 	public int node_count() { return node_count; }
 	
 	//data members

@@ -6,42 +6,71 @@ public class RectDataTest {
 
 	@Test
 	public void testRectData() {
-		fail("Not yet implemented");
+		int[] c = {1, 1, 4, 5};
+		RectData d = new RectData(c);
+		
+		assertEquals(c, d.coordinates());
 	}
 
 	@Test
 	public void testCompareTo() {
-		fail("Not yet implemented");
+		int[] c = {1, 1, 4, 5};
+		RectData d = new RectData(c);
+		RectData f = d;
+		
+		int res = f.compareTo(d);
+		
+		assertEquals(res, 0);
 	}
 
 	@Test
 	public void testToString() {
-		fail("Not yet implemented");
+		int[] c = {1, 1, 4, 5};
+		RectData d = new RectData(c);
+		
+		String test = d.toString();
+		
+		assertEquals("1, 1, 4, 5", test);
 	}
 
 	@Test
 	public void testCoordinates() {
-		fail("Not yet implemented");
+		int[] c = {1, 1, 4, 5};
+		RectData d = new RectData(c);
+		
+		assertEquals(c, d.coordinates());
 	}
 
 	@Test
 	public void testX() {
-		fail("Not yet implemented");
+		int[] c = {1, 1, 4, 5};
+		RectData d = new RectData(c);
+		
+		assertEquals(c[0], d.x());
 	}
 
 	@Test
 	public void testY() {
-		fail("Not yet implemented");
+		int[] c = {1, 1, 4, 5};
+		RectData d = new RectData(c);
+		
+		assertEquals(c[1], d.y());
 	}
 
 	@Test
 	public void testW() {
-		fail("Not yet implemented");
+		int[] c = {1, 1, 4, 5};
+		RectData d = new RectData(c);
+		
+		assertEquals(c[2], d.w());
 	}
 
 	@Test
 	public void testH() {
-		fail("Not yet implemented");
+		int[] c = {1, 1, 4, 5};
+		RectData d = new RectData(c);
+		
+		assertEquals(c[3], d.h());
 	}
 
 }
