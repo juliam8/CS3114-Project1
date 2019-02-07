@@ -4,6 +4,8 @@ insert d	 1 1 4 2
 insert a	 1 1 4 6
 insert b	 1 1 4 7
 
+search nope
+
 dump
 
 remove c
