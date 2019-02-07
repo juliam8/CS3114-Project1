@@ -69,7 +69,6 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<K>{
 		}
 	}
 
-	
 	public void dump() {
 		System.out.print("BST dump:\n");
 		if (root != null) {
@@ -98,25 +97,25 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<K>{
 			return rt;	
 	}
 	
-	public Vector<BST_node<K, D>> search(String node_name) {
-		Vector<BST_node<K, D>> result = new Vector<BST_node<K, D>>();
-		search_helper(root, node_name, result);
-		return result;
+	public void search(String node_name) {
+		boolean found = search_helper(root, node_name, false);
+		if(!found)
+			System.out.print("Rectanlge not found: " + node_name + "\n");
+		return;
 	}
 	
-	public void search_helper(BST_node<K, D> rt, String key, Vector<BST_node<K, D>> r) {
-		if (rt == null) return;
+	public boolean search_helper(BST_node<K, D> rt, String key, boolean b) {
+		if (rt == null) return b || false;
 		if (rt.key().toString().compareTo(key) > 0)
-			search_helper(rt.left(), key, r);
-		else if (rt.key().toString().compareTo(key) < 0)
-			search_helper(rt.right(), key, r);
+			search_helper(rt.left(), key, b);
+		else if (rt.key().toString().compareTo(key) < 0) 
+			search_helper(rt.right(), key, b);
 		else {
-			r.addElement(rt);
-			return;
+			System.out.print("Rectangle found: " + rt + "\n");
+			return b || true;
 		}
+		return false;
 	}
-
-	
 	
 	public BST_node<K, D> root() {
 		return root;
@@ -128,7 +127,6 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<K>{
 	
 	protected BST_node<K, D> root;
 	protected int node_count;
-	
 
 	public class BST_Iterator implements Iterator<K> {
 		//i know this is wrong but it's a start

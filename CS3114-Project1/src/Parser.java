@@ -31,22 +31,11 @@ public class Parser {
 			if 		(command.equals("insert")) { insert(); }
 			else if (command.equals("remove")) { remove(); }
 			else if (command.equals("regionsearch")) { region_search(); }
-			else if (command.equals("search")) { search(); }
+			else if (command.equals("search")) { my_bst.search(scan.next()); }
 			else if (command.equals("intersection")) { my_bst.intersection(); }
 			else if (command.equals("dump")) { my_bst.dump(); }
 		}
 		scan.close();		
-	}
-	
-	private void search() {
-		String name = scan.next();
-		Vector<BST_node<RectKey, RectData>> res =  my_bst.search(name);
-		if(res.isEmpty())
-			System.out.print("Rectanlge not found: " + name + "\n");
-		for(BST_node<RectKey, RectData> a : res) {
-			System.out.print("Rectangle found: " + a + "\n");
-		}
-		
 	}
 	
 	private void insert() {
