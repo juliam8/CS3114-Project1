@@ -92,12 +92,6 @@ public class Parser {
 			System.out.print("Rectangle rejected (" + node_data + ")\n");
 		}
 	}
-	void intersection() {
-		//do you create two new BSTs to iterate through the bitch?
-		BST<RectKey, RectData>.BST_Iterator outside;
-		//= new BST<RectKey, RectData>.BST_Iterator();
-		
-	}
 	
 	private void intersections() {
 		System.out.print("Intersection pairs:\n");
