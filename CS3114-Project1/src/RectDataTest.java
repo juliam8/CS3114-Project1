@@ -5,7 +5,7 @@ import org.junit.Test;
  * @author juliam8 && abbym1
  *
  */
-public class RectDataTest {
+public class RectDataTest{
 
 	@Test
 	public void testRectData() {
