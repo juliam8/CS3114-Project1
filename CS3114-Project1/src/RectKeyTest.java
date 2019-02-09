@@ -1,7 +1,10 @@
 import static org.junit.Assert.*;
 
 import org.junit.Test;
-
+/**
+ * @author juliam8 && abbym1
+ *
+ */
 public class RectKeyTest {
 
 	@Test

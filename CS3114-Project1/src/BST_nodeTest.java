@@ -1,7 +1,10 @@
 import static org.junit.Assert.*;
 
 import org.junit.Test;
-
+/**
+ * @author juliam8 && abbym1
+ *
+ */
 public class BST_nodeTest {
 
 	@Test
@@ -115,6 +118,7 @@ public class BST_nodeTest {
 	@Test
 	public void testIsLeaf() {
 		BST_node<RectKey, RectData> right = new BST_node<RectKey, RectData>();
+		BST_node<RectKey, RectData> left = new BST_node<RectKey, RectData>();
 		RectKey key = new RectKey("node_name");
 		int[] c = {1, 2, 3, 4};
 		RectData data = new RectData(c);
@@ -125,6 +129,10 @@ public class BST_nodeTest {
 		n1.set_r(right);
 		
 		assertEquals(n1.isLeaf(), false);
+		
+		n1.set_l(left);
+		
+		assertFalse(n1.isLeaf());
 	}
 
 	@Test
