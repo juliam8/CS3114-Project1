@@ -21,7 +21,7 @@ public class BSTTest {
 	public void testBST() {
 		BST<RectKey, RectData> mytree = new BST<RectKey, RectData>();
 
-		assertEquals(mytree.node_count(), 0);
+		assertEquals(mytree.nodeCount(), 0);
 		assertEquals(mytree.root(), null);
 	}
 
@@ -36,12 +36,12 @@ public class BSTTest {
 		RectData d = new RectData(c);
 		mytree.insert(key, d);
 
-		assertEquals(mytree.node_count(), 1);
+	assertEquals(mytree.nodeCount(), 1);
 		assertNotEquals(mytree.root(), null);
 
 		mytree.clear();
 
-		assertEquals(mytree.node_count(), 0);
+		assertEquals(mytree.nodeCount(), 0);
 		assertEquals(mytree.root(), null);
 	}
 
@@ -144,10 +144,10 @@ public class BSTTest {
 	}
 
 	/**
-	 * Test method for {@link BST#node_count()}.
+	 * Test method for {@link BST#nodeCount()}.
 	 */
 	@Test
-	public void testNode_count() {
+	public void testnodeCount() {
 		// fail("Not yet implemented");
 	}
 

@@ -46,22 +46,22 @@ public class BST_nodeTest {
 	@Test
 	public void testSet_key() {
 		n1 = new BST_node<RectKey, RectData>();
-		RectKey new_key = new RectKey("new_name");
+		RectKey newKey = new RectKey("new_name");
 
-		n1.set_key(new_key);
+		n1.setKey(newKey);
 		
-		assertEquals(n1.key(), new_key);
+		assertEquals(n1.key(), newKey);
 	}
 
 	@Test
-	public void testSet_data() {
+	public void testsetData() {
 		n1 = new BST_node<RectKey, RectData>();
 		int[] c = {10, 3, 7, 32};
-		RectData new_data = new RectData(c);
+		RectData newData = new RectData(c);
 		
-		n1.set_data(new_data);
+		n1.setData(newData);
 		
-		assertEquals(n1.data(), new_data);
+		assertEquals(n1.data(), newData);
 	}
 
 	@Test
@@ -86,7 +86,7 @@ public class BST_nodeTest {
 	}
 
 	@Test
-	public void testSet_r() {
+	public void testsetRight() {
 		BST_node<RectKey, RectData> right = new BST_node<RectKey, RectData>();
 		RectKey key = new RectKey("node_name");
 		int[] c = {1, 2, 3, 4};
@@ -95,13 +95,13 @@ public class BST_nodeTest {
 		
 		assertEquals(n1.right(), null);
 		
-		n1.set_r(right);
+		n1.setRight(right);
 		
 		assertEquals(n1.right(), right);
 	}
 
 	@Test
-	public void testSet_l() {
+	public void testsetLeft() {
 		BST_node<RectKey, RectData> left = new BST_node<RectKey, RectData>();
 		RectKey key = new RectKey("node_name");
 		int[] c = {1, 2, 3, 4};
@@ -110,7 +110,7 @@ public class BST_nodeTest {
 		
 		assertEquals(n1.left(), null);
 		
-		n1.set_l(left);
+		n1.setLeft(left);
 		
 		assertEquals(n1.left(), left);
 	}
@@ -126,11 +126,11 @@ public class BST_nodeTest {
 		
 		assertEquals(n1.isLeaf(), true);
 		
-		n1.set_r(right);
+		n1.setRight(right);
 		
 		assertEquals(n1.isLeaf(), false);
 		
-		n1.set_l(left);
+		n1.setLeft(left);
 		
 		assertFalse(n1.isLeaf());
 	}
