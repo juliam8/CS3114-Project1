@@ -62,7 +62,7 @@ public class BST_Rectangle<K, D> extends BST<RectKey, RectData> {
 	private BST_node<RectKey, RectData> findHelperData(BST_node<RectKey, RectData> rt, RectData data) {
 		if (rt == null)
 			return null;
-		if (rt.data().compareTo(data) == 1)
+		if (rt.data().compareTo(data) == 0)
 			return rt;
 		else if (rt.left() != null)
 			return findHelperData(rt.left(), data);

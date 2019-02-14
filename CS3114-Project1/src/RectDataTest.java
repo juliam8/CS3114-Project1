@@ -23,7 +23,7 @@ public class RectDataTest{
 		
 		int res = f.compareTo(d);
 		
-		assertEquals(res, 1);
+		assertEquals(res, 0);
 	}
 
 	@Test
