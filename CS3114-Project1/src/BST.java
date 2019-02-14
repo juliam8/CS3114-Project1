@@ -1,3 +1,4 @@
+import java.io.FileNotFoundException;
 import java.util.Iterator;
 import java.util.Stack;
 
@@ -5,6 +6,7 @@ import java.util.Stack;
  * @author juliam8 && abbym1
  *
  */
+
 public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_node<K, D>> {
 	// constructor
 	BST() {
@@ -17,19 +19,34 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_nod
 		return new BST_Iterator(root);
 	}
 
-	// clear, apparently
+	/**
+	 * Clears the elements of the binary search tree
+	 */
 	public void clear() {
 		root = null;
 		node_count = 0;
 	}
 
-	// insert a node into the BST
-	// input must be a comparable data type
+	/**
+	 * Calls insert helper and to increment node count 
+	 * @param args the arguments
+	 * @throws FileNotFoundException 
+	 *also do @return if needed
+	 */
 	public void insert(K k, D d) {
 		root = insert_helper(root, k, d);
 		node_count++;
 	}
 
+
+	/**
+	 * Inserts a node into BST by comparing the key value
+	 * @param rt the root node of the BST
+	 * @param k the key value of the node to insert
+	 * @param d the data value of the node to insert
+	 * @throws FileNotFoundException 
+	 * @return the altered BST node, which the root will be set to
+	 */
 	public BST_node<K, D> insert_helper(BST_node<K, D> rt, K k, D d) {
 		if (rt == null)
 			return new BST_node<K, D>(k, d);
@@ -39,8 +56,16 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_nod
 			rt.set_r(insert_helper(rt.right(), k, d));
 		return rt;
 	}
-
-	protected BST_node<K, D> remove_helper(BST_node<K, D> rt, K key) { // remove the temp found by find_helper
+	
+	/**
+	 * Removes a node from the BST by 
+	 * @param rt the root node of the BST
+	 * @param k the key value of the node to insert
+	 * @param d the data value of the node to insert
+	 * @throws FileNotFoundException 
+	 * @return the altered BST node, which the root will be set to
+	 */
+	protected BST_node<K, D> remove_helper(BST_node<K, D> rt, K key) {
 		if (rt == null)
 			return null;
 		if (rt.key().compareTo(key) > 0)
