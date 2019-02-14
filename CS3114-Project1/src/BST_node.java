@@ -9,12 +9,18 @@ public class BST_node<K, D> {
 		left = right = null;
 	}
 
+	/**
+     * Constructor
+     */
 	BST_node(K k, D d) {
 		key = k;
 		data = d;
 		left = right = null;
 	}
 
+	/**
+     * Constructor
+     */
 	BST_node(K k, D d, BST_node<K, D> l, BST_node<K, D> r) {
 		key = k;
 		data = d;
@@ -22,42 +28,74 @@ public class BST_node<K, D> {
 		right = r;
 	}
 
-	// Get and set the key value
+	/**
+     * Get the key value
+     * @return the key value
+     */
 	public K key() {
 		return key;
 	}
 
+	/**
+     * Sets the key value
+     * @param k the key value to set
+     */
 	public void setKey(K k) {
 		key = k;
 	}
 
-	// Get and set the data value
+	/**
+     * Get the data value
+     * @return the data value
+     */
 	public D data() {
 		return data;
 	}
 
+	/**
+     * Set the data
+     * @param d the data value to set
+     */
 	public void setData(D d) {
 		data = d;
 	}
 
-	// get and set the left and right child nodes
+	/**
+     * Returns the right node
+     * @return the right node
+     */
 	public BST_node<K, D> right() {
 		return right;
 	}
 
+	/**
+     * Sets the right node
+     * @param r the right node to set
+     */
 	public void setRight(BST_node<K, D> r) {
 		right = r;
 	}
 
+	/**
+     * Returns the left node
+     * @return the left node
+     */
 	public BST_node<K, D> left() {
 		return left;
 	}
 
+	/**
+     * Sets the left node
+     * @param l the left node to set
+     */
 	public void setLeft(BST_node<K, D> l) {
 		left = l;
 	}
 
-	// return true IFF this is a leaf node
+	/**
+     * Checks if the node has no children
+     * @return the boolean that is set if the node is a leaf node
+     */
 	public boolean isLeaf() {
 		return (left == null && right == null);
 	}
