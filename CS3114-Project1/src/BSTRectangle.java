@@ -4,17 +4,17 @@
  * @author juliam8
  * @author abbym1
  * @version 2019-02-14
- * @param<D> Generic Data type 
- * @param<K> Generic Key type
+ * @param <D> Generic Data type 
+ * @param <K> Generic Key type
  *  Extension of generic BST class to handle Rectangles
  */
-public class BST_Rectangle<K, D> extends BST<RectKey, RectData> {
+public class BSTRectangle<K, D> extends BST<RectKey, RectData> {
     
     /**
-     * Constructor for the BST_Rectangle class 
+     * Constructor for the BSTRectangle class 
      * Sets the private member variables root and nodeCount
      */
-	BST_Rectangle() {
+    BSTRectangle() {
 		root = null;
 		nodeCount = 0;
 	}

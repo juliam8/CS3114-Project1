@@ -10,8 +10,8 @@ import java.io.FileNotFoundException;
 public class Rectangle1 {
 
     /**
-	 * Constructor for main file
-	 */
+     * Constructor for main file
+     */
     public Rectangle1() {
         //never instantiated, so nothing is needed here
     }
@@ -22,8 +22,8 @@ public class Rectangle1 {
      * @throws FileNotFoundException
      */
     public static void main(String[] args) throws FileNotFoundException {
-        BST_Rectangle<RectKey, RectData> bstRect;
-        bstRect = new BST_Rectangle<RectKey, RectData>();
+        BSTRectangle<RectKey, RectData> bstRect;
+        bstRect = new BSTRectangle<RectKey, RectData>();
         Parser p = new Parser(new File(args[0]), bstRect);
         p.execute();
     }

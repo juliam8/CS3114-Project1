@@ -19,7 +19,7 @@ public class Parser {
      * @param rectBST       Binary Search tree associated with the parser object
      *                      and input file upon which the commands will be run
      */
-    Parser(File inputFile, BST_Rectangle<RectKey, RectData> rectBST) {
+    Parser(File inputFile, BSTRectangle<RectKey, RectData> rectBST) {
         try {
             mBST = rectBST;
             mScan = new Scanner(inputFile);
@@ -171,5 +171,5 @@ public class Parser {
     }
 
     private Scanner mScan;
-    private BST_Rectangle<RectKey, RectData> mBST;
+    private BSTRectangle<RectKey, RectData> mBST;
 }
