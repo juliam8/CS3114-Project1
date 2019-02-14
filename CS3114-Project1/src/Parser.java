@@ -61,25 +61,19 @@ public class Parser {
         mScan.close();
     }
 
+    /**
+     * Checks input rectangle data for validity
+     * @param i     Input array representing x y w h
+     * @return      True for a valid rectangle, else False
+     * A rectangle is valid if it lies within (0,0) and (1024, 1024)
+     * and has non-negative w and h
+     */
     private boolean valid(int[] i) {
-        if (i[2] <= 0 || i[3] <= 0) {
-            return false;
-        }
-        else if(i[0] + i[2] > 1024) {
-            return false;
-        }
-        else if(i[0] + i[2] < 0) {
-            return false;
-        }
-        else if(i[1] + i[3] > 1024) {
-            return false;
-        }
-        else if(i[1] + i[3] < 0) {
-            return false;
-        }
-        else {
-            return true;
-        }
+        return !((i[2] <= 0 || i[3] <= 0) ||
+                (i[0] + i[2] > 1024) ||
+                (i[0] + i[2] < 0) ||
+                (i[1] + i[3] > 1024) ||
+                (i[1] + i[3] < 0));
     }
     
     /**
@@ -94,38 +88,54 @@ public class Parser {
         }
         RectKey nodeKey = new RectKey(name);
         RectData nodeData = new RectData(nums);
-        BST_node<RectKey, RectData> n = new BST_node<RectKey, RectData>(nodeKey, nodeData);
+        BST_node<RectKey, RectData> n;
+        n = new BST_node<RectKey, RectData>(nodeKey, nodeData);
         
         if (valid(nums)) {
             mBST.insert(n);
             System.out.print("Rectangle accepted: " + n + "\n");
-        } else {
+        } 
+        else {
             System.out.print("Rectangle rejected: " + n + "\n");
         }
     }
 
+    /**
+     * Check if the given x y w h represents a valid region
+     * Call the BST regionSearch method if so
+     */
     private void regionSearch() {
         int[] nums = new int[4];
         for (int i = 0; i < 4; i++) {
             nums[i] = Integer.parseInt(mScan.next());
         }
-        if (nums[2] <= 0 || nums[3] <= 0) // command rejected if width/height is <= 0
+        // command rejected if width/height is <= 0
+        if (nums[2] <= 0 || nums[3] <= 0) { 
             System.out.print("Rectangles command rejected.");
+        }
         else {
-            RectData nodeData = new RectData(nums);
-            System.out.print("Rectangles intersecting region (" + nodeData + "):\n");
-            mBST.regionSearch(mBST.root(), nodeData);
+            RectData d = new RectData(nums);
+            System.out.print("Rectangles intersecting region (" + d + "):\n");
+            mBST.regionSearch(mBST.root(), d);
         }
     }
 
+    /**
+     * Determines whether remove by key or remove
+     * by data is appropriate
+     */
     private void remove() {
         if (mScan.hasNextInt()) {
             removeData();
-        } else {
+        } 
+        else {
             removeKey();
         }
     }
 
+    /**
+     * Removes a node with the given Key value
+     */
     private void removeKey() {
         RectKey nodeKey = new RectKey(mScan.next());
         BST_node<RectKey, RectData> temp = mBST.remove(nodeKey);
@@ -134,18 +144,25 @@ public class Parser {
         }
     }
 
+    /**
+     * Removes a node with the given Data value
+     */
     private void removeData() {
         int[] nums = new int[4];
         for (int i = 0; i < 4; i++) {
             nums[i] = Integer.parseInt(mScan.next());
         }
-        RectData nodeData = new RectData(nums);
-        BST_node<RectKey, RectData> temp = mBST.remove(nodeData); // send in array of integers
+        RectData d = new RectData(nums);
+        BST_node<RectKey, RectData> temp = mBST.remove(d); // send in array of integers
         if (temp == null) {
-            System.out.print("Rectangle rejected (" + nodeData + ")\n");
+            System.out.print("Rectangle rejected (" + d + ")\n");
         }
     }
 
+    /**
+     * Calls the BST method to report all intersecting
+     * rectangles
+     */
     private void intersections() {
         System.out.print("Intersection pairs:\n");
         mBST.intersection();
