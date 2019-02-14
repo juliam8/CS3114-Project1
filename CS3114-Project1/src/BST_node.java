@@ -4,13 +4,21 @@
  */
 
 public class BST_node<K, D> {
-	// constructors
+    
+    /**
+     * Constructor for the BST_node class 
+     * Sets the private member variables left and right
+     */
 	BST_node() {
 		left = right = null;
 	}
 
-	/**
-     * Constructor
+    /**
+     * Parameterized constructor for the BST_node class 
+     * Sets the private member variables key, data, left, and right
+     * 
+     * @param k the key value in the created node
+     * @param d the data value in the created node
      */
 	BST_node(K k, D d) {
 		key = k;
@@ -18,8 +26,14 @@ public class BST_node<K, D> {
 		left = right = null;
 	}
 
-	/**
-     * Constructor
+    /**
+     * Parameterized constructor for the BST_node class 
+     * Sets the private member variables key, data, left, and right
+     * 
+     * @param k the key value in the created node
+     * @param d the data value in the created node
+     * @param l the left node of the created node
+     * @param r the right node of the created node
      */
 	BST_node(K k, D d, BST_node<K, D> l, BST_node<K, D> r) {
 		key = k;

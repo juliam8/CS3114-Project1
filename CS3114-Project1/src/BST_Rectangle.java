@@ -3,7 +3,11 @@
  *
  */
 public class BST_Rectangle<K, D> extends BST<RectKey, RectData> {
-
+    
+    /**
+     * Constructor for the BST_Rectangle class 
+     * Sets the private member variables root and nodeCount
+     */
 	BST_Rectangle() {
 		root = null;
 		nodeCount = 0;
