@@ -37,6 +37,11 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_nod
 		nodeCount++;
 	}
 
+	public void insert(BST_node<K, D> n) {
+        root = insert_helper(root, n);
+        nodeCount++;
+    }
+	
 	/**
 	 * Inserts a node into BST by comparing the key value
 	 * @param rt the root node of the BST
@@ -53,6 +58,16 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_nod
 			rt.setRight(insertHelper(rt.right(), k, d));
 		return rt;
 	}
+	
+	public BST_node<K, D> insert_helper(BST_node<K, D> rt, BST_node<K, D> n) {
+        if (rt == null)
+            return n;
+        if (rt.key().compareTo(n.key()) >= 0)
+            rt.setLeft(insert_helper(rt.left(), n));
+        else
+            rt.setRight(insert_helper(rt.right(), n));
+        return rt;
+    }
 	
 	/**
 	 * Removes a node from the BST by the key value
