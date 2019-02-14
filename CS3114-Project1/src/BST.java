@@ -1,3 +1,4 @@
+import java.io.FileNotFoundException;
 import java.util.Iterator;
 import java.util.Stack;
 /**
@@ -13,11 +14,17 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_nod
         return new BST_Iterator(root);
     }
 	
-	//clear, apparently
+	/**
+	 * Clears the elements of the binary search tree
+	 */
 	public void clear() { root = null; node_count = 0; }
 	
-	//insert a node into the BST
-	//input must be a comparable data type
+	/**
+	 * Function to call insert helper and to increment node count 
+	 * @param args the arguments
+	 * @throws FileNotFoundException 
+	 *also do @return if needed
+	 */
 	public void insert(K k, D d) {
 		root = insert_helper(root, k, d);
 		node_count++;
