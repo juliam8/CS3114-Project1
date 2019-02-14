@@ -29,9 +29,8 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_nod
 
 	/**
 	 * Calls insert helper and to increment node count 
-	 * @param args the arguments
-	 * @throws FileNotFoundException 
-	 *also do @return if needed
+     * @param k the key value of the node to insert
+     * @param d the data value of the node to insert
 	 */
 	public void insert(K k, D d) {
 		root = insertHelper(root, k, d);
@@ -43,7 +42,6 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_nod
 	 * @param rt the root node of the BST
 	 * @param k the key value of the node to insert
 	 * @param d the data value of the node to insert
-	 * @throws FileNotFoundException 
 	 * @return the altered BST node, which the root will be set to
 	 */
 	public BST_node<K, D> insertHelper(BST_node<K, D> rt, K k, D d) {
@@ -57,12 +55,10 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_nod
 	}
 	
 	/**
-	 * Removes a node from the BST by 
+	 * Removes a node from the BST by the key value
 	 * @param rt the root node of the BST
-	 * @param k the key value of the node to insert
-	 * @param d the data value of the node to insert
-	 * @throws FileNotFoundException 
-	 * @return the altered BST node, which the root will be set to
+	 * @param k the key value of the node to remove
+	 * @return the node to replace the removed BST node
 	 */
 	protected BST_node<K, D> removeHelper(BST_node<K, D> rt, K key) {
 		if (rt == null)
@@ -86,7 +82,13 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_nod
 		return rt;
 	}
 
-	protected BST_node<K, D> getMin(BST_node<K, D> rt) {//directly find the corresponding
+	/**
+     * Gets the node with minimum value, used in insertHelper
+     * @param rt the root node of the BST
+     * @return the node to replace the removed BST node
+     */
+	protected BST_node<K, D> getMin(BST_node<K, D> rt) {
+	  //directly find the corresponding
 	    //generate another help function remove help that carries name x y w h
 		if (rt.left() == null)
 			return rt;
@@ -94,6 +96,11 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_nod
 			return getMin(rt.left());
 	}
 
+	/**
+     * Removes the node with minimum value, used in insertHelper
+     * @param rt the root node of the BST
+     * @return the node to replace the removed BST node
+     */
 	protected BST_node<K, D> deleteMin(BST_node<K, D> rt) {
 		if (rt.left() == null)
 			return rt.right();

@@ -92,19 +92,19 @@ public class Parser {
         else {
             RectData nodeData = new RectData(nums);
             System.out.print("Rectangles intersecting region (" + nodeData + "):\n");
-            mBST.regionsearch(mBST.root(), nodeData);
+            mBST.regionSearch(mBST.root(), nodeData);
         }
     }
 
     private void remove() {
         if (mScan.hasNextInt()) {
-            remove_data();
+            removeData();
         } else {
-            remove_key();
+            removeKey();
         }
     }
 
-    private void remove_key() {
+    private void removeKey() {
         RectKey nodeKey = new RectKey(mScan.next());
         BST_node<RectKey, RectData> temp = mBST.remove(nodeKey);
         if (temp == null) {
@@ -112,7 +112,7 @@ public class Parser {
         }
     }
 
-    private void remove_data() {
+    private void removeData() {
         int[] nums = new int[4];
         for (int i = 0; i < 4; i++) {
             nums[i] = Integer.parseInt(mScan.next());
