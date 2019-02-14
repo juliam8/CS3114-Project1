@@ -27,7 +27,7 @@ public class BST_node<K, D> {
 		return key;
 	}
 
-	public void set_key(K k) {
+	public void setKey(K k) {
 		key = k;
 	}
 
@@ -36,7 +36,7 @@ public class BST_node<K, D> {
 		return data;
 	}
 
-	public void set_data(D d) {
+	public void setData(D d) {
 		data = d;
 	}
 
@@ -45,7 +45,7 @@ public class BST_node<K, D> {
 		return right;
 	}
 
-	public void set_r(BST_node<K, D> r) {
+	public void setRight(BST_node<K, D> r) {
 		right = r;
 	}
 
@@ -53,7 +53,7 @@ public class BST_node<K, D> {
 		return left;
 	}
 
-	public void set_l(BST_node<K, D> l) {
+	public void setLeft(BST_node<K, D> l) {
 		left = l;
 	}
 

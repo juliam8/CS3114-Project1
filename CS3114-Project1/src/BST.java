@@ -11,7 +11,7 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_nod
 	// constructor
 	BST() {
 		root = null;
-		node_count = 0;
+		nodeCount = 0;
 	}
 
 	@Override
@@ -24,23 +24,22 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_nod
 	 */
 	public void clear() {
 		root = null;
-		node_count = 0;
+		nodeCount = 0;
 	}
 
 	/**
 	 * Calls insert helper and to increment node count 
-	 * @param args the arguments
-	 * @throws FileNotFoundException 
-	 *also do @return if needed
+     * @param k the key value of the node to insert
+     * @param d the data value of the node to insert
 	 */
 	public void insert(K k, D d) {
-		root = insert_helper(root, k, d);
-		node_count++;
+		root = insertHelper(root, k, d);
+		nodeCount++;
 	}
 
 	public void insert(BST_node<K, D> n) {
         root = insert_helper(root, n);
-        node_count++;
+        nodeCount++;
     }
 	
 	/**
@@ -48,16 +47,15 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_nod
 	 * @param rt the root node of the BST
 	 * @param k the key value of the node to insert
 	 * @param d the data value of the node to insert
-	 * @throws FileNotFoundException 
 	 * @return the altered BST node, which the root will be set to
 	 */
-	public BST_node<K, D> insert_helper(BST_node<K, D> rt, K k, D d) {
+	public BST_node<K, D> insertHelper(BST_node<K, D> rt, K k, D d) {
 		if (rt == null)
 			return new BST_node<K, D>(k, d);
 		if (rt.key().compareTo(k) >= 0)
-			rt.set_l(insert_helper(rt.left(), k, d));
+			rt.setLeft(insertHelper(rt.left(), k, d));
 		else
-			rt.set_r(insert_helper(rt.right(), k, d));
+			rt.setRight(insertHelper(rt.right(), k, d));
 		return rt;
 	}
 	
@@ -65,54 +63,64 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_nod
         if (rt == null)
             return n;
         if (rt.key().compareTo(n.key()) >= 0)
-            rt.set_l(insert_helper(rt.left(), n));
+            rt.setLeft(insert_helper(rt.left(), n));
         else
-            rt.set_r(insert_helper(rt.right(), n));
+            rt.setRight(insert_helper(rt.right(), n));
         return rt;
     }
 	
 	/**
-	 * Removes a node from the BST by 
+	 * Removes a node from the BST by the key value
 	 * @param rt the root node of the BST
-	 * @param k the key value of the node to insert
-	 * @param d the data value of the node to insert
-	 * @throws FileNotFoundException 
-	 * @return the altered BST node, which the root will be set to
+	 * @param k the key value of the node to remove
+	 * @return the node to replace the removed BST node
 	 */
-	protected BST_node<K, D> remove_helper(BST_node<K, D> rt, K key) {
+	protected BST_node<K, D> removeHelper(BST_node<K, D> rt, K key) {
 		if (rt == null)
 			return null;
 		if (rt.key().compareTo(key) > 0)
-			rt.set_l(remove_helper(rt.left(), key));
+			rt.setLeft(removeHelper(rt.left(), key));
 		else if (rt.key().compareTo(key) < 0)
-			rt.set_r(remove_helper(rt.right(), key));
+			rt.setRight(removeHelper(rt.right(), key));
 		else {		
 			if (rt.left() == null)
 				return rt.right();
 			else if (rt.right() == null)
 				return rt.left();
 			else { // two children
-				BST_node<K, D> temp = get_min(rt.right());
-				rt.set_data(temp.data());
-				rt.set_key(temp.key());
-				rt.set_r(delete_min(rt.right()));
+				BST_node<K, D> temp = getMin(rt.right());
+				rt.setData(temp.data());
+				rt.setKey(temp.key());
+				rt.setRight(deleteMin(rt.right()));
 			}
 		}
 		return rt;
 	}
 
-	protected BST_node<K, D> get_min(BST_node<K, D> rt) {
+	/**
+     * Gets the node with minimum value, used in insertHelper
+     * @param rt the root node of the BST
+     * @return the node to replace the removed BST node
+     */
+	protected BST_node<K, D> getMin(BST_node<K, D> rt) {
+	  //directly find the corresponding
+	    //generate another help function remove help that carries name x y w h
 		if (rt.left() == null)
 			return rt;
 		else
-			return get_min(rt.left());
+			return getMin(rt.left());
 	}
 
-	protected BST_node<K, D> delete_min(BST_node<K, D> rt) {
+	/**
+     * Removes the node with minimum value, used in insertHelper
+     * @param rt the root node of the BST
+     * @return the node to replace the removed BST node
+     */
+	protected BST_node<K, D> deleteMin(BST_node<K, D> rt) {
 		if (rt.left() == null)
 			return rt.right();
 		else {
-			rt.set_l(delete_min(rt.left()));
+			rt.setLeft(deleteMin(rt.left()));
 			return rt;
 		}
 	}
@@ -120,50 +128,50 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_nod
 	public void dump() {
 		System.out.print("BST dump:\n");
 		if (root != null) {
-			dump_helper(root, 0);
+			dumpHelper(root, 0);
 		}
-		System.out.print("\tBST size is: " + node_count + "\n");
+		System.out.print("\tBST size is: " + nodeCount + "\n");
 	}
 
-	private void dump_helper(BST_node<K, D> rt, int count) { // in order traversal
+	private void dumpHelper(BST_node<K, D> rt, int count) { // in order traversal
 		if (rt != null) {
-			dump_helper(rt.left(), count + 1);
+			dumpHelper(rt.left(), count + 1);
 			System.out.print("\tNode has depth " + count + ", Value (");
 			System.out.print(rt.key().toString() + " ");
 			System.out.print(rt.data().toString() + ")\n");
-			dump_helper(rt.right(), count + 1);
+			dumpHelper(rt.right(), count + 1);
 		}
 	}
 
-	BST_node<K, D> find_helper(BST_node<K, D> rt, K key) {
+	BST_node<K, D> findHelper(BST_node<K, D> rt, K key) {
 		if (rt == null)
 			return null;
 		if (rt.key().compareTo(key) > 0)
-			return find_helper(rt.left(), key);
+			return findHelper(rt.left(), key);
 		else if (rt.key().compareTo(key) < 0)
-			return find_helper(rt.right(), key);
+			return findHelper(rt.right(), key);
 		else
 			return rt;
 	}
 
-	public void search(String node_name) {
-		boolean found = search_helper(root, node_name, false);
+	public void search(String nodeName) {
+		boolean found = searchHelper(root, nodeName, false);
 		if (!found)
-			System.out.print("Rectangle not found: " + node_name + "\n");
+			System.out.print("Rectangle not found: " + nodeName + "\n");
 		return;
-	}
+	}           
 
-	public boolean search_helper(BST_node<K, D> rt, String key, boolean b) {
+	public boolean searchHelper(BST_node<K, D> rt, String key, boolean b) {
 		if (rt == null)
 			return b || false;
 		if (rt.key().toString().compareTo(key) > 0)
-			search_helper(rt.left(), key, b);
+			searchHelper(rt.left(), key, b);
 		else if (rt.key().toString().compareTo(key) < 0)
-			search_helper(rt.right(), key, b);
+			searchHelper(rt.right(), key, b);
 		else {
-			search_helper(rt.left(), key, true);
+			searchHelper(rt.left(), key, true);
 			System.out.print("Rectangle found: " + rt + "\n");
-			search_helper(rt.right(), key, true);
+			searchHelper(rt.right(), key, true);
 			b = true;
 		}
 		return b;
@@ -173,42 +181,42 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_nod
 		return root;
 	}
 
-	public int node_count() {
-		return node_count;
+	public int nodeCount() {
+		return nodeCount;
 	}
 
 	// data members
 	protected BST_node<K, D> root;
-	protected int node_count;
+	protected int nodeCount;
 
 	// Iterator subclass for our BST implemented using a stack
 	public class BST_Iterator implements Iterator<BST_node<K, D>> {
 
 		BST_Iterator(BST_node<K, D> root) {
-			node_stack.push(root);
+			nodeStack.push(root);
 		}
 
 		@Override
 		public boolean hasNext() {
-			return !node_stack.isEmpty();
+			return !nodeStack.isEmpty();
 		}
 
 		@Override
 		public BST_node<K, D> next() {
 			BST_node<K, D> cur = null;
-			if (!node_stack.empty()) {
-				cur = node_stack.peek();
-				node_stack.pop();
+			if (!nodeStack.empty()) {
+				cur = nodeStack.peek();
+				nodeStack.pop();
 
 				if (cur.right() != null)
-					node_stack.push(cur.right());
+					nodeStack.push(cur.right());
 
 				if (cur.left() != null)
-					node_stack.push(cur.left());
+					nodeStack.push(cur.left());
 			}
 			return cur;
 		}
 
-		protected Stack<BST_node<K, D>> node_stack = new Stack<BST_node<K, D>>();
+		protected Stack<BST_node<K, D>> nodeStack = new Stack<BST_node<K, D>>();
 	}
 }
