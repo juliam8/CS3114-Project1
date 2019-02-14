@@ -3,8 +3,12 @@ import java.util.Iterator;
 import java.util.Stack;
 
 /**
- * @author juliam8 && abbym1
- *
+ * @author juliam8
+ * @author abbym1
+ * @version 2019-02-14
+ * Generic BST class storing
+ * @param<K> generic Key type
+ * @param<D> generic Data type
  */
 
 public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_node<K, D>> {
