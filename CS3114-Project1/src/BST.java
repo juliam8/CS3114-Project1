@@ -8,7 +8,11 @@ import java.util.Stack;
  */
 
 public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_node<K, D>> {
-	// constructor
+    
+    /**
+     * Constructor for the BST class 
+     * Sets the private member variables root and nodeCount
+     */
 	BST() {
 		root = null;
 		nodeCount = 0;
