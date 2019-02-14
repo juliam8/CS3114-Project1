@@ -6,6 +6,14 @@ insert e         321 478 9 2
 
 dump
 
+remove 0 0 2 2
+
+remove b
 remove c
+remove d
+remove e
+remove a
+
+
 
 dump
