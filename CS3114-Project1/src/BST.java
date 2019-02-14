@@ -3,10 +3,14 @@ import java.util.Iterator;
 import java.util.Stack;
 
 /**
- * @author juliam8 && abbym1
+ * @author juliam8
+ * @author abbym1
+ * @version 2019-02-14
  *
+ * This object executes functions of a binary search tree
+ * including adding nodes, removing nodes, and finding nodes.
+ * It also includes a class iterator to be used to iterate through the BST
  */
-
 public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_node<K, D>> {
     
     /**

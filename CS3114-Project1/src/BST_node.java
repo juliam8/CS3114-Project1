@@ -1,8 +1,13 @@
-/**
- * @author juliam8 && abbym1
- *
- */
 
+
+/**
+ * @author juliam8
+ * @author abbym1
+ * @version 2019-02-14
+ *
+ * This object executes functions for the node of the BST and holds
+ * a key value a data value or each node
+ */
 public class BST_node<K, D> {
     
     /**

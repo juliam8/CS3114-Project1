@@ -1,6 +1,11 @@
+
+
 /**
- * @author juliam8 && abbym1
+ * @author juliam8
+ * @author abbym1
+ * @version 2019-02-14
  *
+ * This object holds functions specific to the CS3114 Project 1 requirements
  */
 public class BST_Rectangle<K, D> extends BST<RectKey, RectData> {
     
