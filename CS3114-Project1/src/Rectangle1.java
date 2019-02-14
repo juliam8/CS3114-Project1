@@ -10,22 +10,29 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 
+/**
+ * @author abbym1
+ * @author juliam8
+ * @version 2019-02-14
+ * This is the main class for CS3114 P1
+ */
 public class Rectangle1 {
-	
 	/**
 	 * Constructor for main file
 	 */
-	public Rectangle1() {}
+	public Rectangle1() {
+	    //never instantiated, so nothing is needed here
+	}
 	
 	/**
 	 * describe the main here
-	 * @param args the arguments
+	 * @param input string array
 	 * @throws FileNotFoundException 
-	 *also do @return if needed
 	 */
 	public static void main(String[] args) throws FileNotFoundException {
-		BST_Rectangle<RectKey, RectData> BST = new BST_Rectangle<RectKey, RectData>();
-		Parser myparse = new Parser(new File(args[0]), BST);
-		myparse.execute();
+		BST_Rectangle<RectKey, RectData> bstRect;
+		bstRect = new BST_Rectangle<RectKey, RectData>();
+		Parser p = new Parser(new File(args[0]), bstRect);
+		p.execute();
 	}
 }

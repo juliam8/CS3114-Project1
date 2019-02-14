@@ -4,8 +4,9 @@
  * @author juliam8
  * @author abbym1
  * @version 2019-02-14
- *
- * This object holds functions specific to the CS3114 Project 1 requirements
+ * @param<D> Generic Data type 
+ * @param<K> Generic Key type
+ *  Extension of generic BST class to handle Rectangles
  */
 public class BST_Rectangle<K, D> extends BST<RectKey, RectData> {
     
