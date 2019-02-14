@@ -153,7 +153,9 @@ public class Parser {
             nums[i] = Integer.parseInt(mScan.next());
         }
         RectData d = new RectData(nums);
-        BST_node<RectKey, RectData> temp = mBST.remove(d); // send in array of integers
+        
+        // send in array of integers
+        BST_node<RectKey, RectData> temp = mBST.remove(d);
         if (temp == null) {
             System.out.print("Rectangle rejected (" + d + ")\n");
         }
