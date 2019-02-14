@@ -46,7 +46,7 @@ public class Parser {
                 remove();
             } 
             else if (command.equals("regionsearch")) {
-                region_search();
+                regionSearch();
             } 
             else if (command.equals("search")) {
                 mBST.search(mScan.next());
@@ -104,7 +104,7 @@ public class Parser {
         }
     }
 
-    private void region_search() {
+    private void regionSearch() {
         int[] nums = new int[4];
         for (int i = 0; i < 4; i++) {
             nums[i] = Integer.parseInt(mScan.next());

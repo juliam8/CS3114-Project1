@@ -27,45 +27,28 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_nod
 		nodeCount = 0;
 	}
 
-	/**
-	 * Calls insert helper and to increment node count 
-     * @param k the key value of the node to insert
-     * @param d the data value of the node to insert
-	 */
-	public void insert(K k, D d) {
-		root = insertHelper(root, k, d);
-		nodeCount++;
-	}
-
-	public void insert(BST_node<K, D> n) {
-        root = insert_helper(root, n);
+	 /**
+     * Calls insert helper and to increment node count 
+     * @param node the node to insert
+     */
+	public void insert(BST_node<K, D> node) {
+        root = insertHelper(root, node);
         nodeCount++;
     }
 	
-	/**
-	 * Inserts a node into BST by comparing the key value
-	 * @param rt the root node of the BST
-	 * @param k the key value of the node to insert
-	 * @param d the data value of the node to insert
-	 * @return the altered BST node, which the root will be set to
-	 */
-	public BST_node<K, D> insertHelper(BST_node<K, D> rt, K k, D d) {
-		if (rt == null)
-			return new BST_node<K, D>(k, d);
-		if (rt.key().compareTo(k) >= 0)
-			rt.setLeft(insertHelper(rt.left(), k, d));
-		else
-			rt.setRight(insertHelper(rt.right(), k, d));
-		return rt;
-	}
-	
-	public BST_node<K, D> insert_helper(BST_node<K, D> rt, BST_node<K, D> n) {
+	 /**
+     * Inserts a node into BST by comparing the key value
+     * @param rt the root node of the BST
+     * @param node the node to insert
+     * @return the altered BST node, which the root will be set to
+     */
+	public BST_node<K, D> insertHelper(BST_node<K, D> rt, BST_node<K, D> node) {
         if (rt == null)
-            return n;
-        if (rt.key().compareTo(n.key()) >= 0)
-            rt.setLeft(insert_helper(rt.left(), n));
+            return node;
+        if (rt.key().compareTo(node.key()) >= 0)
+            rt.setLeft(insertHelper(rt.left(), node));
         else
-            rt.setRight(insert_helper(rt.right(), n));
+            rt.setRight(insertHelper(rt.right(), node));
         return rt;
     }
 	
@@ -154,7 +137,7 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_nod
 	/**
      * Finds a node in the BST by comparing the key value
      * @param rt the root node of the BST
-     * @param k the key value of the node to insert
+     * @param key the key value of the node to insert
      * @return the BST node with the corresponding key value
      */
 	BST_node<K, D> findHelper(BST_node<K, D> rt, K key) {
@@ -183,7 +166,7 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_nod
      * Searches for all nodes in BST tree that have the key value
      * @param rt the root node of the BST
      * @param key the key value of the node to insert
-     * @param d the data value of the node to insert
+     * @param b the boolean value to track throughout recursive function calls
      * @return the boolean to represent if any node has been found with the key value
      */
 	public boolean searchHelper(BST_node<K, D> rt, String key, boolean b) {
@@ -203,22 +186,16 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_nod
 	}
 
 	/**
-     * Inserts a node into BST by comparing the key value
-     * @param rt the root node of the BST
-     * @param k the key value of the node to insert
-     * @param d the data value of the node to insert
-     * @return the altered BST node, which the root will be set to
+     * Returns the root of the BST
+     * @return the root of the BST
      */
 	public BST_node<K, D> root() {
 		return root;
 	}
 
 	/**
-     * Inserts a node into BST by comparing the key value
-     * @param rt the root node of the BST
-     * @param k the key value of the node to insert
-     * @param d the data value of the node to insert
-     * @return the altered BST node, which the root will be set to
+     * Returns the node count of the BST
+     * @return the number of nodes in the BST
      */
 	public int nodeCount() {
 		return nodeCount;
