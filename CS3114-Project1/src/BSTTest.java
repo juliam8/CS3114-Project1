@@ -20,11 +20,11 @@ public class BSTTest {
 	@Test
 	public void testBST() {
 		BST<RectKey, RectData> mytree = new BST<RectKey, RectData>();
-		
+
 		assertEquals(mytree.node_count(), 0);
 		assertEquals(mytree.root(), null);
 	}
-	
+
 	/**
 	 * Test method for {@link BST#clear()}.
 	 */
@@ -32,16 +32,15 @@ public class BSTTest {
 	public void testClear() {
 		BST<RectKey, RectData> mytree = new BST<RectKey, RectData>();
 		RectKey key = new RectKey("test");
-		int[] c = {1, 1, 4, 5};
+		int[] c = { 1, 1, 4, 5 };
 		RectData d = new RectData(c);
 		mytree.insert(key, d);
-		
+
 		assertEquals(mytree.node_count(), 1);
 		assertNotEquals(mytree.root(), null);
-		
-		
+
 		mytree.clear();
-		
+
 		assertEquals(mytree.node_count(), 0);
 		assertEquals(mytree.root(), null);
 	}
@@ -54,28 +53,29 @@ public class BSTTest {
 		BST<RectKey, RectData> mytree = new BST<RectKey, RectData>();
 		RectKey key = new RectKey("test");
 		RectKey key2 = new RectKey("z");
-		int[] c = {1, 1, 4, 5};
+		int[] c = { 1, 1, 4, 5 };
 		RectData d = new RectData(c);
 		mytree.insert(key, d);
 		mytree.insert(key, d);
 		mytree.insert(key2, d);
-		
+
 		assertEquals(mytree.root().data(), d);
 		assertEquals(mytree.root().left().data(), d);
 		assertEquals(mytree.root().right().data(), d);
-		
+
 		assertEquals(mytree.root().key().name(), "test");
 		assertEquals(mytree.root().left().key(), key);
 		assertEquals(mytree.root().right().key(), key2);
-		
+
 	}
-	
+
 	/**
-	 * Test method for {@link BST#insert_helper(BST_node, java.lang.Comparable, java.lang.Object)}.
+	 * Test method for
+	 * {@link BST#insert_helper(BST_node, java.lang.Comparable, java.lang.Object)}.
 	 */
 	@Test
 	public void testInsert_helper() {
-		//fail("Not yet implemented");
+		// fail("Not yet implemented");
 	}
 
 	/**
@@ -83,7 +83,7 @@ public class BSTTest {
 	 */
 	@Test
 	public void testRemove_helper() {
-		//fail("Not yet implemented");
+		// fail("Not yet implemented");
 	}
 
 	/**
@@ -91,7 +91,7 @@ public class BSTTest {
 	 */
 	@Test
 	public void testGet_min() {
-		//fail("Not yet implemented");
+		// fail("Not yet implemented");
 	}
 
 	/**
@@ -99,7 +99,7 @@ public class BSTTest {
 	 */
 	@Test
 	public void testDelete_min() {
-		//fail("Not yet implemented");
+		// fail("Not yet implemented");
 	}
 
 	/**
@@ -107,7 +107,7 @@ public class BSTTest {
 	 */
 	@Test
 	public void testDump() {
-		//fail("Not yet implemented");
+		// fail("Not yet implemented");
 	}
 
 	/**
@@ -115,7 +115,7 @@ public class BSTTest {
 	 */
 	@Test
 	public void testFind_helper() {
-		//fail("Not yet implemented");
+		// fail("Not yet implemented");
 	}
 
 	/**
@@ -123,15 +123,16 @@ public class BSTTest {
 	 */
 	@Test
 	public void testSearch() {
-		//fail("Not yet implemented");
+		// fail("Not yet implemented");
 	}
 
 	/**
-	 * Test method for {@link BST#search_helper(BST_node, java.lang.String, boolean)}.
+	 * Test method for
+	 * {@link BST#search_helper(BST_node, java.lang.String, boolean)}.
 	 */
 	@Test
 	public void testSearch_helper() {
-		//fail("Not yet implemented");
+		// fail("Not yet implemented");
 	}
 
 	/**
@@ -139,7 +140,7 @@ public class BSTTest {
 	 */
 	@Test
 	public void testRoot() {
-		//fail("Not yet implemented");
+		// fail("Not yet implemented");
 	}
 
 	/**
@@ -147,7 +148,7 @@ public class BSTTest {
 	 */
 	@Test
 	public void testNode_count() {
-		//fail("Not yet implemented");
+		// fail("Not yet implemented");
 	}
-	
+
 }
