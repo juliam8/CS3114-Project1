@@ -16,8 +16,8 @@ public class Parser {
      * variables mBST and mScan
      * 
      * @param inputFile     Path to the input file containing the commands
-     * @param rectBST       Binary Search tree associated with the parser object and input
-     *                      file upon which the commands will be run
+     * @param rectBST       Binary Search tree associated with the parser object
+     *                      and input file upon which the commands will be run
      */
     Parser(File inputFile, BST_Rectangle<RectKey, RectData> rectBST) {
         try {
@@ -31,8 +31,8 @@ public class Parser {
     }
 
     /**
-     * Parses each command from the input file using a Scanner calls the appropriate
-     * helper function(s) to execute each command
+     * Parses each command from the input file using a Scanner 
+     * calls the appropriate helper function(s) to execute each command
      */
     public void execute() {
 
@@ -61,6 +61,27 @@ public class Parser {
         mScan.close();
     }
 
+    private boolean valid(int[] i) {
+        if (i[2] <= 0 || i[3] <= 0) {
+            return false;
+        }
+        else if(i[0] + i[2] > 1024) {
+            return false;
+        }
+        else if(i[0] + i[2] < 0) {
+            return false;
+        }
+        else if(i[1] + i[3] > 1024) {
+            return false;
+        }
+        else if(i[1] + i[3] < 0) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+    
     /**
      * Method to execute the BST insert command 
      * Accepts or rejects the input rectangle based on 0,0 1024,1024 bounds
@@ -73,12 +94,13 @@ public class Parser {
         }
         RectKey nodeKey = new RectKey(name);
         RectData nodeData = new RectData(nums);
-        mBST.insert(nodeKey, nodeData);
-        if ((nums[2] <= 0 || nums[3] <= 0) || (nums[0] + nums[2] > 1024 || nums[0] + nums[2] < 0
-                || nums[1] + nums[3] > 1024 || nums[1] + nums[3] < 0)) {
-            System.out.print("Rectangle rejected: (" + nodeKey + " " + nodeData + ")\n");
+        BST_node<RectKey, RectData> n = new BST_node<RectKey, RectData>(nodeKey, nodeData);
+        
+        if (valid(nums)) {
+            mBST.insert(n);
+            System.out.print("Rectangle accepted: " + n + "\n");
         } else {
-            System.out.print("Rectangle accepted: (" + nodeKey + " " + nodeData + ")\n");
+            System.out.print("Rectangle rejected: " + n + "\n");
         }
     }
 
