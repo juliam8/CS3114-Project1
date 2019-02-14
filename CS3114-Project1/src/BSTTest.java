@@ -34,7 +34,7 @@ public class BSTTest {
 		RectKey key = new RectKey("test");
 		int[] c = { 1, 1, 4, 5 };
 		RectData d = new RectData(c);
-		mytree.insert(key, d);
+		mytree.insert(new BST_node<RectKey, RectData>(key, d));
 
 	assertEquals(mytree.nodeCount(), 1);
 		assertNotEquals(mytree.root(), null);
@@ -55,9 +55,9 @@ public class BSTTest {
 		RectKey key2 = new RectKey("z");
 		int[] c = { 1, 1, 4, 5 };
 		RectData d = new RectData(c);
-		mytree.insert(key, d);
-		mytree.insert(key, d);
-		mytree.insert(key2, d);
+		mytree.insert(new BST_node<RectKey, RectData>(key, d));
+		mytree.insert(new BST_node<RectKey, RectData>(key, d));
+		mytree.insert(new BST_node<RectKey, RectData>(key2, d));
 
 		assertEquals(mytree.root().data(), d);
 		assertEquals(mytree.root().left().data(), d);

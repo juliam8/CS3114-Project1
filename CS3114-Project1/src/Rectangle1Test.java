@@ -22,9 +22,9 @@ public class Rectangle1Test extends TestCase {
 		}
 	}
 	
-	public void testSyntax() {
-        //String[] in = {"C:\\Users\\amalone46\\git\\CS3114-Project1\\p1\\CS3114-Project1\\src\\SyntaxTest.txt" };
-        String[] in = {"SyntaxTest.txt"};
+	public void testCoverage() {
+        //String[] in = {"C:\\Users\\amalone46\\git\\CS3114-Project1\\p1\\CS3114-Project1\\src\\CoverageTest.txt" };
+        String[] in = {"CoverageTest.txt"};
         try {
             Rectangle1.main(in);
         } catch (FileNotFoundException e) {
