@@ -1,23 +1,11 @@
-insert c 	0 0 11 4
-insert d	 1 1 4 2
-insert a	 1 1 4 6
-insert b	 1 1 4 7
-insert e                   321 478 9 2
-
-intersections
-
-search c
-
-insert c 50 50 50 50
-
-search c
-
-search nope
+insert d 	 0 0 11 4
+insert a	 1 1 4 2
+insert b	 1 1 4 6
+insert c	 1 1 4 7
+insert e         321 478 9 2
 
 dump
 
 remove c
-
-regionsearch 0 0 1024 1024
 
 dump

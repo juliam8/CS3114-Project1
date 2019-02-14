@@ -37,7 +37,7 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_nod
 		if (rt.key().compareTo(key) > 0)
 			rt.set_l(remove_helper(rt.left(), key));
 		else if (rt.key().compareTo(key) < 0)
-			rt.set_r(remove_helper(rt.left(), key));
+			rt.set_r(remove_helper(rt.right(), key));
 		else {		
 			if (rt.left() == null)
 				return rt.right();
