@@ -85,7 +85,7 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_nod
 	/**
      * Gets the node with minimum value, used in insertHelper
      * @param rt the root node of the BST
-     * @return the node to replace the removed BST node
+     * @return the node holding the minimum key value
      */
 	protected BST_node<K, D> getMin(BST_node<K, D> rt) {
 	  //directly find the corresponding
@@ -99,7 +99,7 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_nod
 	/**
      * Removes the node with minimum value, used in insertHelper
      * @param rt the root node of the BST
-     * @return the node to replace the removed BST node
+     * @return the node holding the minimum key value
      */
 	protected BST_node<K, D> deleteMin(BST_node<K, D> rt) {
 		if (rt.left() == null)
@@ -110,6 +110,9 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_nod
 		}
 	}
 
+	/**
+     * Calls dump helper and prints out words for dump 
+     */
 	public void dump() {
 		System.out.print("BST dump:\n");
 		if (root != null) {
@@ -118,16 +121,27 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_nod
 		System.out.print("\tBST size is: " + nodeCount + "\n");
 	}
 
-	private void dumpHelper(BST_node<K, D> rt, int count) { // in order traversal
+	/**
+     * Prints out the nodes in the BST using inorder traversal
+     * @param rt the root node of the BST
+     * @param depth the depth of the node being printed
+     */
+	private void dumpHelper(BST_node<K, D> rt, int depth) { 
 		if (rt != null) {
-			dumpHelper(rt.left(), count + 1);
-			System.out.print("\tNode has depth " + count + ", Value (");
+			dumpHelper(rt.left(), depth + 1);
+			System.out.print("\tNode has depth " + depth + ", Value (");
 			System.out.print(rt.key().toString() + " ");
 			System.out.print(rt.data().toString() + ")\n");
-			dumpHelper(rt.right(), count + 1);
+			dumpHelper(rt.right(), depth + 1);
 		}
 	}
-
+	
+	/**
+     * Finds a node in the BST by comparing the key value
+     * @param rt the root node of the BST
+     * @param k the key value of the node to insert
+     * @return the BST node with the corresponding key value
+     */
 	BST_node<K, D> findHelper(BST_node<K, D> rt, K key) {
 		if (rt == null)
 			return null;
@@ -139,13 +153,24 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_nod
 			return rt;
 	}
 
-	public void search(String nodeName) {
-		boolean found = searchHelper(root, nodeName, false);
+	/**
+     * Calls search helper and prints if node is not found
+     * @param key the key value of the node to find
+     */
+	public void search(String key) {
+		boolean found = searchHelper(root, key, false);
 		if (!found)
-			System.out.print("Rectangle not found: " + nodeName + "\n");
+			System.out.print("Rectangle not found: " + key + "\n");
 		return;
 	}           
 
+	/**
+     * Searches for all nodes in BST tree that have the key value
+     * @param rt the root node of the BST
+     * @param key the key value of the node to insert
+     * @param d the data value of the node to insert
+     * @return the boolean to represent if any node has been found with the key value
+     */
 	public boolean searchHelper(BST_node<K, D> rt, String key, boolean b) {
 		if (rt == null)
 			return b || false;
@@ -162,10 +187,24 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_nod
 		return b;
 	}
 
+	/**
+     * Inserts a node into BST by comparing the key value
+     * @param rt the root node of the BST
+     * @param k the key value of the node to insert
+     * @param d the data value of the node to insert
+     * @return the altered BST node, which the root will be set to
+     */
 	public BST_node<K, D> root() {
 		return root;
 	}
 
+	/**
+     * Inserts a node into BST by comparing the key value
+     * @param rt the root node of the BST
+     * @param k the key value of the node to insert
+     * @param d the data value of the node to insert
+     * @return the altered BST node, which the root will be set to
+     */
 	public int nodeCount() {
 		return nodeCount;
 	}
