@@ -6,7 +6,6 @@ import java.util.Stack;
  * @author juliam8
  * @author abbym1
  * @version 2019-02-14
- * 
  * Generic BST class storing
  * @param <K> generic Key type
  * @param <D> generic Data type
