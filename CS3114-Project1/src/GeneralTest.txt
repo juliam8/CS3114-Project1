@@ -30,12 +30,6 @@ insert b	 1 1 4 6
 insert c	 1 1 4 7
 insert e         321 478 9 2
 
-regionsearch 0 0 1024 1024
-
-intersections
-
-search a
-
 dump
 
 remove 1 1 4 7
