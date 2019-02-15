@@ -209,7 +209,7 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_nod
         }
         else {
             searchHelper(rt.left(), key);
-            System.out.print("Rectangle found: " + rt + "\n");
+            System.out.println("Rectangle found: " + rt);
             searchHelper(rt.right(), key);
         }
     }

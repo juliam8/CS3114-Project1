@@ -95,10 +95,10 @@ public class Parser {
         
         if (valid(nums)) {
             mBST.insert(n);
-            System.out.print("Rectangle accepted: " + n + "\n");
+            System.out.println("Rectangle accepted: " + n);
         } 
         else {
-            System.out.print("Rectangle rejected: " + n + "\n");
+            System.out.println("Rectangle rejected: " + n);
         }
     }
 
@@ -113,11 +113,11 @@ public class Parser {
         }
         // command rejected if width/height is <= 0
         if (nums[2] <= 0 || nums[3] <= 0) { 
-            System.out.print("Rectangles command rejected.");
+            System.out.println("Rectangles command rejected.");
         }
         else {
             RectData d = new RectData(nums);
-            System.out.print("Rectangles intersecting region (" + d + "):\n");
+            System.out.println("Rectangles intersecting region (" + d + "):");
             mBST.regionSearch(mBST.root(), d);
         }
     }
@@ -142,7 +142,7 @@ public class Parser {
         RectKey nodeKey = new RectKey(mScan.next());
         BST_node<RectKey, RectData> temp = mBST.remove(nodeKey);
         if (temp == null) {
-            System.out.print("Rectangle rejected (" + nodeKey + ")\n");
+            System.out.println("Rectangle rejected (" + nodeKey + ")");
         }
     }
 
@@ -159,7 +159,7 @@ public class Parser {
         // send in array of integers
         BST_node<RectKey, RectData> temp = mBST.remove(d);
         if (temp == null) {
-            System.out.print("Rectangle rejected (" + d + ")\n");
+            System.out.println("Rectangle rejected (" + d + ")");
         }
     }
 
@@ -168,7 +168,7 @@ public class Parser {
      * rectangles
      */
     private void intersections() {
-        System.out.print("Intersection pairs:\n");
+        System.out.println("Intersection pairs:");
         mBST.intersection();
     }
 
