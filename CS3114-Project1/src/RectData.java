@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * @author juliam8 && abbym1
  *
@@ -14,7 +16,7 @@ public class RectData implements Comparable<RectData> {
 
 	@Override
 	public int compareTo(RectData nodeData) {
-		if (coordinates == nodeData.coordinates())
+	    if (Arrays.equals(coordinates, nodeData.coordinates()))
 			return 0;
 		return 1;
 	}
