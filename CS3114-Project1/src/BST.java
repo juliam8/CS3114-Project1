@@ -199,19 +199,19 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_nod
         if (rt == null) {
             return b || false;
         }
-        if (rt.key().toString().compareTo(key) > 0) {
-            searchHelper(rt.left(), key, b);
+        else if (rt.key().toString().compareTo(key) > 0) {
+            return searchHelper(rt.left(), key, b);
         }
         else if (rt.key().toString().compareTo(key) < 0) {
-            searchHelper(rt.right(), key, b);
+            return searchHelper(rt.right(), key, b);
         }
         else {
             searchHelper(rt.left(), key, true);
             System.out.print("Rectangle found: " + rt + "\n");
-            searchHelper(rt.right(), key, true);
             b = true;
+            searchHelper(rt.right(), key, true);
         }
-        return b;
+        return false;
     }
 
     /**
