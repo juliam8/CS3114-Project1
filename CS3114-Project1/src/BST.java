@@ -184,7 +184,7 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_nod
         BST_node<K, D> temp = findHelper(root, key); // First find it
         //BST_node<K, D> findHelper(BST_node<K, D> rt, K key) {
         if (temp == null) {
-            System.out.print("Rectangle not found: " + key + "\n");
+            System.out.println("Rectangle not found: " + key);
         }
         else {
             searchHelper(root, key);
