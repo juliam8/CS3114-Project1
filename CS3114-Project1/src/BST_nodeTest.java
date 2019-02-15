@@ -143,7 +143,7 @@ public class BST_nodeTest  extends TestCase{
 		
 		String res = n1.toString();
 		
-		assertEquals(res, "(node_name 1, 2, 3, 4)");
+		assertEquals(res, "(node_name, 1, 2, 3, 4)");
 	}
 
 	private BST_node<RectKey, RectData> n1;

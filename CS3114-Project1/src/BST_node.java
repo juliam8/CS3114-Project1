@@ -121,7 +121,7 @@ public class BST_node<K, D> {
 
 	@Override
 	public String toString() {
-		return "(" + key.toString() + " " + data.toString() + ")";
+		return "(" + key.toString() + ", " + data.toString() + ")";
 	}
 
 	// private data members

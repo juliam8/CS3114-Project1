@@ -137,6 +137,6 @@ public class BSTRectangle<K, D> extends BST<RectKey, RectData> {
 
 		if (n_x1 > d_x2 || d_x1 > n_x2 || n_y1 > d_y2 || d_y1 > n_y2 || a == b) {
 		} else
-			System.out.println("\t" + a + " : " + b);
+			System.out.println("    " + a + " : " + b);
 	}
 }

@@ -138,7 +138,7 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_nod
         if (root != null) {
             dumpHelper(root, 0);
         }
-        System.out.print("\tBST size is: " + nodeCount + "\n");
+        System.out.print("    BST size is: " + nodeCount + "\n");
     }
 
     /**
@@ -149,9 +149,8 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_nod
     private void dumpHelper(BST_node<K, D> rt, int depth) { 
         if (rt != null) {
             dumpHelper(rt.left(), depth + 1);
-            System.out.print("\tNode has depth " + depth + ", Value (");
-            System.out.print(rt.key().toString() + " ");
-            System.out.print(rt.data().toString() + ")\n");
+            System.out.print("    Node has depth " + depth + ", Value ");
+            System.out.print(rt + "\n");
             dumpHelper(rt.right(), depth + 1);
         }
     }
