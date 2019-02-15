@@ -180,12 +180,15 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_nod
      * Calls search helper and prints if node is not found
      * @param key the key value of the node to find
      */
-    public void search(String key) {
-        boolean found = searchHelper(root, key, false);
-        if (!found) {
+    public void search(K key) {
+        BST_node<K, D> temp = findHelper(root, key); // First find it
+        //BST_node<K, D> findHelper(BST_node<K, D> rt, K key) {
+        if (temp == null) {
             System.out.print("Rectangle not found: " + key + "\n");
-        } 
-        return;
+        }
+        else {
+            searchHelper(root, key);
+        }
     }           
 
     /**
@@ -195,23 +198,20 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_nod
      * @param b the boolean value to track throughout recursive function calls
      * @return the boolean to represent if any node has been found with the key value
      */
-    public boolean searchHelper(BST_node<K, D> rt, String key, boolean b) {
+    public void searchHelper(BST_node<K, D> rt, K key) {
         if (rt == null) {
-            return b || false;
         }
-        if (rt.key().toString().compareTo(key) > 0) {
-            searchHelper(rt.left(), key, b);
+        else if (rt.key().compareTo(key) > 0) {
+            searchHelper(rt.left(), key);
         }
-        else if (rt.key().toString().compareTo(key) < 0) {
-            searchHelper(rt.right(), key, b);
+        else if (rt.key().compareTo(key) < 0) {
+            searchHelper(rt.right(), key);
         }
         else {
-            searchHelper(rt.left(), key, true);
+            searchHelper(rt.left(), key);
             System.out.print("Rectangle found: " + rt + "\n");
-            searchHelper(rt.right(), key, true);
-            b = true;
+            searchHelper(rt.right(), key);
         }
-        return b;
     }
 
     /**

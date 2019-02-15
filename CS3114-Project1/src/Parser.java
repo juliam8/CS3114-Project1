@@ -49,7 +49,8 @@ public class Parser {
                 regionSearch();
             } 
             else if (command.equals("search")) {
-                mBST.search(mScan.next());
+                RectKey nodeKey = new RectKey(mScan.next());
+                mBST.search(nodeKey);
             } 
             else if (command.equals("intersections")) {
                 intersections();
