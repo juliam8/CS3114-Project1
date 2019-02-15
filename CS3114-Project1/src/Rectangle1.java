@@ -7,15 +7,7 @@ import java.io.FileNotFoundException;
  * @version 2019-02-14
  * This is the main class for CS3114 P1
  */
-public class Rectangle1 {
-
-    /**
-     * Constructor for main file
-     */
-    public Rectangle1() {
-        //never instantiated, so nothing is needed here
-    }
-    
+public class Rectangle1 {    
     /**
      * This is the main function of project 1
      * @param args  input string array

@@ -111,12 +111,12 @@ public class Parser {
         for (int i = 0; i < 4; i++) {
             nums[i] = Integer.parseInt(mScan.next());
         }
+        RectData d = new RectData(nums);
         // command rejected if width/height is <= 0
         if (nums[2] <= 0 || nums[3] <= 0) { 
-            System.out.println("Rectangles command rejected.");
+            System.out.println("Rectangle rejected " + d);
         }
         else {
-            RectData d = new RectData(nums);
             System.out.println("Rectangles intersecting region (" + d + "):");
             mBST.regionSearch(mBST.root(), d);
         }
