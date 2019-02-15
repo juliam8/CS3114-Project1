@@ -4,7 +4,7 @@ import student.TestCase;
  * @author juliam8 && abbym1
  *
  */
-public class BST_nodeTest  extends TestCase{
+public class BST_nodeTest extends TestCase{
 
 	@Test
 	public void testBST_node() {

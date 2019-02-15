@@ -110,7 +110,8 @@ public class BSTTest extends TestCase{
         mytree.insert(new BST_node<RectKey, RectData>(key2, d));
         mytree.insert(new BST_node<RectKey, RectData>(key3, d));
         
-        mytree.search("e");
+        RectKey test = new RectKey("e");
+        mytree.search(test);
 
         assertEquals(mytree.root().data(), d);
         assertEquals(mytree.root().left().data(), d);
