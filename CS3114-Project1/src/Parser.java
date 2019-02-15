@@ -69,11 +69,8 @@ public class Parser {
      * and has non-negative w and h
      */
     private boolean valid(int[] i) {
-        return !((i[2] <= 0 || i[3] <= 0) ||
-                (i[0] + i[2] > 1024) ||
-                (i[0] + i[2] < 0) ||
-                (i[1] + i[3] > 1024) ||
-                (i[1] + i[3] < 0));
+        return (i[0] >= 0 && i[1] >= 0 &&
+                i[2] <= 1024 && i[3] <= 1024);
     }
     
     /**
