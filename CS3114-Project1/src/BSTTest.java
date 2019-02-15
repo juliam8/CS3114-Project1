@@ -36,7 +36,7 @@ public class BSTTest extends TestCase{
 		RectData d = new RectData(c);
 		mytree.insert(new BST_node<RectKey, RectData>(key, d));
 
-	assertEquals(mytree.nodeCount(), 1);
+		assertEquals(mytree.nodeCount(), 1);
 		assertNotEquals(mytree.root(), null);
 
 		mytree.clear();
