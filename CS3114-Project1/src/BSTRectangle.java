@@ -60,14 +60,14 @@ public class BSTRectangle<K, D> extends BST<RectKey, RectData> {
      * @return the node that holds the corresponding data value
      */
 	private BST_node<RectKey, RectData> findHelperData(BST_node<RectKey, RectData> rt, RectData data) {
-		if (rt == null)
-			return null;
 		if (rt.data().compareTo(data) == 0)
 			return rt;
 		else if (rt.left() != null)
 			return findHelperData(rt.left(), data);
-		else
+		else if (rt.right() != null)
 			return findHelperData(rt.right(), data);
+		else
+            return null;
 	}
 
 	/**
