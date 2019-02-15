@@ -1,11 +1,11 @@
 import java.io.FileNotFoundException;
-
+import student.TestCase;
 
 /**
  * @author abbym1
+ * @author juliam8
  *
  */
-import student.TestCase;
 
 public class Rectangle1Test extends TestCase {
 

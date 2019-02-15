@@ -1,7 +1,4 @@
-import static org.junit.Assert.*;
-
 import org.junit.Test;
-
 import student.TestCase;
 
 /**
@@ -10,6 +7,7 @@ import student.TestCase;
 
 /**
  * @author abbym1
+ * @author juliam8
  *
  */
 public class BSTTest extends TestCase{
@@ -37,7 +35,7 @@ public class BSTTest extends TestCase{
 		mytree.insert(new BST_node<RectKey, RectData>(key, d));
 
 		assertEquals(mytree.nodeCount(), 1);
-		assertNotEquals(mytree.root(), null);
+		assertFalse(mytree.root() == null);
 
 		mytree.clear();
 

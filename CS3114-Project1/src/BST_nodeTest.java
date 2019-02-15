@@ -1,11 +1,10 @@
-import static org.junit.Assert.*;
-
 import org.junit.Test;
+import student.TestCase;
 /**
  * @author juliam8 && abbym1
  *
  */
-public class BST_nodeTest {
+public class BST_nodeTest  extends TestCase{
 
 	@Test
 	public void testBST_node() {
