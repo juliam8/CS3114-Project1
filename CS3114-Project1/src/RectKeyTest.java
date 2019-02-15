@@ -1,12 +1,14 @@
 import static org.junit.Assert.*;
 
 import org.junit.Test;
-
+import student.TestCase;
 /**
- * @author juliam8 && abbym1
+ * @author juliam8
+ * @author abbym1
+ * @version 2019-02-14
  *
  */
-public class RectKeyTest {
+public class RectKeyTest extends TestCase {
 
 	@Test
 	public void testRectKey() {

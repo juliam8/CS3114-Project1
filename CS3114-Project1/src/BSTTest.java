@@ -2,7 +2,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-//import BST;
+import student.TestCase;
 
 /**
  * 
@@ -12,7 +12,7 @@ import org.junit.Test;
  * @author abbym1
  *
  */
-public class BSTTest {
+public class BSTTest extends TestCase{
 
 	/**
 	 * Test method for {@link BST#BST()}.
@@ -66,40 +66,9 @@ public class BSTTest {
 		assertEquals(mytree.root().key().name(), "test");
 		assertEquals(mytree.root().left().key(), key);
 		assertEquals(mytree.root().right().key(), key2);
+		
+		assertEquals(mytree.nodeCount(), 3);
 
-	}
-
-	/**
-	 * Test method for
-	 * {@link BST#insert_helper(BST_node, java.lang.Comparable, java.lang.Object)}.
-	 */
-	@Test
-	public void testInsert_helper() {
-		// fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link BST#remove_helper(BST_node, java.lang.Comparable)}.
-	 */
-	@Test
-	public void testRemove_helper() {
-		// fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link BST#get_min(BST_node)}.
-	 */
-	@Test
-	public void testGet_min() {
-		// fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link BST#delete_min(BST_node)}.
-	 */
-	@Test
-	public void testDelete_min() {
-		// fail("Not yet implemented");
 	}
 
 	/**
@@ -111,27 +80,10 @@ public class BSTTest {
 	}
 
 	/**
-	 * Test method for {@link BST#find_helper(BST_node, java.lang.Comparable)}.
-	 */
-	@Test
-	public void testFind_helper() {
-		// fail("Not yet implemented");
-	}
-
-	/**
 	 * Test method for {@link BST#search(java.lang.String)}.
 	 */
 	@Test
 	public void testSearch() {
-		// fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for
-	 * {@link BST#search_helper(BST_node, java.lang.String, boolean)}.
-	 */
-	@Test
-	public void testSearch_helper() {
 		// fail("Not yet implemented");
 	}
 
