@@ -40,16 +40,14 @@ public class BSTRectangle<K, D> extends BST<RectKey, RectData> {
      * @param data the data value of the node to remove
      * @return the node that was deleted
      */
-	public BST_node<RectKey, RectData> remove(RectData data) {
+	public void remove(RectData data) {
 		if (root != null) {
-			BST_node<RectKey, RectData> temp = findHelperData(root, data);
-			if (temp != null) {
-				root = removeHelper(root, temp.key());
-				nodeCount--;
+		    int before = nodeCount;
+			root = findHelperData(root, data);
+			if (nodeCount != before - 1) {
+			    System.out.println("Rectangle rejected (" + data + ")");
 			}
-			return temp;
 		}
-		return null;
 	}
 
 	/**
@@ -63,13 +61,26 @@ public class BSTRectangle<K, D> extends BST<RectKey, RectData> {
 			return null;
 		}
 		if (rt.data().compareTo(data) == 0) {
-		    rt.setKey(new RectKey(rt.key().toString() + "_rEmoVe"));
-			return rt;
+		    nodeCount--;
+		    if (rt.left() == null) {
+                return rt.right();
+            }
+            else if (rt.right() == null) {
+                return rt.left();
+            }
+            else { // two children
+                BST_node<RectKey, RectData> temp = getMin(rt.right());
+                rt.setData(temp.data());
+                rt.setKey(temp.key());
+                rt.setRight(deleteMin(rt.right()));
+            }
+		    return rt;
 		}
 		else if (rt.left() != null)
-			return findHelperData(rt.left(), data);
+			rt.setLeft(findHelperData(rt.left(), data));
 		else
-			return findHelperData(rt.right(), data);
+			rt.setRight(findHelperData(rt.right(), data));
+		return rt;
 	}
 
 	/**

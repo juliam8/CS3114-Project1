@@ -157,10 +157,10 @@ public class Parser {
         RectData d = new RectData(nums);
         
         // send in array of integers
-        BST_node<RectKey, RectData> temp = mBST.remove(d);
-        if (temp == null) {
-            System.out.println("Rectangle rejected (" + d + ")");
-        }
+         mBST.remove(d);
+        //if (temp == null) {
+           // System.out.println("Rectangle rejected (" + d + ")");
+        //}
     }
 
     /**
