@@ -69,13 +69,18 @@ public class Parser {
      * A rectangle is valid if it lies within (0,0) and (1024, 1024)
      * and has non-negative w and h
      */
-    private boolean valid(int[] i) {
+    private boolean validData(int[] i) {
         return !((i[0] < 0 || i[1] < 0) ||
                 (i[2] <= 0 || i[3] <= 0) ||
                 (i[0] + i[2] > 1024) ||
                 (i[0] + i[2] < 0) ||
                 (i[1] + i[3] > 1024) ||
                 (i[1] + i[3] < 0));
+    }
+    
+    public boolean validName(String s) {
+        String specialChars = "/*!@#$%^&*()\"{}[]|\\?/<>,.";
+        return true;
     }
     
     /**
@@ -93,7 +98,7 @@ public class Parser {
         BST_node<RectKey, RectData> n;
         n = new BST_node<RectKey, RectData>(nodeKey, nodeData);
         
-        if (valid(nums)) {
+        if (validData(nums) && validKey(name)) {
             mBST.insert(n);
             System.out.println("Rectangle accepted: " + n);
         } 
@@ -157,10 +162,10 @@ public class Parser {
         RectData d = new RectData(nums);
         
         // send in array of integers
-        BST_node<RectKey, RectData> temp = mBST.remove(d);
-        if (temp == null) {
-            System.out.println("Rectangle rejected (" + d + ")");
-        }
+         mBST.remove(d);
+        //if (temp == null) {
+           // System.out.println("Rectangle rejected (" + d + ")");
+        //}
     }
 
     /**
