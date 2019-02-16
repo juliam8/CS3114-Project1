@@ -63,7 +63,7 @@ public class BSTRectangle<K, D> extends BST<RectKey, RectData> {
 			return null;
 		}
 		if (rt.data().compareTo(data) == 0) {
-		    rt.setKey(new RectKey(rt.key().toString() + "_rEmoVe"));
+		    //rt.setKey(new RectKey(rt.key().toString() + "_rEmoVe"));
 			return rt;
 		}
 		else if (rt.left() != null)
