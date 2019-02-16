@@ -54,7 +54,7 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_nod
         if (rt == null) {
             return node;
         }
-        if (rt.key().compareTo(node.key()) >= 0) {
+        if (rt.key().compareTo(node.key()) >= 0) {//=
             rt.setLeft(insertHelper(rt.left(), node));
         }
         else {
@@ -171,12 +171,16 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_nod
         if (rt.key().compareTo(key) > 0) {
             return findHelper(rt.left(), key);
         }
-        else if (rt.key().compareTo(key) < 0) {
-            return findHelper(rt.right(), key);
-        }
-        else {
+        else if (rt.key().compareTo(key) == 0) {
             return rt;
         }
+        else
+            return findHelper(rt.right(), key);
+//            return findHelper(rt.right(), key);
+  //      }
+    //    else {
+      //      return rt;
+       // }
     }
 
     /**

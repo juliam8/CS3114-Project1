@@ -156,7 +156,7 @@ public class Parser {
         RectKey nodeKey = new RectKey(mScan.next());
         BST_node<RectKey, RectData> temp = mBST.remove(nodeKey);
         if (temp == null) {
-            System.out.println("Rectangle rejected (" + nodeKey + ")");
+            System.out.println("Rectangle rejected: " + nodeKey);
         }
     }
 
