@@ -51,7 +51,7 @@ public class BSTRectangleTest extends TestCase {
     public void testRemoveRectData() {
         BSTRectangle<RectKey, RectData> tree = new BSTRectangle<RectKey, RectData>();
         RectKey key = new RectKey("key1");
-        int[] d = {0, 0, 5, 5};
+        int[] d = {0, 0, 5, 4};
         RectData data = new RectData(d);
         BST_node<RectKey, RectData> node = new BST_node<RectKey, RectData>(key, data);
         tree.insert(node);
@@ -72,7 +72,7 @@ public class BSTRectangleTest extends TestCase {
     public void testRegionSearch() {
         BSTRectangle<RectKey, RectData> tree = new BSTRectangle<RectKey, RectData>();
         RectKey key = new RectKey("key1");
-        int[] d = {0, 0, 5, 5};
+        int[] d = {0, 0, 5, 3};
         RectData data = new RectData(d);
         BST_node<RectKey, RectData> node = new BST_node<RectKey, RectData>(key, data);
         tree.insert(node);
@@ -83,6 +83,7 @@ public class BSTRectangleTest extends TestCase {
         int[] r = {0, 0, 1024, 1024};
         RectData region = new RectData(r);
         
+        System.out.println("Called regionsearch for testing");
         tree.regionSearch(node, region);
         
         assertEquals(tree.root(), node);
@@ -96,7 +97,7 @@ public class BSTRectangleTest extends TestCase {
     public void testIntersection() {
         BSTRectangle<RectKey, RectData> tree = new BSTRectangle<RectKey, RectData>();
         RectKey key = new RectKey("key1");
-        int[] d = {0, 0, 5, 5};
+        int[] d = {0, 0, 5, 2};
         RectData data = new RectData(d);
         BST_node<RectKey, RectData> node = new BST_node<RectKey, RectData>(key, data);
         tree.insert(node);

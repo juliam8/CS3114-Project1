@@ -78,8 +78,17 @@ public class Parser {
                 (i[1] + i[3] < 0));
     }
     
-    public boolean validName(String s) {
+    public boolean validKey(String s) {
         String specialChars = "/*!@#$%^&*()\"{}[]|\\?/<>,.";
+        if (!Character.isLetter(s.charAt(0))) {
+            return false;
+        }      
+        for(int i=0; i<s.length(); ++i) {
+            String j = s.substring(i, i+1);
+            if(specialChars.contains(j)){
+                return false;
+            }
+        }
         return true;
     }
     

@@ -1,7 +1,2 @@
-insert node 0 0 5 5
-insert node 0 0 5 4
-dump
-remove 0 0 5 4
-dump
-remove node
-dump
+insert key1 0 0 5 63
+regionsearch 0 0 1024 1024
