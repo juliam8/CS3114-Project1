@@ -47,7 +47,6 @@ remove 1 1 4 7
 
 dump
 
-remove b
 remove c
 
 search c
@@ -57,4 +56,10 @@ remove e
 
 regionsearch 100 100 4 5
 
+regionsearch -10 5 3 2
+regionsearch 0 0 0 4
+regionsearch 0 0 -4 9
+
 dump
+
+search b
