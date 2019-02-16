@@ -3,3 +3,5 @@ insert node 0 0 5 4
 dump
 remove 0 0 5 4
 dump
+remove node
+dump
