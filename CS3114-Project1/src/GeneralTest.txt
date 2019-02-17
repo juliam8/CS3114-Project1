@@ -1,2 +1,6 @@
 insert key1 0 0 5 63
-regionsearch 0 0 1024 1024
+remove key1
+remove key1
+insert key2 8 8 8 8
+remove 8 8 8 8
+remove 8 8 8 8
