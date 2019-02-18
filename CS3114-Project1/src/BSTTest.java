@@ -114,13 +114,13 @@ public class BSTTest extends TestCase {
         assertEquals(mytree.root().right().key().name(), "f");
         
         assertEquals(mytree.nodeCount(), 3);
-	}
+    }
 
     /**
      * Test method for {@link BST#root()}.
      */
     @Test
-	public void testRoot() {
+    public void testRoot() {
         BST<RectKey, RectData> mytree = new BST<RectKey, RectData>();
         RectKey key1 = new RectKey("b");
         RectKey key2 = new RectKey("a");
