@@ -23,7 +23,7 @@ public class ParserTest {
     @Test
     public void executeTest() {
         BSTRectangle<RectKey, RectData> tBST;
-        tBST= new BSTRectangle<RectKey, RectData>();
+        tBST = new BSTRectangle<RectKey, RectData>();
         File tFile = new File("src//ParserTestFile.txt");
         assertNotNull(tFile);
         

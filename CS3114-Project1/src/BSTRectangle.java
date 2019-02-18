@@ -32,26 +32,26 @@ public class BSTRectangle<K, D> extends BST<RectKey, RectData> {
             }
             return temp;
         }
-        return null; // return null
-	}
+        return null;
+    }
 
     /**
      * Determines if node with designated data exists, if so it removes it
      * @param data the data value of the node to remove
      */
     public void remove(RectData data) {
-		if (root == null) {
-		    System.out.println("Rectangle rejected (" + data + ")");
-		}
-		else {
-		    int before = nodeCount;
-			root = findHelperData(root, data);
-			
-			if (nodeCount != before - 1) {
-			    System.out.println("Rectangle rejected (" + data + ")");
-			}
-		}
-	}
+        if (root == null) {
+            System.out.println("Rectangle rejected (" + data + ")");
+        }
+        else {
+            int before = nodeCount;
+            root = findHelperData(root, data);
+
+            if (nodeCount != before - 1) {
+                System.out.println("Rectangle rejected (" + data + ")");
+            }
+        }
+    }
 
     /**
      * Finds the node with the corresponding data value
@@ -60,7 +60,7 @@ public class BSTRectangle<K, D> extends BST<RectKey, RectData> {
      * @return the node that holds the corresponding data value
      */
     private BSTNode<RectKey, RectData> 
-	        findHelperData(BSTNode<RectKey, RectData> rt, RectData data) {
+                    findHelperData(BSTNode<RectKey, RectData> rt, RectData data) {
         if (rt == null) {
             return null;
         }

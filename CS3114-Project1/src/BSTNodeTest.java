@@ -6,7 +6,7 @@ import student.TestCase;
  * @version 2019-02-14
  *
  */
-public class BSTNodeTest extends TestCase{
+public class BSTNodeTest extends TestCase {
 
     /**
      * Test method for {@link BSTNode#BSTNode()}.
@@ -59,7 +59,7 @@ public class BSTNodeTest extends TestCase{
      * Test method for {@link BSTNode#setKey(java.lang.Object)}.
      */
     @Test
-    public void testSet_key() {
+    public void testsetKey() {
         n1 = new BSTNode<RectKey, RectData>();
         RectKey newKey = new RectKey("new_name");
 
@@ -72,7 +72,7 @@ public class BSTNodeTest extends TestCase{
      * Test method for {@link BSTNode#setData()}.
      */
     @Test
-    public void testsetData() {
+    public void testSetData() {
         n1 = new BSTNode<RectKey, RectData>();
         int[] c = {10, 3, 7, 32};
         RectData newData = new RectData(c);
