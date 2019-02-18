@@ -9,73 +9,96 @@ import student.TestCase;
  */
 public class RectDataTest extends TestCase {
 
-	@Test
-	public void testRectData() {
-		int[] c = {1, 1, 4, 5};
-		RectData d = new RectData(c);
-		
-		assertEquals(c, d.coordinates());
+    /**
+     * Test method for {@link RectData#RectData(java.lang.Object)}.
+     */
+    @Test
+    public void testRectData() {
+        int[] c = {1, 1, 4, 5};
+        RectData d = new RectData(c);
+
+        assertEquals(c, d.coordinates());
+    }
+
+    /**
+     * Test method for {@link RectData#compareTo()}.
+     */
+    @Test
+    public void testCompareTo() {
+        int[] c = {1, 1, 4, 5};
+        RectData d = new RectData(c);
+        RectData f = d;
+
+        int res = f.compareTo(d);
+
+        assertEquals(res, 0);
 	}
 
-	@Test
-	public void testCompareTo() {
-		int[] c = {1, 1, 4, 5};
-		RectData d = new RectData(c);
-		RectData f = d;
-		
-		int res = f.compareTo(d);
-		
-		assertEquals(res, 0);
-	}
+    /**
+     * Test method for {@link RectData#compareTo()}.
+     */
+    @Test
+    public void testToString() {
+        int[] c = {1, 1, 4, 5};
+        RectData d = new RectData(c);
 
-	@Test
-	public void testToString() {
-		int[] c = {1, 1, 4, 5};
-		RectData d = new RectData(c);
-		
-		String test = d.toString();
-		
-		assertEquals("1, 1, 4, 5", test);
-	}
+        String test = d.toString();
 
-	@Test
-	public void testCoordinates() {
-		int[] c = {1, 1, 4, 5};
-		RectData d = new RectData(c);
-		
-		assertEquals(c, d.coordinates());
-	}
+        assertEquals("1, 1, 4, 5", test);
+    }
 
-	@Test
-	public void testX() {
-		int[] c = {1, 1, 4, 5};
-		RectData d = new RectData(c);
-		
-		assertEquals(c[0], d.x());
-	}
+    /**
+     * Test method for {@link RectData#compareTo()}.
+     */
+    @Test
+    public void testCoordinates() {
+        int[] c = {1, 1, 4, 5};
+        RectData d = new RectData(c);
 
-	@Test
-	public void testY() {
-		int[] c = {1, 1, 4, 5};
-		RectData d = new RectData(c);
-		
-		assertEquals(c[1], d.y());
-	}
+        assertEquals(c, d.coordinates());
+    }
 
-	@Test
-	public void testW() {
-		int[] c = {1, 1, 4, 5};
-		RectData d = new RectData(c);
-		
-		assertEquals(c[2], d.w());
-	}
+    /**
+     * Test method for {@link RectData#compareTo()}.
+     */
+    @Test
+    public void testX() {
+        int[] c = {1, 1, 4, 5};
+        RectData d = new RectData(c);
 
-	@Test
-	public void testH() {
-		int[] c = {1, 1, 4, 5};
-		RectData d = new RectData(c);
-		
-		assertEquals(c[3], d.h());
-	}
+        assertEquals(c[0], d.x());
+    }
 
+    /**
+     * Test method for {@link RectData#compareTo()}.
+     */
+    @Test
+    public void testY() {
+        int[] c = {1, 1, 4, 5};
+        RectData d = new RectData(c);
+
+        assertEquals(c[1], d.y());
+    }
+
+    /**
+     * Test method for {@link RectData#compareTo()}.
+     */
+    @Test
+    public void testW() {
+        int[] c = {1, 1, 4, 5};
+        RectData d = new RectData(c);
+
+        assertEquals(c[2], d.w());
+    }
+
+    /**
+     * Test method for {@link RectData#compareTo()}.
+     */
+    @Test
+    public void testH() {
+        int[] c = {1, 1, 4, 5};
+        RectData d = new RectData(c);
+
+        assertEquals(c[3], d.h());
+    }
 }
