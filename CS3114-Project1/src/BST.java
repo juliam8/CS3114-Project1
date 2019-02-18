@@ -11,7 +11,7 @@ import java.util.Stack;
  * @param <D> generic Data type
  */
 public class BST<K extends Comparable<? super K>, D> 
-            implements Iterable<BST_node<K, D>> {
+            implements Iterable<BSTNode<K, D>> {
     
     /**
      * Constructor for the BST class 
@@ -23,7 +23,7 @@ public class BST<K extends Comparable<? super K>, D>
     }
 
     @Override
-    public Iterator<BST_node<K, D>> iterator() {
+    public Iterator<BSTNode<K, D>> iterator() {
         return new BSTIterator(root);
     }
 
@@ -39,19 +39,19 @@ public class BST<K extends Comparable<? super K>, D>
      * Calls insert helper and to increment node count 
      * @param node the node to insert
      */
-    public void insert(BST_node<K, D> node) {
+    public void insert(BSTNode<K, D> node) {
         root = insertHelper(root, node);
         nodeCount++;
     }
 
     /**
      * Inserts a node into BST by comparing the key value
-     * @param rt BST_node<K, D> the root node of the BST
-     * @param node BST_node<K, D> the node to insert
-     * @return BST_node<K, D> the altered BST node, which 
+     * @param rt BSTNode<K, D> the root node of the BST
+     * @param node BSTNode<K, D> the node to insert
+     * @return BSTNode<K, D> the altered BST node, which 
      * the root will be set to
      */
-    public BST_node<K, D> insertHelper(BST_node<K, D> rt, BST_node<K, D> node) {
+    public BSTNode<K, D> insertHelper(BSTNode<K, D> rt, BSTNode<K, D> node) {
         if (rt == null) {
             return node;
         }
@@ -66,12 +66,12 @@ public class BST<K extends Comparable<? super K>, D>
 
     /**
      * Removes a node from the BST by the key value
-     * @param rt type BST_node<K, D> the root node of the BST
+     * @param rt type BSTNode<K, D> the root node of the BST
      * @param key the key value of the node to remove
-     * @return BST_node<K, D> the node to replace the 
+     * @return BSTNode<K, D> the node to replace the 
      * removed BST node
      */
-    protected BST_node<K, D> removeHelper(BST_node<K, D> rt, K key) {
+    protected BSTNode<K, D> removeHelper(BSTNode<K, D> rt, K key) {
         if (rt == null) {
             return null;
         }
@@ -89,7 +89,7 @@ public class BST<K extends Comparable<? super K>, D>
                 return rt.left();
             }
             else { // two children
-                BST_node<K, D> temp = getMin(rt.right());
+                BSTNode<K, D> temp = getMin(rt.right());
                 rt.setData(temp.data());
                 rt.setKey(temp.key());
                 rt.setRight(deleteMin(rt.right()));
@@ -100,11 +100,11 @@ public class BST<K extends Comparable<? super K>, D>
 
     /**
      * Gets the node with minimum value, used in insertHelper
-     * @param rt type BST_node<K, D> the root node of the BST
-     * @return BST_node<K, D> the node holding the minimum
+     * @param rt type BSTNode<K, D> the root node of the BST
+     * @return BSTNode<K, D> the node holding the minimum
      *  key value
      */
-    protected BST_node<K, D> getMin(BST_node<K, D> rt) {
+    protected BSTNode<K, D> getMin(BSTNode<K, D> rt) {
         //directly find the corresponding
         //generate another help function remove help that carries name x y w h
         if (rt.left() == null) {
@@ -117,11 +117,11 @@ public class BST<K extends Comparable<? super K>, D>
 
     /**
      * Removes the node with minimum value, used in insertHelper
-     * @param rt type BST_node<K, D> the root node of the BST
-     * @return BST_node<K, D> the node holding the minimum 
+     * @param rt type BSTNode<K, D> the root node of the BST
+     * @return BSTNode<K, D> the node holding the minimum 
      * key value
      */
-    protected BST_node<K, D> deleteMin(BST_node<K, D> rt) {
+    protected BSTNode<K, D> deleteMin(BSTNode<K, D> rt) {
         if (rt.left() == null) {
             return rt.right();
         }
@@ -147,10 +147,10 @@ public class BST<K extends Comparable<? super K>, D>
 
     /**
      * Prints out the nodes in the BST using inorder traversal
-     * @param rt type BST_node<K, D> the root node of the BST
+     * @param rt type BSTNode<K, D> the root node of the BST
      * @param depth the depth of the node being printed
      */
-    private void dumpHelper(BST_node<K, D> rt, int depth) { 
+    private void dumpHelper(BSTNode<K, D> rt, int depth) { 
         if (rt != null) {
             dumpHelper(rt.left(), depth + 1);
             System.out.print("    Node has depth " + depth + ", Value ");
@@ -165,7 +165,7 @@ public class BST<K extends Comparable<? super K>, D>
      * @param key the key value of the node to insert
      * @return the BST node with the corresponding key value
      */
-    BST_node<K, D> findHelper(BST_node<K, D> rt, K key) {
+    BSTNode<K, D> findHelper(BSTNode<K, D> rt, K key) {
         if (rt == null) {
             return null;
         }
@@ -185,8 +185,8 @@ public class BST<K extends Comparable<? super K>, D>
      * @param key the key value of the node to find
      */
     public void search(K key) {
-        BST_node<K, D> temp = findHelper(root, key); // First find it
-        //BST_node<K, D> findHelper(BST_node<K, D> rt, K key) {
+        BSTNode<K, D> temp = findHelper(root, key); // First find it
+        //BSTNode<K, D> findHelper(BSTNode<K, D> rt, K key) {
         if (temp == null) {
             System.out.println("Rectangle not found: " + key);
         }
@@ -200,7 +200,7 @@ public class BST<K extends Comparable<? super K>, D>
      * @param rt the root node of the BST
      * @param key the key value of the node to insert
      */
-    public void searchHelper(BST_node<K, D> rt, K key) {
+    public void searchHelper(BSTNode<K, D> rt, K key) {
         if (rt != null) {        
             if (rt.key().compareTo(key) > 0) {
                 searchHelper(rt.left(), key);
@@ -220,7 +220,7 @@ public class BST<K extends Comparable<? super K>, D>
      * Returns the root of the BST
      * @return the root of the BST
      */
-    public BST_node<K, D> root() {
+    public BSTNode<K, D> root() {
         return root;
     }
 
@@ -235,7 +235,7 @@ public class BST<K extends Comparable<? super K>, D>
     /**
      * The root of the BST
      */
-    protected BST_node<K, D> root;
+    protected BSTNode<K, D> root;
     
     /**
      * The number of nodes in the BST
@@ -245,12 +245,13 @@ public class BST<K extends Comparable<? super K>, D>
     /**
      * Iterator subclass for our BST implemented using a stack
      */
-    public class BSTIterator implements Iterator<BST_node<K, D>> {
+    public class BSTIterator implements Iterator<BSTNode<K, D>> {
 
         /**
          * Constructor for iterator subclass 
+         * @param root the node to be put onto the stack
          */
-        BSTIterator(BST_node<K, D> root) {
+        BSTIterator(BSTNode<K, D> root) {
             nodeStack.push(root);
         }
     
@@ -260,8 +261,8 @@ public class BST<K extends Comparable<? super K>, D>
         }
     
         @Override
-        public BST_node<K, D> next() {
-            BST_node<K, D> cur = null;
+        public BSTNode<K, D> next() {
+            BSTNode<K, D> cur = null;
             if (!nodeStack.empty()) {
                 cur = nodeStack.peek();
                 nodeStack.pop();
@@ -279,7 +280,7 @@ public class BST<K extends Comparable<? super K>, D>
         /**
          * The stack that holds the BST
          */
-        protected Stack<BST_node<K, D>> nodeStack = new Stack<BST_node<K, D>>();
+        protected Stack<BSTNode<K, D>> nodeStack = new Stack<BSTNode<K, D>>();
     
     }
 }

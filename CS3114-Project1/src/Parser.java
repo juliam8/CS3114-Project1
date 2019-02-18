@@ -29,6 +29,7 @@ public class Parser {
             e.printStackTrace();
         }
     }
+    
 
     /**
      * Parses each command from the input file using a Scanner 
@@ -83,7 +84,7 @@ public class Parser {
      * @param s     Input string representing the key
      * @return      True for a valid rectangle, else False
      */
-    public boolean validKey(String s) {
+    private boolean validKey(String s) {
         String specialChars = "/*!@#$%^&*()\"{}[]|\\?/<>,.";
         if (!Character.isLetter(s.charAt(0))) {
             return false;
@@ -109,8 +110,8 @@ public class Parser {
         }
         RectKey nodeKey = new RectKey(name);
         RectData nodeData = new RectData(nums);
-        BST_node<RectKey, RectData> n;
-        n = new BST_node<RectKey, RectData>(nodeKey, nodeData);
+        BSTNode<RectKey, RectData> n;
+        n = new BSTNode<RectKey, RectData>(nodeKey, nodeData);
         
         if (validData(nums) && validKey(name)) {
             mBST.insert(n);
@@ -159,9 +160,9 @@ public class Parser {
      */
     private void removeKey() {
         RectKey nodeKey = new RectKey(mScan.next());
-        BST_node<RectKey, RectData> temp = mBST.remove(nodeKey);
+        BSTNode<RectKey, RectData> temp = mBST.remove(nodeKey);
         if (temp == null) {
-            System.out.println("Rectangle rejected: " + nodeKey);
+            System.out.println("Rectangle rejected " + nodeKey);
         }
     }
 
@@ -178,7 +179,7 @@ public class Parser {
                 nums[i] = Integer.parseInt(valid);
             }
             else {
-                System.out.println("Rectangle rejected: " + valid);
+                System.out.println("Rectangle rejected " + valid);
                 return;
             }
                 
@@ -201,6 +202,6 @@ public class Parser {
         mBST.intersection();
     }
 
-    private Scanner mScan;
-    private BSTRectangle<RectKey, RectData> mBST;
+    protected Scanner mScan;
+    protected BSTRectangle<RectKey, RectData> mBST;
 }
