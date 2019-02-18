@@ -1,0 +1,26 @@
+
+dump
+
+insert a 1 2 3 4
+insert b 2 3 4 5
+insert c 0 0 6 6
+
+insert @hello 9 9 3 3
+insert 3 6 7 8 9
+
+intersections
+
+regionsearch 0 0 1024 1024
+regionsearch 2 2 0 0
+
+dump
+
+search b
+search fail
+
+remove a
+remove 2 3 4 5
+remove fail
+remove 2
+
+dump
