@@ -10,7 +10,8 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({ BSTNodeTest.class, RectDataTest.class, RectKeyTest.class, 
-                BSTTest.class, Rectangle1Test.class, BSTRectangleTest.class})
+                BSTTest.class, Rectangle1Test.class, BSTRectangleTest.class, 
+                ParserTest.class})
 public class P1Tests {
 
 }

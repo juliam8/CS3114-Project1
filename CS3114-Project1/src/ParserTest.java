@@ -1,13 +1,6 @@
-import static org.junit.Assert.*;
-
 import java.io.File;
-
-
 import org.junit.Test;
-
-/**
- * 
- */
+import student.TestCase;
 
 /**
  * @author juliam8
@@ -15,7 +8,7 @@ import org.junit.Test;
  * @version 2019-02-14
  *
  */
-public class ParserTest {
+public class ParserTest extends TestCase {
       
     /**
      * Test method for {@link Parser#execute()}.
@@ -24,11 +17,18 @@ public class ParserTest {
     public void executeTest() {
         BSTRectangle<RectKey, RectData> tBST;
         tBST = new BSTRectangle<RectKey, RectData>();
+        
+        assertEquals(tBST.nodeCount(), 0);
+        assertEquals(tBST.root(), null);
+        
         File tFile = new File("src//ParserTestFile.txt");
+        
         assertNotNull(tFile);
         
         Parser myParse = new Parser(tFile, tBST);
         
         myParse.execute();
+        
+        assertEquals(tBST.nodeCount(), 1);
     }
 }
