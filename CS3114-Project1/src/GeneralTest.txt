@@ -1,6 +1,12 @@
-insert r3 220 100 50 20
-insert val2 200 120 150 100
-insert test 500 500 4 4
-insert world 0 0 1024 1024
+insert m 1 1 1 1
+insert a 3 3 3 3
+insert g 2 2 2 2
+insert t 2 2 2 2
+insert z 2 2 2 2
+insert p 2 2 2 2
+
 dump
-intersections
+
+
+remove m
+dump

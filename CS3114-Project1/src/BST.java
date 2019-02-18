@@ -55,7 +55,7 @@ public class BST<K extends Comparable<? super K>, D>
         if (rt == null) {
             return node;
         }
-        if (rt.key().compareTo(node.key()) >= 0) {
+        if (rt.key().compareTo(node.key()) > 0) {
             rt.setLeft(insertHelper(rt.left(), node));
         }
         else {
