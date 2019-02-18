@@ -83,7 +83,7 @@ public class BSTRectangle<K, D> extends BST<RectKey, RectData> {
         if (rt.left() != null) {
             rt.setLeft(findHelperData(rt.left(), data));
         }
-        if (rt.right() != null){
+        if (rt.right() != null) {
             rt.setRight(findHelperData(rt.right(), data));
         }
         return rt;
