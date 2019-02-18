@@ -24,7 +24,7 @@ public class BST<K extends Comparable<? super K>, D>
 
     @Override
     public Iterator<BST_node<K, D>> iterator() {
-        return new BST_Iterator(root);
+        return new BSTIterator(root);
     }
 
     /**
@@ -67,7 +67,7 @@ public class BST<K extends Comparable<? super K>, D>
     /**
      * Removes a node from the BST by the key value
      * @param rt type BST_node<K, D> the root node of the BST
-     * @param Key the key value of the node to remove
+     * @param key the key value of the node to remove
      * @return BST_node<K, D> the node to replace the 
      * removed BST node
      */
@@ -81,7 +81,7 @@ public class BST<K extends Comparable<? super K>, D>
         else if (rt.key().compareTo(key) < 0) {
             rt.setRight(removeHelper(rt.right(), key));
         }
-        else {		
+        else {
             if (rt.left() == null) {
                 return rt.right();
             }
@@ -175,13 +175,9 @@ public class BST<K extends Comparable<? super K>, D>
         else if (rt.key().compareTo(key) == 0) {
             return rt;
         }
-        else
+        else {
             return findHelper(rt.right(), key);
-//            return findHelper(rt.right(), key);
-  //      }
-    //    else {
-      //      return rt;
-       // }
+        }
     }
 
     /**
@@ -203,22 +199,20 @@ public class BST<K extends Comparable<? super K>, D>
      * Searches for all nodes in BST tree that have the key value
      * @param rt the root node of the BST
      * @param key the key value of the node to insert
-     * @param b the boolean value to track throughout recursive function calls
-     * @return the boolean to represent if any node has been found with the key value
      */
     public void searchHelper(BST_node<K, D> rt, K key) {
-        if (rt == null) {
-        }
-        else if (rt.key().compareTo(key) > 0) {
-            searchHelper(rt.left(), key);
-        }
-        else if (rt.key().compareTo(key) < 0) {
-            searchHelper(rt.right(), key);
-        }
-        else {
-            searchHelper(rt.left(), key);
-            System.out.println("Rectangle found: " + rt);
-            searchHelper(rt.right(), key);
+        if (rt != null) {        
+            if (rt.key().compareTo(key) > 0) {
+                searchHelper(rt.left(), key);
+            }
+            else if (rt.key().compareTo(key) < 0) {
+                searchHelper(rt.right(), key);
+            }
+            else {
+                searchHelper(rt.left(), key);
+                System.out.println("Rectangle found: " + rt);
+                searchHelper(rt.right(), key);
+            }
         }
     }
 
@@ -238,40 +232,54 @@ public class BST<K extends Comparable<? super K>, D>
         return nodeCount;
     }
 
-    // data members
+    /**
+     * The root of the BST
+     */
     protected BST_node<K, D> root;
+    
+    /**
+     * The number of nodes in the BST
+     */
     protected int nodeCount;    
     
-    // Iterator subclass for our BST implemented using a stack
-    public class BST_Iterator implements Iterator<BST_node<K, D>> {
+    /**
+     * Iterator subclass for our BST implemented using a stack
+     */
+    public class BSTIterator implements Iterator<BST_node<K, D>> {
 
-    BST_Iterator(BST_node<K, D> root) {
-        nodeStack.push(root);
-    }
-
-    @Override
-    public boolean hasNext() {
-        return !nodeStack.isEmpty();
-    }
-
-    @Override
-    public BST_node<K, D> next() {
-        BST_node<K, D> cur = null;
-        if (!nodeStack.empty()) {
-            cur = nodeStack.peek();
-            nodeStack.pop();
-
-            if (cur.right() != null) {
-                nodeStack.push(cur.right());
-            }
-            if (cur.left() != null) {
-                nodeStack.push(cur.left());
-            }
+        /**
+         * Constructor for iterator subclass 
+         */
+        BSTIterator(BST_node<K, D> root) {
+            nodeStack.push(root);
         }
-        return cur;
-    }
+    
+        @Override
+        public boolean hasNext() {
+            return !nodeStack.isEmpty();
+        }
+    
+        @Override
+        public BST_node<K, D> next() {
+            BST_node<K, D> cur = null;
+            if (!nodeStack.empty()) {
+                cur = nodeStack.peek();
+                nodeStack.pop();
+    
+                if (cur.right() != null) {
+                    nodeStack.push(cur.right());
+                }
+                if (cur.left() != null) {
+                    nodeStack.push(cur.left());
+                }
+            }
+            return cur;
+        }
 
-    protected Stack<BST_node<K, D>> nodeStack = new Stack<BST_node<K, D>>();
+        /**
+         * The stack that holds the BST
+         */
+        protected Stack<BST_node<K, D>> nodeStack = new Stack<BST_node<K, D>>();
     
     }
 }

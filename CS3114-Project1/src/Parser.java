@@ -90,7 +90,7 @@ public class Parser {
         }      
         for (int i = 0; i < s.length(); ++i) {
             String j = s.substring(i, i + 1);
-            if (specialChars.contains(j)){
+            if (specialChars.contains(j)) {
                 return false;
             }
         }
