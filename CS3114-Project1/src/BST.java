@@ -10,7 +10,8 @@ import java.util.Stack;
  * @param <K> generic Key type
  * @param <D> generic Data type
  */
-public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_node<K, D>> {
+public class BST<K extends Comparable<? super K>, D> 
+            implements Iterable<BST_node<K, D>> {
     
     /**
      * Constructor for the BST class 
@@ -45,8 +46,8 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_nod
 
     /**
      * Inserts a node into BST by comparing the key value
-     * @param BST_node<K, D> rt the root node of the BST
-     * @param BST_node<K, D> node the node to insert
+     * @param rt BST_node<K, D> the root node of the BST
+     * @param node BST_node<K, D> the node to insert
      * @return BST_node<K, D> the altered BST node, which 
      * the root will be set to
      */
@@ -54,7 +55,7 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_nod
         if (rt == null) {
             return node;
         }
-        if (rt.key().compareTo(node.key()) >= 0) {//=
+        if (rt.key().compareTo(node.key()) >= 0) {
             rt.setLeft(insertHelper(rt.left(), node));
         }
         else {
@@ -65,8 +66,8 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_nod
 
     /**
      * Removes a node from the BST by the key value
-     * @param BST_node<K, D> rt the root node of the BST
-     * @param K key the key value of the node to remove
+     * @param rt type BST_node<K, D> the root node of the BST
+     * @param Key the key value of the node to remove
      * @return BST_node<K, D> the node to replace the 
      * removed BST node
      */
@@ -99,7 +100,7 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_nod
 
     /**
      * Gets the node with minimum value, used in insertHelper
-     * @param BST_node<K, D> rt the root node of the BST
+     * @param rt type BST_node<K, D> the root node of the BST
      * @return BST_node<K, D> the node holding the minimum
      *  key value
      */
@@ -116,7 +117,7 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_nod
 
     /**
      * Removes the node with minimum value, used in insertHelper
-     * @param BST_node<K, D> rt the root node of the BST
+     * @param rt type BST_node<K, D> the root node of the BST
      * @return BST_node<K, D> the node holding the minimum 
      * key value
      */
@@ -146,8 +147,8 @@ public class BST<K extends Comparable<? super K>, D> implements Iterable<BST_nod
 
     /**
      * Prints out the nodes in the BST using inorder traversal
-     * @param BST_node<K, D> rt the root node of the BST
-     * @param int depth the depth of the node being printed
+     * @param rt type BST_node<K, D> the root node of the BST
+     * @param depth the depth of the node being printed
      */
     private void dumpHelper(BST_node<K, D> rt, int depth) { 
         if (rt != null) {

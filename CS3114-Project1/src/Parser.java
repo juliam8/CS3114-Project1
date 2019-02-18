@@ -1,8 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * @author juliam8
@@ -80,14 +78,19 @@ public class Parser {
                 (i[1] + i[3] < 0));
     }
     
+    /**
+     * Checks input rectangle key for validity
+     * @param s     Input string representing the key
+     * @return      True for a valid rectangle, else False
+     */
     public boolean validKey(String s) {
         String specialChars = "/*!@#$%^&*()\"{}[]|\\?/<>,.";
         if (!Character.isLetter(s.charAt(0))) {
             return false;
         }      
-        for(int i=0; i<s.length(); ++i) {
-            String j = s.substring(i, i+1);
-            if(specialChars.contains(j)){
+        for (int i = 0; i < s.length(); ++i) {
+            String j = s.substring(i, i + 1);
+            if (specialChars.contains(j)){
                 return false;
             }
         }
@@ -185,7 +188,7 @@ public class Parser {
         
         // send in array of integers
        
-         mBST.remove(d);
+        mBST.remove(d);
          
     }
     
