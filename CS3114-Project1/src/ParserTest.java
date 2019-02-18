@@ -1,5 +1,4 @@
 import java.io.File;
-import org.junit.Test;
 import student.TestCase;
 
 /**
@@ -13,7 +12,6 @@ public class ParserTest extends TestCase {
     /**
      * Test method for {@link Parser#execute()}.
      */
-    @Test
     public void executeTest() {
         BSTRectangle<RectKey, RectData> tBST;
         tBST = new BSTRectangle<RectKey, RectData>();
