@@ -58,8 +58,8 @@ public class BSTRectangle<K, D> extends BST<RectKey, RectData> {
      * @param data the data value of the node to find
      * @return the node that holds the corresponding data value
      */
-    private BSTNode<RectKey, RectData> 
-                    findHelperData(BSTNode<RectKey, RectData> rt, RectData data) {
+    private BSTNode<RectKey, RectData> findHelperData(
+                                        BSTNode<RectKey, RectData> rt, RectData data) {
         if (rt == null) {
             return null;
         }
@@ -119,7 +119,7 @@ public class BSTRectangle<K, D> extends BST<RectKey, RectData> {
 
         if (!(nx1 > dx2 || dx1 > nx2 || ny1 > dy2 || dy1 > ny2)) {
             System.out.println(node);
-        }	
+        }
     }
 
     /**

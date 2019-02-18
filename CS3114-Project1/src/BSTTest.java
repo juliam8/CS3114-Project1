@@ -12,20 +12,20 @@ import student.TestCase;
  */
 public class BSTTest extends TestCase {
 
-	/**
-	 * Test method for {@link BST#BST()}.
-	 */
-	@Test
-	public void testBST() {
-		BST<RectKey, RectData> mytree = new BST<RectKey, RectData>();
-		assertEquals(mytree.nodeCount(), 0);
-		assertEquals(mytree.root(), null);
-	}
+    /**
+     * Test method for {@link BST#BST()}.
+     */
+    @Test
+    public void testBST() {
+        BST<RectKey, RectData> mytree = new BST<RectKey, RectData>();
+        assertEquals(mytree.nodeCount(), 0);
+        assertEquals(mytree.root(), null);
+    }
 
-	/**
-	 * Test method for {@link BST#clear()}.
-	 */
-	@Test
+    /**
+     * Test method for {@link BST#clear()}.
+     */
+    @Test
     public void testClear() {
         BST<RectKey, RectData> mytree = new BST<RectKey, RectData>();
         RectKey key = new RectKey("test");
@@ -116,10 +116,10 @@ public class BSTTest extends TestCase {
         assertEquals(mytree.nodeCount(), 3);
 	}
 
-	/**
-	 * Test method for {@link BST#root()}.
-	 */
-	@Test
+    /**
+     * Test method for {@link BST#root()}.
+     */
+    @Test
 	public void testRoot() {
         BST<RectKey, RectData> mytree = new BST<RectKey, RectData>();
         RectKey key1 = new RectKey("b");

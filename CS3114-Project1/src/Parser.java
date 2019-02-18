@@ -202,6 +202,6 @@ public class Parser {
         mBST.intersection();
     }
 
-    protected Scanner mScan;
-    protected BSTRectangle<RectKey, RectData> mBST;
+    private Scanner mScan;
+    private BSTRectangle<RectKey, RectData> mBST;
 }

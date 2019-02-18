@@ -46,35 +46,40 @@ public class RectData implements Comparable<RectData> {
     }
 
     /**
-     * @return
+     * Returns the coordinates
+     * @return the coordinates
      */
     public int[] coordinates() {
         return coordinates;
     }
 
     /**
-     * @return
+     * Returns the x coordinate
+     * @return the x coordinate integer
      */
     public int x() {
         return x;
     }
 
     /**
-     * @return
+     * Returns the y coordinate
+     * @return the y coordinate integer
      */
     public int y() {
         return y;
     }
 
     /**
-     * @return
+     * Returns the width of the rectangle
+     * @return the width value
      */
     public int w() {
         return w;
     }
 
     /**
-     * @return
+     * Returns the height of the rectangle
+     * @return the height value
      */
     public int h() {
         return h;
