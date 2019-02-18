@@ -1,4 +1,3 @@
-
 /**
  * @author juliam8
  * @author abbym1
@@ -23,35 +22,35 @@ public class BSTRectangle<K, D> extends BST<RectKey, RectData> {
      * @param key the key value of the node to remove
      * @return the node that was deleted
      */
-    public BST_node<RectKey, RectData> remove(RectKey key) {
+    public BSTNode<RectKey, RectData> remove(RectKey key) {
         if (root != null) {
-            BST_node<RectKey, RectData> temp = findHelper(root, key); 
+            BSTNode<RectKey, RectData> temp = findHelper(root, key); 
             if (temp != null) {
                 root = removeHelper(root, key);
                 nodeCount--;
             }
             return temp;
         }
-        return null; // return null
-	}
+        return null;
+    }
 
     /**
      * Determines if node with designated data exists, if so it removes it
      * @param data the data value of the node to remove
      */
     public void remove(RectData data) {
-		if (root == null) {
-		    System.out.println("Rectangle rejected (" + data + ")");
-		}
-		else {
-		    int before = nodeCount;
-			root = findHelperData(root, data);
-			
-			if (nodeCount != before - 1) {
-			    System.out.println("Rectangle rejected (" + data + ")");
-			}
-		}
-	}
+        if (root == null) {
+            System.out.println("Rectangle rejected (" + data + ")");
+        }
+        else {
+            int before = nodeCount;
+            root = findHelperData(root, data);
+
+            if (nodeCount != before - 1) {
+                System.out.println("Rectangle rejected (" + data + ")");
+            }
+        }
+    }
 
     /**
      * Finds the node with the corresponding data value
@@ -59,8 +58,8 @@ public class BSTRectangle<K, D> extends BST<RectKey, RectData> {
      * @param data the data value of the node to find
      * @return the node that holds the corresponding data value
      */
-    private BST_node<RectKey, RectData> 
-	        findHelperData(BST_node<RectKey, RectData> rt, RectData data) {
+    private BSTNode<RectKey, RectData> 
+                    findHelperData(BSTNode<RectKey, RectData> rt, RectData data) {
         if (rt == null) {
             return null;
         }
@@ -73,10 +72,10 @@ public class BSTRectangle<K, D> extends BST<RectKey, RectData> {
                 return rt.left();
             }
             else { // two children
-                BST_node<RectKey, RectData> temp = getMax(rt.left());
+                BSTNode<RectKey, RectData> temp = getMin(rt.right());
                 rt.setData(temp.data());
                 rt.setKey(temp.key());
-                rt.setLeft(deleteMax(rt.left()));
+                rt.setRight(deleteMin(rt.right()));
             }
             return rt;
         }
@@ -94,7 +93,7 @@ public class BSTRectangle<K, D> extends BST<RectKey, RectData> {
      * @param rt the root node of the BST
      * @param data the region in which to search for other rectangles
      */
-    public void regionSearch(BST_node<RectKey, RectData> rt, RectData data) {
+    public void regionSearch(BSTNode<RectKey, RectData> rt, RectData data) {
         if (rt != null) {
             regionSearch(rt.left(), data);
             regionSearchCheck(rt, data);
@@ -107,7 +106,7 @@ public class BSTRectangle<K, D> extends BST<RectKey, RectData> {
      * @param node the node to check if it is within the region
      * @param d the region in which to search for other rectangles
      */
-    private void regionSearchCheck(BST_node<RectKey, RectData> node, 
+    private void regionSearchCheck(BSTNode<RectKey, RectData> node, 
                                     RectData d) {
         int nx1 = node.data().x(); // left
         int nx2 = node.data().x() + node.data().w(); // right
@@ -128,7 +127,7 @@ public class BSTRectangle<K, D> extends BST<RectKey, RectData> {
      */
     public void intersection() {
         BSTIterator outer = new BSTIterator(root);
-        BST_node<RectKey, RectData> cur = null;
+        BSTNode<RectKey, RectData> cur = null;
         for (int i = 0; i < nodeCount; ++i) {
             cur = outer.next();
             BSTIterator inner = new BSTIterator(root);
@@ -146,8 +145,8 @@ public class BSTRectangle<K, D> extends BST<RectKey, RectData> {
      * @param a the first node to compare
      * @param b the second node to compare
      */
-	private void iteratorCheck(BST_node<RectKey, RectData> a, 
-                               BST_node<RectKey, RectData> b) {
+	private void iteratorCheck(BSTNode<RectKey, RectData> a, 
+                               BSTNode<RectKey, RectData> b) {
 		int ax1 = a.data().x(); // left
 		int ax2 = a.data().x() + a.data().w(); // right
 		int ay1 = a.data().y(); // top
