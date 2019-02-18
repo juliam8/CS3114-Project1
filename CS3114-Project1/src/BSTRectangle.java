@@ -59,7 +59,8 @@ public class BSTRectangle<K, D> extends BST<RectKey, RectData> {
      * @return the node that holds the corresponding data value
      */
     private BSTNode<RectKey, RectData> findHelperData(
-                                        BSTNode<RectKey, RectData> rt, RectData data) {
+                BSTNode<RectKey, RectData> rt, 
+                RectData data) {
         if (rt == null) {
             return null;
         }

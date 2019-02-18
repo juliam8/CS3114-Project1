@@ -32,7 +32,7 @@ public class RectDataTest extends TestCase {
         int res = f.compareTo(d);
 
         assertEquals(res, 0);
-	}
+    }
 
     /**
      * Test method for {@link RectData#compareTo()}.
