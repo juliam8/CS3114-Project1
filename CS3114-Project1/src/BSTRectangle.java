@@ -73,10 +73,10 @@ public class BSTRectangle<K, D> extends BST<RectKey, RectData> {
                 return rt.left();
             }
             else { // two children
-                BST_node<RectKey, RectData> temp = getMin(rt.right());
+                BST_node<RectKey, RectData> temp = getMax(rt.left());
                 rt.setData(temp.data());
                 rt.setKey(temp.key());
-                rt.setRight(deleteMin(rt.right()));
+                rt.setLeft(deleteMax(rt.left()));
             }
             return rt;
         }

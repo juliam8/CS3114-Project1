@@ -89,10 +89,10 @@ public class BST<K extends Comparable<? super K>, D>
                 return rt.left();
             }
             else { // two children
-                BST_node<K, D> temp = getMin(rt.right());
+                BST_node<K, D> temp = getMax(rt.left());
                 rt.setData(temp.data());
                 rt.setKey(temp.key());
-                rt.setRight(deleteMin(rt.right()));
+                rt.setLeft(deleteMax(rt.left()));
             }
         }
         return rt;
@@ -104,14 +104,14 @@ public class BST<K extends Comparable<? super K>, D>
      * @return BST_node<K, D> the node holding the minimum
      *  key value
      */
-    protected BST_node<K, D> getMin(BST_node<K, D> rt) {
+    protected BST_node<K, D> getMax(BST_node<K, D> rt) {
         //directly find the corresponding
         //generate another help function remove help that carries name x y w h
-        if (rt.left() == null) {
+        if (rt.right() == null) {
             return rt;
         }
         else {
-            return getMin(rt.left());
+            return getMax(rt.right());
         }
     }
 
@@ -121,12 +121,12 @@ public class BST<K extends Comparable<? super K>, D>
      * @return BST_node<K, D> the node holding the minimum 
      * key value
      */
-    protected BST_node<K, D> deleteMin(BST_node<K, D> rt) {
-        if (rt.left() == null) {
-            return rt.right();
+    protected BST_node<K, D> deleteMax(BST_node<K, D> rt) {
+        if (rt.right() == null) {
+            return rt.left();
         }
         else {
-            rt.setLeft(deleteMin(rt.left()));
+            rt.setRight(deleteMax(rt.right()));
             return rt;
         }
     }
