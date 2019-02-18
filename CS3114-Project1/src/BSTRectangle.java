@@ -41,9 +41,13 @@ public class BSTRectangle<K, D> extends BST<RectKey, RectData> {
      * @return the node that was deleted
      */
 	public void remove(RectData data) {
-		if (root != null) {
+		if (root == null) {
+		    System.out.println("Rectangle rejected (" + data + ")");
+		}
+		else {
 		    int before = nodeCount;
 			root = findHelperData(root, data);
+			
 			if (nodeCount != before - 1) {
 			    System.out.println("Rectangle rejected (" + data + ")");
 			}

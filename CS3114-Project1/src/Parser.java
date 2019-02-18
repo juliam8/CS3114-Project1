@@ -1,5 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -164,19 +166,29 @@ public class Parser {
      * Removes a node with the given Data value
      */
     private void removeData() {
+        String valid = "";
         int[] nums = new int[4];
+        
         for (int i = 0; i < 4; i++) {
-            nums[i] = Integer.parseInt(mScan.next());
+            if (mScan.hasNextInt()) {
+                valid = mScan.next();
+                nums[i] = Integer.parseInt(valid);
+            }
+            else {
+                System.out.println("Rectangle rejected: " + valid);
+                return;
+            }
+                
         }
+        
         RectData d = new RectData(nums);
         
         // send in array of integers
+       
          mBST.remove(d);
-        //if (temp == null) {
-           // System.out.println("Rectangle rejected (" + d + ")");
-        //}
+         
     }
-
+    
     /**
      * Calls the BST method to report all intersecting
      * rectangles
