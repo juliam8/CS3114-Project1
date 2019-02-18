@@ -8,7 +8,7 @@
  * This object executes functions for the node of the BST and holds
  * a key value a data value or each node
  */
-public class BST_node<K, D> {
+public class BST_node<K, D> implements Comparable<BST_node<K, D>>{
     
     /**
      * Constructor for the BST_node class 
@@ -119,6 +119,13 @@ public class BST_node<K, D> {
 		return (left == null && right == null);
 	}
 
+	@Override
+    public int compareTo(BST_node<K, D> o) {
+        if (key == o.key() && data == o.data())
+            return 0;
+        return 1;
+    }
+	
 	@Override
 	public String toString() {
 		return "(" + key.toString() + ", " + data.toString() + ")";

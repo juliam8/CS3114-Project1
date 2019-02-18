@@ -1,6 +1,6 @@
-insert key1 0 0 5 63
-remove key1
-remove key1
-insert key2 8 8 8 8
-remove 8 8 8 8
-remove 8 8 8 8
+insert r3 220 100 50 20
+insert val2 200 120 150 100
+insert test 500 500 4 4
+insert world 0 0 1024 1024
+dump
+intersections

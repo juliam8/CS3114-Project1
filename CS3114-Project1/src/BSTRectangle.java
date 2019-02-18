@@ -143,17 +143,19 @@ public class BSTRectangle<K, D> extends BST<RectKey, RectData> {
      * @param b the second node to compare
      */
 	private void iteratorCheck(BST_node<RectKey, RectData> a, BST_node<RectKey, RectData> b) {
-		int n_x1 = a.data().x();// left
-		int n_x2 = a.data().x() + a.data().w();// right
-		int n_y1 = a.data().y();// top
-		int n_y2 = a.data().y() + a.data().h();// bottom
-		int d_x1 = b.data().x();
-		int d_x2 = b.data().x() + b.data().w();
-		int d_y1 = b.data().y();
-		int d_y2 = b.data().y() + b.data().h();
+		int ax1 = a.data().x();// left
+		int ax2 = a.data().x() + a.data().w();// right
+		int ay1 = a.data().y();// top
+		int ay2 = a.data().y() + a.data().h();// bottom
+		int bx1 = b.data().x();
+		int bx2 = b.data().x() + b.data().w();
+		int by1 = b.data().y();
+		int by2 = b.data().y() + b.data().h();
 
-		if (n_x1 > d_x2 || d_x1 > n_x2 || n_y1 > d_y2 || d_y1 > n_y2 || a == b) {
-		} else
-			System.out.println("\t" + a + " : " + b);
+		if (!(ax1 >= bx2 || bx1 >= ax2 || ay1 >= by2 || by1 >= ay2)) {
+		    if (a != b) {
+		        System.out.println("    " + a + " : " + b);
+		    }
+		}
 	}
 }
