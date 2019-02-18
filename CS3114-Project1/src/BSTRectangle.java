@@ -80,10 +80,10 @@ public class BSTRectangle<K, D> extends BST<RectKey, RectData> {
             }
             return rt;
         }
-        else if (rt.left() != null) {
+        if (rt.left() != null) {
             rt.setLeft(findHelperData(rt.left(), data));
         }
-        else {
+        if (rt.right() != null){
             rt.setRight(findHelperData(rt.right(), data));
         }
         return rt;
