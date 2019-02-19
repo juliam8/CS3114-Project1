@@ -81,7 +81,7 @@ public class BST<K extends Comparable<? super K>, D>
         else if (rt.key().compareTo(key) < 0) {
             rt.setRight(removeHelper(rt.right(), key));
         }
-        else {
+        else {  // if the node is found
             if (rt.left() == null) {
                 return rt.right();
             }
@@ -185,8 +185,8 @@ public class BST<K extends Comparable<? super K>, D>
      * @param key the key value of the node to find
      */
     public void search(K key) {
-        BSTNode<K, D> temp = findHelper(root, key); // First find it
-        //BSTNode<K, D> findHelper(BSTNode<K, D> rt, K key) {
+        // temp variable to check existence of node
+        BSTNode<K, D> temp = findHelper(root, key); 
         if (temp == null) {
             System.out.println("Rectangle not found: " + key);
         }

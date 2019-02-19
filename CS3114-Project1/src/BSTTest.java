@@ -1,3 +1,5 @@
+import java.io.File;
+
 import org.junit.Test;
 import student.TestCase;
 
@@ -162,5 +164,27 @@ public class BSTTest extends TestCase {
         mytree.insert(new BSTNode<RectKey, RectData>(key6, d));
         
         assertEquals(mytree.nodeCount(), 6);
+    }
+    
+    /**
+     * Test method for {@link Parser#execute()}.
+     */
+    @Test
+    public void executeTest() {
+        BSTRectangle<RectKey, RectData> tBST;
+        tBST = new BSTRectangle<RectKey, RectData>();
+        
+        assertEquals(tBST.nodeCount(), 0);
+        assertEquals(tBST.root(), null);
+        
+        File tFile = new File("src//ParserTestFile.txt");
+        
+        assertNotNull(tFile);
+        
+        Parser myParse = new Parser(tFile, tBST);
+        
+        myParse.execute();
+        
+        assertEquals(tBST.nodeCount(), 1);
     }
 }
