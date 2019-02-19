@@ -85,6 +85,7 @@ public class Parser {
      * @return      True for a valid rectangle, else False
      */
     private boolean validKey(String s) {
+        // specialChars holds all invalid characters for the key
         String specialChars = "/*!@#$%^&*()\"{}[]|\\?/<>,.";
         if (!Character.isLetter(s.charAt(0))) {
             return false;
@@ -103,7 +104,9 @@ public class Parser {
      * Accepts or rejects the input rectangle based on 0,0 1024,1024 bounds
      */
     private void insert() {
+        // name is the key of the inserted rectangle
         String name = mScan.next();
+        // nums is an array that holds the rectangle coordinates
         int[] nums = new int[4];
         for (int i = 0; i < 4; i++) {
             nums[i] = Integer.parseInt(mScan.next());
@@ -127,6 +130,7 @@ public class Parser {
      * Call the BST regionSearch method if so
      */
     private void regionSearch() {
+        // nums is an array that holds the region coordinates
         int[] nums = new int[4];
         for (int i = 0; i < 4; i++) {
             nums[i] = Integer.parseInt(mScan.next());
@@ -170,7 +174,9 @@ public class Parser {
      * Removes a node with the given Data value
      */
     private void removeData() {
+        // valid will hold the first data value
         String valid = "";
+        // nums holds the coordinates of rectangle to remove
         int[] nums = new int[4];
         
         for (int i = 0; i < 4; i++) {
@@ -181,12 +187,9 @@ public class Parser {
             else {
                 System.out.println("Rectangle rejected " + valid);
                 return;
-            }
-                
+            }       
         }
-        
         RectData d = new RectData(nums);
-        
         // send in array of integers
        
         mBST.remove(d);
