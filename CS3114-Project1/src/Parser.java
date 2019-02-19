@@ -206,5 +206,10 @@ public class Parser {
     }
 
     private Scanner mScan;
-    private BSTRectangle<RectKey, RectData> mBST;
+    
+    /**
+     * This holds the tree commands are executed upon
+     * made protected for testing purposes
+     */
+    protected BSTRectangle<RectKey, RectData> mBST;
 }

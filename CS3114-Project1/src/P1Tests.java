@@ -11,7 +11,7 @@ import org.junit.runners.Suite.SuiteClasses;
 @RunWith(Suite.class)
 @SuiteClasses({ BSTNodeTest.class, RectDataTest.class, RectKeyTest.class, 
                 BSTTest.class, Rectangle1Test.class, BSTRectangleTest.class, 
-                ParserTest.class})
+                ParserTest2.class})
 public class P1Tests {
 
 }
