@@ -13,12 +13,12 @@ public class RectData implements Comparable<RectData> {
      * Sets the private member variables coordinates, x, y, w, and h
      * @param i the coordinates of the rectangle
      */
-    RectData(int[] i) {
-        coordinates = i;
-        x = i[0];
-        y = i[1];
-        w = i[2];
-        h = i[3];
+    RectData(int[] coordinates) {
+        rectCoordinates = coordinates;
+        x = coordinates[0];
+        y = coordinates[1];
+        width = coordinates[2];
+        height = coordinates[3];
     }
 
     /**
@@ -28,7 +28,7 @@ public class RectData implements Comparable<RectData> {
      */
     @Override
     public int compareTo(RectData nodeData) {
-        if (Arrays.equals(coordinates, nodeData.coordinates())) {
+        if (Arrays.equals(rectCoordinates, nodeData.coordinates())) {
             return 0;
         }
         else {
@@ -42,7 +42,7 @@ public class RectData implements Comparable<RectData> {
      */
     @Override
     public String toString() {
-        return x + ", " + y + ", " + w + ", " + h;
+        return x + ", " + y + ", " + width + ", " + height;
     }
 
     /**
@@ -50,7 +50,7 @@ public class RectData implements Comparable<RectData> {
      * @return the coordinates
      */
     public int[] coordinates() {
-        return coordinates;
+        return rectCoordinates;
     }
 
     /**
@@ -74,7 +74,7 @@ public class RectData implements Comparable<RectData> {
      * @return the width value
      */
     public int w() {
-        return w;
+        return width;
     }
 
     /**
@@ -82,13 +82,13 @@ public class RectData implements Comparable<RectData> {
      * @return the height value
      */
     public int h() {
-        return h;
+        return height;
     }
 
     // private member variables
     private int x;
     private int y;
-    private int w;
-    private int h;
-    private int[] coordinates;
+    private int width;
+    private int height;
+    private int[] rectCoordinates;
 }

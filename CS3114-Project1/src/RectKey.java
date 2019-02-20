@@ -13,8 +13,8 @@ public class RectKey implements Comparable<RectKey> {
      * Sets the private member variables coordinates, x, y, w, and h
      * @param s the name of the key
      */
-    RectKey(String s) {
-        name = s;
+    RectKey(String key) {
+        name = key;
     }
 
     /**
