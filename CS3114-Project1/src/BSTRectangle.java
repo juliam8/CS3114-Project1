@@ -116,7 +116,7 @@ public class BSTRectangle<K, D> extends BST<RectKey, RectData> {
      * Precondition: the node is not null and region is valid
      * Postcondition: nodes within region are printed out
      * @param node the node to check if it is within the region
-     * @param d the region in which to search for other rectangles
+     * @param region the region in which to search for other rectangles
      */
     private void regionSearchCheck(BSTNode<RectKey, RectData> node, 
                                     RectData region) {
@@ -150,7 +150,8 @@ public class BSTRectangle<K, D> extends BST<RectKey, RectData> {
             cur = outer.next();
             // inner is the inner Iterator loop
             BSTIterator inner = new BSTIterator(root);
-            for (int k = 0; k < i; ++k) { // goes forward the outside amount 
+            for (int k = 0; k < i; ++k) { 
+                // goes forward the outside amount 
                 inner.next();
             }
             for (int j = 0; j < nodeCount - i; ++j) {
