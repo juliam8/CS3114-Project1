@@ -12,7 +12,7 @@
 public class BSTNode<K, D> implements Comparable<BSTNode<K, D>> {
     
     /**
-     * Defualt Constructor 
+     * Default Constructor 
      * Initializes the child nodes
      */
     BSTNode() {
@@ -119,25 +119,36 @@ public class BSTNode<K, D> implements Comparable<BSTNode<K, D>> {
      * @return true if node is a leaf, else false
      */
     public boolean isLeaf() {
-        return !(left || right);
+        return (left == null && right == null);
     }
 
+    /**
+     * Override for compareTo to check if two
+     * nodes are equal to each other
+     * A node is defined to be equal if both key and data are identical
+     * @param input is the node being compared against
+     * @return 0 if nodes are equal, else 1
+     */
     @Override
-    public int compareTo(BSTNode<K, D> o) {
-        if (key == o.key() && data == o.data()) {
+    public int compareTo(BSTNode<K, D> input) {
+        if (key == input.key() && data == input.data()) {
             return 0;
         }
         return 1;
     }
 
+    /**
+     * Override for toString to print a node
+     * @return prints (name, x, y, w, h)
+     */
     @Override
     public String toString() {
         return "(" + key.toString() + ", " + data.toString() + ")";
     }
 
     // private data members
-    private BSTNode<K, D> left;
-    private BSTNode<K, D> right;
-    private K key;
-    private D data;
+    private BSTNode<K, D> left; // left child node
+    private BSTNode<K, D> right; // right child node
+    private K key; // key value (contains name of rectangle)
+    private D data; // data value (contains xywh of rectangle)
 }
