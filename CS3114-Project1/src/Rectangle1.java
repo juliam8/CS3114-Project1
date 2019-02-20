@@ -10,7 +10,7 @@ import java.io.FileNotFoundException;
 public class Rectangle1 {    
     /**
      * This is the main function of project 1
-     * Compiler: ?
+     * Compiler: javac
      * JDK: 11.0.2
      * OS: Windows 10
      * Completed: 02/19/2019

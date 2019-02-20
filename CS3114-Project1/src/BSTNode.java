@@ -1,5 +1,3 @@
-
-
 /**
  * @author juliam8
  * @author abbym1
@@ -7,14 +5,15 @@
  * @param <D> the data
  * @param <K> the key
  *
- * This object executes functions for the node of the BST and holds
- * a key value a data value or each node
+ * Binary Search Tree Node Object
+ * Holds a generic key and data value for each node
+ * as well as the right and left "child" nodes
  */
 public class BSTNode<K, D> implements Comparable<BSTNode<K, D>> {
     
     /**
-     * Constructor for the BSTNode class 
-     * Sets the private member variables left and right
+     * Defualt Constructor 
+     * Initializes the child nodes
      */
     BSTNode() {
         left = null;
@@ -22,23 +21,22 @@ public class BSTNode<K, D> implements Comparable<BSTNode<K, D>> {
     }
 
     /**
-     * Parameterized constructor for the BSTNode class 
+     * Parameterized Constructor
      * Sets the private member variables key, data, left, and right
-     * 
-     * @param k the key value in the created node
-     * @param d the data value in the created node
+     * @param inputKey the key value used to set private member key
+     * @param inputData the data value used to set pivate member data
      */
-    BSTNode(K k, D d) {
-        key = k;
-        data = d;
+    BSTNode(K inputKey, D inputData) {
+        key = inputKey;
+        data = inputData;
         left = null;
         right = null;
     }
 
     /**
-     * Parameterized constructor for the BSTNode class 
+     * Parameterized Constructor
      * Sets the private member variables key, data, left, and right
-     * 
+     * to the corresponding input parameter values
      * @param k the key value in the created node
      * @param d the data value in the created node
      * @param l the left node of the created node
@@ -52,7 +50,7 @@ public class BSTNode<K, D> implements Comparable<BSTNode<K, D>> {
     }
 
     /**
-     * Get the key value
+     * Provides access to the node's key value
      * @return the key value
      */
     public K key() {
@@ -60,15 +58,15 @@ public class BSTNode<K, D> implements Comparable<BSTNode<K, D>> {
     }
 
     /**
-     * Sets the key value
-     * @param k the key value to set
+     * Sets the node's key to input parameter value
+     * @param inputKey the key value to set
      */
-    public void setKey(K k) {
-        key = k;
+    public void setKey(K inputKey) {
+        key = inputKey;
     }
 
     /**
-     * Get the data value
+     * Provides access to the node's data value
      * @return the data value
      */
     public D data() {
@@ -76,51 +74,52 @@ public class BSTNode<K, D> implements Comparable<BSTNode<K, D>> {
     }
 
     /**
-     * Set the data
-     * @param d the data value to set
+     * Sets the node's data to input parameter value
+     * @param inputData the data value to set
      */
-    public void setData(D d) {
-        data = d;
+    public void setData(D inputData) {
+        data = inputData;
     }
 
     /**
-     * Returns the right node
-     * @return the right node
+     * Provides access to the node's right child
+     * @return the right child node
      */
     public BSTNode<K, D> right() {
         return right;
     }
 
     /**
-     * Sets the right node
-     * @param r the right node to set
+     * Sets the node's right child to input value
+     * @param inputNode the node used to set right child
      */
-    public void setRight(BSTNode<K, D> r) {
-        right = r;
+    public void setRight(BSTNode<K, D> inputNode) {
+        right = inputNode;
     }
 
     /**
-     * Returns the left node
-     * @return the left node
+     * Provides access to the node's left child
+     * @return the left child node
      */
     public BSTNode<K, D> left() {
         return left;
     }
 
     /**
-     * Sets the left node
-     * @param l the left node to set
+     * Sets the node's left child to input value
+     * @param inputNode the node used to set left child
      */
-    public void setLeft(BSTNode<K, D> l) {
-        left = l;
+    public void setLeft(BSTNode<K, D> inputNode) {
+        left = inputNode;
     }
 
     /**
-     * Checks if the node has no children
-     * @return the boolean that is set if the node is a leaf node
+     * Helper function to check if the node is a leaf
+     * leaf meaning both left and right children are null
+     * @return true if node is a leaf, else false
      */
     public boolean isLeaf() {
-        return (left == null && right == null);
+        return !(left || right);
     }
 
     @Override
