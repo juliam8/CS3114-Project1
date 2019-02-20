@@ -38,6 +38,8 @@ public class Parser {
     public void execute() {
 
         while (mScan.hasNext()) {
+            // command holds the command string in the file
+            //      which dictates the next action to take
             String command = mScan.next();
 
             if (command.equals("insert")) {
@@ -70,13 +72,21 @@ public class Parser {
      * A rectangle is valid if it lies within (0,0) and (1024, 1024)
      * and has non-negative w and h
      */
-    private boolean validData(int[] i) {
-        return !((i[0] < 0 || i[1] < 0) ||
-                (i[2] <= 0 || i[3] <= 0) ||
-                (i[0] + i[2] > 1024) ||
-                (i[0] + i[2] < 0) ||
-                (i[1] + i[3] > 1024) ||
-                (i[1] + i[3] < 0));
+    private boolean validData(int[] data) {
+        // minimum x value for a rectangle
+        int minX = 0;
+        // minimum y value for a rectangle
+        int minY = 0;
+        // maximum x value for a rectangle
+        int maxX = 1024;
+        // maximum y value for a rectangle
+        int maxY = 1024;
+        return !((data[0] < minX || data[1] < minY) ||
+                (data[2] <= minX || data[3] <= minY) ||
+                (data[0] + data[2] > maxX) ||
+                (data[0] + data[2] < minX) ||
+                (data[1] + data[3] > maxY) ||
+                (data[1] + data[3] < minY));
     }
     
     /**
@@ -84,15 +94,16 @@ public class Parser {
      * @param s     Input string representing the key
      * @return      True for a valid rectangle, else False
      */
-    private boolean validKey(String s) {
+    private boolean validKey(String key) {
         // specialChars holds all invalid characters for the key
         String specialChars = "/*!@#$%^&*()\"{}[]|\\?/<>,.";
-        if (!Character.isLetter(s.charAt(0))) {
+        if (!Character.isLetter(key.charAt(0))) {
             return false;
         }      
-        for (int i = 0; i < s.length(); ++i) {
-            String j = s.substring(i, i + 1);
-            if (specialChars.contains(j)) {
+        for (int i = 0; i < key.length(); ++i) {
+            // j is a single character in the key
+            String checkChar = key.substring(i, i + 1);
+            if (specialChars.contains(checkChar)) {
                 return false;
             }
         }
@@ -107,21 +118,22 @@ public class Parser {
         // name is the key of the inserted rectangle
         String name = mScan.next();
         // nums is an array that holds the rectangle coordinates
-        int[] nums = new int[4];
+        int[] data = new int[4];
         for (int i = 0; i < 4; i++) {
-            nums[i] = Integer.parseInt(mScan.next());
+            data[i] = Integer.parseInt(mScan.next());
         }
+        // nodeKey and nodeData are the elements of the new node, newNode
         RectKey nodeKey = new RectKey(name);
-        RectData nodeData = new RectData(nums);
-        BSTNode<RectKey, RectData> n;
-        n = new BSTNode<RectKey, RectData>(nodeKey, nodeData);
+        RectData nodeData = new RectData(data);
+        BSTNode<RectKey, RectData> newNode;
+        newNode = new BSTNode<RectKey, RectData>(nodeKey, nodeData);
         
-        if (validData(nums) && validKey(name)) {
-            mBST.insert(n);
-            System.out.println("Rectangle accepted: " + n);
+        if (validData(data) && validKey(name)) {
+            mBST.insert(newNode);
+            System.out.println("Rectangle accepted: " + newNode);
         } 
         else {
-            System.out.println("Rectangle rejected: " + n);
+            System.out.println("Rectangle rejected: " + newNode);
         }
     }
 
@@ -130,19 +142,20 @@ public class Parser {
      * Call the BST regionSearch method if so
      */
     private void regionSearch() {
-        // nums is an array that holds the region coordinates
-        int[] nums = new int[4];
+        // data is an array that holds the region coordinates
+        int[] data = new int[4];
         for (int i = 0; i < 4; i++) {
-            nums[i] = Integer.parseInt(mScan.next());
+            data[i] = Integer.parseInt(mScan.next());
         }
-        RectData d = new RectData(nums);
+        // regionData holds the data for region search
+        RectData regionData = new RectData(data);
         // command rejected if width/height is <= 0
-        if (nums[2] <= 0 || nums[3] <= 0) { 
-            System.out.println("Rectangle rejected " + d);
+        if (data[2] <= 0 || data[3] <= 0) { 
+            System.out.println("Rectangle rejected " + regionData);
         }
         else {
-            System.out.println("Rectangles intersecting region (" + d + "):");
-            mBST.regionSearch(mBST.root(), d);
+            System.out.println("Rectangles intersecting region (" + regionData + "):");
+            mBST.regionSearch(mBST.root(), regionData);
         }
     }
 
@@ -163,10 +176,12 @@ public class Parser {
      * Removes a node with the given Key value
      */
     private void removeKey() {
-        RectKey nodeKey = new RectKey(mScan.next());
-        BSTNode<RectKey, RectData> temp = mBST.remove(nodeKey);
+        // removeKey is the key of the node to remove
+        RectKey removeKey = new RectKey(mScan.next());
+        // temp is used to check if the specified node exists
+        BSTNode<RectKey, RectData> temp = mBST.remove(removeKey);
         if (temp == null) {
-            System.out.println("Rectangle rejected " + nodeKey);
+            System.out.println("Rectangle rejected " + removeKey);
         }
     }
 
@@ -175,24 +190,23 @@ public class Parser {
      */
     private void removeData() {
         // valid will hold the first data value
-        String valid = "";
-        // nums holds the coordinates of rectangle to remove
-        int[] nums = new int[4];
+        String invalidData = "";
+        // data holds the coordinates of rectangle to remove
+        int[] data = new int[4];
         
         for (int i = 0; i < 4; i++) {
             if (mScan.hasNextInt()) {
-                valid = mScan.next();
-                nums[i] = Integer.parseInt(valid);
+                invalidData = mScan.next();
+                data[i] = Integer.parseInt(invalidData);
             }
             else {
-                System.out.println("Rectangle rejected " + valid);
+                System.out.println("Rectangle rejected " + invalidData);
                 return;
             }       
         }
-        RectData d = new RectData(nums);
-        // send in array of integers
-       
-        mBST.remove(d);
+        // removeData is the data of the node to remove
+        RectData removeData = new RectData(data);
+        mBST.remove(removeData);
          
     }
     
@@ -205,6 +219,9 @@ public class Parser {
         mBST.intersection();
     }
 
+    /**
+     * This holds the scanner for the input file
+     */
     private Scanner mScan;
     
     /**

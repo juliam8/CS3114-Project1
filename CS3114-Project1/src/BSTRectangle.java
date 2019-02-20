@@ -19,6 +19,8 @@ public class BSTRectangle<K, D> extends BST<RectKey, RectData> {
 
     /**
      * Determines if node with designated key exists, if so it removes it
+     * Precondition: the key is valid
+     * Postcondition: the node with the key is removed
      * @param key the key value of the node to remove
      * @return the node that was deleted
      */
@@ -36,6 +38,8 @@ public class BSTRectangle<K, D> extends BST<RectKey, RectData> {
 
     /**
      * Determines if node with designated data exists, if so it removes it
+     * Precondition: the data is valid
+     * Postcondition: the node with the data is removed
      * @param data the data value of the node to remove
      */
     public void remove(RectData data) {
@@ -45,7 +49,7 @@ public class BSTRectangle<K, D> extends BST<RectKey, RectData> {
         else {
             // variable 'before' is used to check if a node was removed
             int before = nodeCount;
-            root = findHelperData(root, data);
+            root = findAndRemoveHelperData(root, data);
 
             if (nodeCount != before - 1) {
                 System.out.println("Rectangle rejected (" + data + ")");
@@ -54,12 +58,14 @@ public class BSTRectangle<K, D> extends BST<RectKey, RectData> {
     }
 
     /**
-     * Finds the node with the corresponding data value
+     * Finds and deletes the node with the corresponding data value
+     * Precondition: the tree isn't empty and data is valid
+     * Postcondition: the node with the data is removed
      * @param rt the root node of the BST
      * @param data the data value of the node to find
      * @return the node that holds the corresponding data value
      */
-    private BSTNode<RectKey, RectData> findHelperData(
+    private BSTNode<RectKey, RectData> findAndRemoveHelperData(
                 BSTNode<RectKey, RectData> rt, 
                 RectData data) {
         if (rt == null) {
@@ -73,7 +79,7 @@ public class BSTRectangle<K, D> extends BST<RectKey, RectData> {
             else if (rt.right() == null) {
                 return rt.left();
             }
-            else { // two children
+            else { // there are two children of node to remove
                 BSTNode<RectKey, RectData> temp = getMin(rt.right());
                 rt.setData(temp.data());
                 rt.setKey(temp.key());
@@ -82,16 +88,18 @@ public class BSTRectangle<K, D> extends BST<RectKey, RectData> {
             return rt;
         }
         if (rt.left() != null) {
-            rt.setLeft(findHelperData(rt.left(), data));
+            rt.setLeft(findAndRemoveHelperData(rt.left(), data));
         }
         if (rt.right() != null) {
-            rt.setRight(findHelperData(rt.right(), data));
+            rt.setRight(findAndRemoveHelperData(rt.right(), data));
         }
         return rt;
     }
 
     /**
      * Calls region search helper and traverses through BST
+     * Precondition: the data is valid
+     * Postcondition: the tree is traversed with the regionsearch data
      * @param rt the root node of the BST
      * @param data the region in which to search for other rectangles
      */
@@ -105,33 +113,42 @@ public class BSTRectangle<K, D> extends BST<RectKey, RectData> {
 
     /**
      * Determines if the node data is within the region of the input data
+     * Precondition: the node is not null and region is valid
+     * Postcondition: nodes within region are printed out
      * @param node the node to check if it is within the region
      * @param d the region in which to search for other rectangles
      */
     private void regionSearchCheck(BSTNode<RectKey, RectData> node, 
-                                    RectData d) {
-        int nx1 = node.data().x(); // left of rect
-        int nx2 = node.data().x() + node.data().w(); // right
-        int ny1 = node.data().y(); // top
-        int ny2 = node.data().y() + node.data().h(); // bottom
-        int dx1 = d.x(); // left side of region
-        int dx2 = d.x() + d.w(); // right
-        int dy1 = d.y(); // top
-        int dy2 = d.y() + d.h(); // bottom
+                                    RectData region) {
+        int nodex1 = node.data().x(); // lower x value of rect
+        int nodex2 = node.data().x() + node.data().w(); // upper x value
+        int nodey1 = node.data().y(); // lower y value
+        int nodey2 = node.data().y() + node.data().h(); // upper y value
+        int regionx1 = region.x(); // lower x value of region
+        int regionx2 = region.x() + region.w(); // upper x value
+        int regiony1 = region.y(); // lower y value
+        int regiony2 = region.y() + region.h(); // upper y value
 
-        if (!(nx1 > dx2 || dx1 > nx2 || ny1 > dy2 || dy1 > ny2)) {
+        // logic to check if the rectangle is within the region
+        if (!(nodex1 > regionx2 || regionx1 > nodex2 
+                || nodey1 > regiony2 || regiony1 > nodey2)) {
             System.out.println(node);
         }
     }
 
     /**
      * Uses the BST iterator class to check if any nodes in the BST intersect
+     * Precondition: BST iterator is implemented
+     * Postcondition: Each node is compared to the other
      */
     public void intersection() {
+        // outer is the outer Iterator loop
         BSTIterator outer = new BSTIterator(root);
+        // cur is the outer node being compared
         BSTNode<RectKey, RectData> cur = null;
         for (int i = 0; i < nodeCount; ++i) {
             cur = outer.next();
+            // inner is the inner Iterator loop
             BSTIterator inner = new BSTIterator(root);
             for (int k = 0; k < i; ++k) { // goes forward the outside amount 
                 inner.next();
@@ -144,20 +161,23 @@ public class BSTRectangle<K, D> extends BST<RectKey, RectData> {
 
     /**
      * Determines if the iterated node intersects the other iterated node
+     * Precondition: Both nodes are valid
+     * Postcondition: The intersecting nodes are printed out
      * @param a the first node to compare
      * @param b the second node to compare
      */
     private void iteratorCheck(BSTNode<RectKey, RectData> a, 
-                               BSTNode<RectKey, RectData> b) {
-        int ax1 = a.data().x(); // left
-        int ax2 = a.data().x() + a.data().w(); // right
-        int ay1 = a.data().y(); // top
-        int ay2 = a.data().y() + a.data().h(); // bottom
-        int bx1 = b.data().x();
-        int bx2 = b.data().x() + b.data().w();
-        int by1 = b.data().y();
-        int by2 = b.data().y() + b.data().h();
+                               BSTNode<RectKey, RectData> b) { 
+        int ax1 = a.data().x(); // lower x value of the first rectangle
+        int ax2 = a.data().x() + a.data().w(); // upper x value
+        int ay1 = a.data().y();  // lower y value
+        int ay2 = a.data().y() + a.data().h(); // upper y value of second rect
+        int bx1 = b.data().x(); // upper x value
+        int bx2 = b.data().x() + b.data().w(); // upper x value
+        int by1 = b.data().y(); // lower y value
+        int by2 = b.data().y() + b.data().h(); // upper y value
 
+        // logic to check if the two rectangles intersect
         if (!(ax1 >= bx2 || bx1 >= ax2 || ay1 >= by2 || by1 >= ay2) &&
             (a != b)) {
             System.out.println("    " + a + " : " + b);
