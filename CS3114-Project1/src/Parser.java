@@ -117,7 +117,7 @@ public class Parser {
     private void insert() {
         // name is the key of the inserted rectangle
         String name = mScan.next();
-        // nums is an array that holds the rectangle coordinates
+        // data is an array that holds the rectangle coordinates
         int[] data = new int[4];
         for (int i = 0; i < 4; i++) {
             data[i] = Integer.parseInt(mScan.next());
@@ -154,7 +154,8 @@ public class Parser {
             System.out.println("Rectangle rejected " + regionData);
         }
         else {
-            System.out.println("Rectangles intersecting region (" + regionData + "):");
+            System.out.println("Rectangles intersecting region (" 
+                                            + regionData + "):");
             mBST.regionSearch(mBST.root(), regionData);
         }
     }
