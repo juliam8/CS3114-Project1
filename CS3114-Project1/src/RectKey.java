@@ -11,7 +11,7 @@ public class RectKey implements Comparable<RectKey> {
     /**
      * Constructor for the RectData class 
      * Sets the private member variables coordinates, x, y, w, and h
-     * @param s the name of the key
+     * @param key the name of the key
      */
     RectKey(String key) {
         name = key;

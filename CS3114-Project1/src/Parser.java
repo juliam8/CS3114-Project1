@@ -67,7 +67,7 @@ public class Parser {
 
     /**
      * Checks input rectangle data for validity
-     * @param i     Input array representing x y w h
+     * @param data     Input array representing x y w h
      * @return      True for a valid rectangle, else False
      * A rectangle is valid if it lies within (0,0) and (1024, 1024)
      * and has non-negative w and h
@@ -91,7 +91,7 @@ public class Parser {
     
     /**
      * Checks input rectangle key for validity
-     * @param s     Input string representing the key
+     * @param key     Input string representing the key
      * @return      True for a valid rectangle, else False
      */
     private boolean validKey(String key) {

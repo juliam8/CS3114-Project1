@@ -11,7 +11,7 @@ public class RectData implements Comparable<RectData> {
     /**
      * Constructor for the RectData class 
      * Sets the private member variables coordinates, x, y, w, and h
-     * @param i the coordinates of the rectangle
+     * @param coordinates the coordinates of the rectangle
      */
     RectData(int[] coordinates) {
         rectCoordinates = coordinates;
