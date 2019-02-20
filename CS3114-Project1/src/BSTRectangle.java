@@ -43,6 +43,7 @@ public class BSTRectangle<K, D> extends BST<RectKey, RectData> {
             System.out.println("Rectangle rejected (" + data + ")");
         }
         else {
+            // variable 'before' is used to check if a node was removed
             int before = nodeCount;
             root = findHelperData(root, data);
 
@@ -109,14 +110,14 @@ public class BSTRectangle<K, D> extends BST<RectKey, RectData> {
      */
     private void regionSearchCheck(BSTNode<RectKey, RectData> node, 
                                     RectData d) {
-        int nx1 = node.data().x(); // left
+        int nx1 = node.data().x(); // left of rect
         int nx2 = node.data().x() + node.data().w(); // right
         int ny1 = node.data().y(); // top
         int ny2 = node.data().y() + node.data().h(); // bottom
-        int dx1 = d.x();
-        int dx2 = d.x() + d.w();
-        int dy1 = d.y();
-        int dy2 = d.y() + d.h();
+        int dx1 = d.x(); // left side of region
+        int dx2 = d.x() + d.w(); // right
+        int dy1 = d.y(); // top
+        int dy2 = d.y() + d.h(); // bottom
 
         if (!(nx1 > dx2 || dx1 > nx2 || ny1 > dy2 || dy1 > ny2)) {
             System.out.println(node);
