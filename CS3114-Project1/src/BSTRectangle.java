@@ -149,8 +149,11 @@ public class BSTRectangle<K, D> extends BST<RectKey, RectData> {
         for (int i = 0; i < nodeCount; ++i) {
             cur = outer.next();
             // inner is the inner Iterator loop
-            BSTIterator inner = new BSTIterator(cur);
-            for (int j = 0; j < nodeCount - i - 1; ++j) {
+            BSTIterator inner = new BSTIterator(root);
+            for (int k = 0; k < i; ++k) { // goes forward the outside amount 
+                inner.next();
+            }
+            for (int j = 0; j < nodeCount - i; ++j) {
                 //comparison to see if the two intersect
                 iteratorCheck(cur, inner.next());
             }
